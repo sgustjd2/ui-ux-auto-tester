@@ -1,0 +1,199 @@
+# Web product decisions, assumptions, open decisions, risks
+
+Version: 0.1 · Status: Draft / Foundation (Phase W0) · Last updated: 2026-09-03
+
+This file is the web stream's decision log. The repository's ADR log is `docs/decisions/` (format in [docs/decisions/README.md](../decisions/README.md)); entries here that change repository layout or shared architecture are candidates for ADRs there, to be written by whoever owns those files at the time (see [README.md](README.md), "Cross-stream status"; the boundary itself is ADR 0006).
+
+Format: id, status (Decided, Provisional, Open), context, decision, consequences.
+
+---
+
+## 1. Decisions
+
+### W-D-01 — Web product documentation lives in `docs/web-product/` (Decided)
+
+Context: the harness (ADR 0001, `docs/architecture.md` §6) owns `CLAUDE.md`, root `prd.md`, `docs/*.md`, `docs/decisions/`, `research/`, `.claude/`, `scripts/`, and the future Skill folder, and a parallel session builds them. Decision: all web-stream documents live in `docs/web-product/`, with `web-product-prd.md` as the product spec; no second root-level `prd.md`; no edits to core-owned files by this stream. Consequences: the core stream acknowledged the boundary in ADR 0006 and added the pointer in `CLAUDE.md` and the row in the `docs/architecture.md` §6 layout table; this folder sits at level 5 of the repository's source-of-truth order.
+
+### W-D-02 — No branch or worktree until the repository has a first commit (Decided)
+
+Context: the repository has no commits (unborn `main`), a shared working tree used by both sessions, and Git 2.40 cannot create a worktree without a commit; switching the unborn branch would change the branch for the other session too. Decision: isolate by path and leave files uncommitted; do not commit or merge (`CLAUDE.md`, Git safety). Consequences: after the first commit exists, the web stream should move to a `web-product` branch or worktree before writing code (W1).
+
+### W-D-03 — MVP is single-screenshot Quick Review with personas (Decided)
+
+Context: candidates A–D evaluated in [web-product-prd.md](web-product-prd.md) §7.1. Decision: W1 = one screenshot, optional question, Quick Review / User Test (presets) / Accessibility Check (static), result page with summary, markers, grouped findings, persona cards, coverage, deletion. Consequences: no URL input, multi-screen, accounts, or exports in W1; live URL audit is W4.
+
+### W-D-04 — The web UI and API carry no auditing intelligence (Decided)
+
+Context: root `prd.md` requires the core to remain reusable by the Skill, CLI, CI, and API. Decision: prompts, rules, personas, scoring, and model calls exist only inside the Audit Core; the web layer consumes it through an adapter and a JSON contract ([audit-core-contract.md](audit-core-contract.md)); the only transformation applied to core output is the namespaced `presentation` object. Consequences: enforceable boundary rules in [architecture.md](architecture.md) §2.7 and acceptance criterion W1-AC-11.
+
+### W-D-05 — Asynchronous audit lifecycle from day one, inline execution allowed in W1 (Decided)
+
+Context: deeper audits will be long-running; W1 audits should finish in about a minute. Decision: the API exposes QUEUED, RUNNING, PARTIAL, COMPLETED, FAILED, CANCELLED with stage events and progressive results; W1 may run the core inline in the API process. Consequences: moving to a queue and workers later changes no client code.
+
+### W-D-06 — Three finding types preserved end to end; grouping is presentation only (Decided)
+
+Context: `docs/finding-schema.md` §1 and ADR 0003 forbid merging VIOLATION, UX_RISK, USER_SIGNAL. Decision: every card shows the core's finding type; action groups (Blockers, Confusion, Improvements, Notes) are computed by a pure function over `priority`, `severity`, `finding_type` ([web-product-prd.md](web-product-prd.md) §10.4) and stored under `presentation`. Consequences: no re-scoring in the web layer; grouping thresholds are validated in W1 (W-OD-06).
+
+### W-D-07 — Synthetic users are always labeled as simulations; no demographic presets (Decided)
+
+Context: root `prd.md` §3.5, AC-05, AC-06; `docs/architecture.md` §3; `docs/audit-methodology.md` §4. Decision: "Simulated persona" labeling on every persona element and in exports; persona presets are behavior-based over the dimensions in `docs/architecture.md` §3; age and demographics are never dimensions; aggregation is shown as counts ("2 of 3 simulated personas"), never percentages or averaged confidence. Consequences: UI copy and export templates include the disclaimer sentence from `docs/finding-schema.md` §8; W1-AC-04.
+
+### W-D-08 — Evidence honesty is carried by the schema's `method` field (Decided; supersedes the earlier provisional "provenance" object)
+
+Context: an earlier draft of this folder defined a separate provenance object (MEASURED, MODEL_ESTIMATED, SIMULATED). `docs/finding-schema.md` §7 already carries `method` (automated, visual, manual, simulated). Decision: use `method` as published; the UI presents automated as "measured", visual and manual as "inferred", and simulated as "simulated", and shows estimated values as estimates. Consequences: no web-specific evidence field; the reconciliation was applied across this folder on 2026-09-02.
+
+### W-D-09 — Anonymous, unguessable-link access in the MVP (Decided)
+
+Context: accounts add cost without proving value. Decision: W1 has no accounts; audits are reachable by a high-entropy id, mutations are bound to the creating session, a browser-local recent list replaces history; accounts arrive in W5. Consequences: retention and deletion controls are mandatory in W1 ([security-privacy.md](security-privacy.md) §3.2).
+
+### W-D-10 — Transport and framework deferred; contract is transport-agnostic; fixture adapter first (Decided)
+
+Context: the repository has established no application stack; the core's validators are Node.js standard library (ADR 0004), which is evidence but not a decision for the application. Decision: define operations and JSON shapes only; choose the binding (in-process, subprocess CLI, HTTP) at W1 kickoff; build a fixture adapter first so the web layer can be developed and contract-tested before the core is runnable. Consequences: W-OD-02 to W-OD-04 gate W1 coding.
+
+### W-D-11 — Shared schemas are used verbatim (Decided)
+
+Context: two sessions must not fork schemas. Decision: findings, check results, severity, priority, confidence, evidence items, and persona signals follow `docs/finding-schema.md`; rule identifiers and display fields follow `docs/rule-schema.md`; mode names and the evidence capability matrix follow `docs/audit-methodology.md`; persona dimensions follow `docs/architecture.md` §3. Web additions are namespaced (`presentation`, `storage`) or live in provisional containers around the findings. Consequences: when the core publishes its JSON output schema (GAP-019), the envelope in [audit-core-contract.md](audit-core-contract.md) §4.5 is reconciled to it.
+
+### W-D-12 — Upload policy (Decided, limits provisional)
+
+Decision: PNG, JPEG, WebP by magic bytes; 10 MB; longest side 8,000 px; re-encode; strip metadata; no SVG, GIF, PDF, HEIC in W1. Consequences: [security-privacy.md](security-privacy.md) §3.1; limits are configuration values.
+
+### W-D-13 — Live URL audit is Phase W4 (Decided)
+
+Context: largest security surface, needs sandboxed workers, and the root PRD schedules runtime integration at its Phase 5 (browser stack decision GAP-013). Decision: URL input is disabled in W1 with an explanation; the architecture reserves the worker boundary and target kind. Consequences: [architecture.md](architecture.md) §7, [security-privacy.md](security-privacy.md) §3.6.
+
+### W-D-14 — Four user-facing analysis types over the core's modes (Decided)
+
+Context: progressive disclosure; `docs/audit-methodology.md` §1 defines Screenshot Review, Standards Audit, Synthetic User Test, User Flow Test, Full Audit, with Full Audit as the default experience. Decision: users choose Quick Review, User Test, Accessibility Check, or Full Audit. Quick Review is the methodology's Full Audit restricted to what static evidence supports, with a persona cap and a time budget; the web "Full Audit" removes the caps and adds runtime engines when the input allows (W4). Consequences: analysis types and their availability come from the capability descriptor.
+
+### W-D-15 — Marker regions come from evidence items, normalized to the screen (Decided; field location provisional)
+
+Decision: a region is `{x, y, w, h}` in 0..1 of the screen's width and height, carried in the evidence item's `value.region` until the core adds a dedicated field (requested, [audit-core-contract.md](audit-core-contract.md) §9); markers are derived from evidence regions, never from the free-text `location`; findings without regions are listed without markers. Consequences: rendering is independent of zoom, viewport, and re-encoding; relates to GAP-017 (screenshot annotation method).
+
+### W-D-31 — Defensive validation of core output at the boundary (Decided)
+
+Context: the orchestrator trusted whatever the adapter returned; a real core emitting malformed output could corrupt the UI. Decision: on a completed run, structurally validate the core's envelope against `docs/finding-schema.md` (`validateEnvelope`); if it does not conform, keep whatever renders but surface the problem — attach a `schema_warnings` list and a user-visible limitation, log `core_output_invalid`, and refuse to cache it — rather than serving or caching broken data. Valid output (the fixture, a conformant core) is untouched, so behavior is unchanged today; the value is a hardened boundary for the real-core binding. The shared validator moved from `web/adapter/` to `web/shared/validate-finding.mjs` so the orchestrator can use it without importing from `adapter/` (which the boundary test forbids). Consequences: a misbehaving core degrades gracefully with an honest warning instead of a broken page; tested with an adapter that emits an invalid envelope. Details: [../../web/README.md](../../web/README.md).
+
+### W-D-30 — Visual design pass (Decided)
+
+Context: the PRD aspires to a polished, Toss Heuribot-quality product, but the UI was plain functional HTML. Decision: a focused visual design pass in `web/ui/styles.css` only — richer neutral tokens plus an accent, shadow, and radius scale; a sticky header with a brand mark; hover/active/focus states and transitions on buttons, cards, inputs, tabs, and finding rows; an accent-bordered summary card; and a subtle background — appended as a polish layer so no markup, layout, or class name changes, and a `prefers-reduced-motion` guard. The AA-verified semantic badge colors were left unchanged; the changed neutrals, accent, and link/focus colors were re-checked and all pass AA (lowest 5.36:1). Consequences: the prototype presents as a cohesive product while every structural test still passes and all surfaces remain accessibility-clean; `color-mix()` is used (supported by the PRD's target browsers). Dark mode was subsequently added: every colour is a token, with a full `@media (prefers-color-scheme: dark)` palette (dark surfaces; lightened semantic text on darkened badge tints; `--on-accent` and a flipped marker badge for controls). All dark pairs were contrast-checked and pass AA (lowest 5.97:1), and dark rendering was verified in the browser. Details: [../../web/README.md](../../web/README.md).
+
+### W-D-29 — Latency benchmark harness (Decided)
+
+Context: W1-AC-14 requires latency measured and reported over a fixture set of at least 20 screenshots including Korean and English, with p50/p95 and misses recorded as risks. Decision: a standalone harness (`web/bench/latency.mjs`) runs create→upload→start→completed over 24 samples spanning device sizes and English/Korean/no-question intents at a configurable concurrency, and reports overall and per-locale p50/p95 against the WNFR-01 target. Against the fixture the figures are harness overhead, not inference; the deliverable is the reusable harness (point it at the real core to measure real latency) and the confirmation that the pipeline handles varied sizes and Korean and English inputs without error (W-R-10). Consequences: W1-AC-14 is satisfied for the fixture prototype and ready to re-run against the real core; the `runBenchmark`/`percentile` functions are unit-tested. Details: [../../web/README.md](../../web/README.md).
+
+### W-D-28 — Result cache by image hash (Decided)
+
+Context: re-analyzing an identical screenshot with identical options should not pay the core twice (WNFR-02 perceived performance, W-R-02 cost). Decision: a content-addressed result cache. Uploads are hashed (sha256 of the cleaned bytes); the cache key is that hash (screens in order) plus analysis type, sorted persona ids, device hint, question, task, retest_of, and the core/corpus/finding-schema/contract versions — so a core upgrade misses the old cache. On `start`, a hit reuses the cached envelope, remapping its audit, screen, and artifact ids to the new audit in one pass (the same single-pass technique as the fixture binding, to avoid substring-cascade corruption), and completes immediately without running the core; the status line notes "reused a cached result". Crucially the cache stores only the RESULT — a pure function of the input — never per-audit data (no comments, shares, or the audit itself), so reusing it across sessions leaks nothing. Toggle with `WEB_CACHE=0`. Consequences: identical re-analyses are instant; different options or a core upgrade miss; cache entries persist under `data/cache/` (a real deployment sweeps them by age — noted as a follow-up). Details: [../../web/README.md](../../web/README.md).
+
+### W-D-27 — W5 groundwork: side-by-side comparison of two analyses (Decided)
+
+Context: the PRD lists "mobile vs desktop, A vs B" comparison alongside previous-vs-current (`web-product-prd.md` §9.2, roadmap W5). Decision: a generic pair comparison of any two finished analyses, reusing the retest key-matching (`compareFindings`) with the axis being two runs rather than time — so "fixed" reads as "only in A" and "new" as "only in B", and `regressed` is always empty (no ancestor walk). Exposed as `GET /api/compare?a=&b=` and the route `/compare/{a}/{b}`; entry is a "Compare with" picker on the analysis page listing the browser's other analyses. When the two runs carry different device hints the view labels the sides by device (Mobile / Desktop), which is how the same target at two viewports reads; a real core that varies findings by device makes that comparison meaningful (the fixture varies by retest instead). Consequences: mobile-vs-desktop and A-vs-B are one reusable view over the existing comparison logic, no core change. Details: [../../web/README.md](../../web/README.md).
+
+### W-D-26 — W5 groundwork: client-side projects (Decided)
+
+Context: teams want analyses of the same product grouped so retests and comparisons cluster (`web-product-prd.md` §9.2, domain model Project). There are no accounts yet, so grouping is browser-local. Decision: projects live in `localStorage` alongside the "recent" list, which is promoted to a registry of up to 200 known analyses that projects filter over (the recent panel still shows the newest 20). A home panel creates and lists projects; `/projects/{id}` shows a project's analyses with Open, Retest, and Remove actions and rename/delete; the analysis page has a project selector to assign the current analysis. The grouping logic is a pure module (`web/ui/projects.mjs`) unit-tested in Node; the server serves `/projects/{id}` as the app shell and is otherwise unchanged (a project is just a client-side grouping of audit ids). Consequences: retest and comparison cluster by product without a server or accounts, reusing the recent-list and retest machinery; when accounts arrive (W5 proper) projects move server-side with the same shape. Details: [../../web/README.md](../../web/README.md).
+
+### W-D-25 — W6 groundwork: comment threads on findings (Decided)
+
+Context: reviewers want to discuss a specific finding, including on a shared report (`web-product-prd.md` WFR-23; domain model Comment). Decision: the owner and share viewers can attach plain-text comments to a finding, shown in the finding drawer on both the owner and share views. Comments are stored one file per comment under the audit (so concurrent posts never contend and deletion cascades with the audit), carry the author's typed name and, internally, the poster's session id. Authorization: the owner can delete any comment on their audit; anyone else can delete only their own; session ids never leave the server (the public shape exposes only `by_owner` and `mine`). No accounts: identity is the browser session plus a display name. Endpoints mirror the two access paths — `GET/POST /api/audits/{id}/comments` and `DELETE …/{cid}` (owner session), and `…/api/shares/{token}/comments` (share viewer). Bodies are length-capped and rendered escaped. Consequences: discussion lives with the report and travels with a share link, reusing the drawer and the share-token access model, with no core change. Details: [../../web/README.md](../../web/README.md).
+
+### W-D-24 — W6 groundwork: shareable read-only report links (Decided)
+
+Context: teams want to send a finished report to people who are not the owner (`web-product-prd.md` WFR-23, J-share; `security-privacy.md` SEC-11). Decision: the owner of a completed analysis can mint a scoped, revocable share token with an expiry (capped at the audit's retention). Anyone with the link opens `/s/{token}`, a read-only view (summary, findings, personas, coverage, evidence, comparison, screenshots) with no input controls and no owner actions; per-finding and report copy still work client-side. Tokens are high-entropy, resolved by a global `data/shares/` index so the audit id stays private, and are revoked on demand, at expiry, or when the audit is deleted (cascade). Resolution is a public GET; creation and revocation are owner-only. Consequences: sharing is owner-initiated (the tool mints a link the owner distributes; it never auto-publishes), the read-only view reuses the render module (no core change), and the report body renderer was factored so the owner page and the share page share it. Endpoints: `POST/GET /api/audits/{id}/shares`, `DELETE …/shares/{token}`, `GET /api/shares/{token}` and `…/media/{artifactId}`. Details: [../../web/README.md](../../web/README.md).
+
+### W-D-23 — W6 groundwork: issue-tracker export (Decided)
+
+Context: teams need to move findings into GitHub or Jira (`web-product-prd.md` WFR-23). Decision: build export as pure text transforms in a new shared module (`web/shared/export.mjs`), used by the UI (clipboard copy) and the server (downloadable files) and reusable by a future CLI. Per finding: Copy Markdown, Copy GitHub issue (a labeled title plus a Markdown body), Copy Jira (wiki markup). Whole report: `GET /api/audits/{id}/export?format=md|csv` returns a downloadable file (one CSV row per finding, RFC-4180 quoted). USER_SIGNAL output keeps the simulation disclaimer so exported issues stay honest. The Markdown builders moved from `render.mjs` into the shared module (one home); `render.mjs` re-exports them. Actual issue creation via the GitHub/Jira APIs is out of scope (needs auth and is a side-effectful external action); export is copy/download only. Consequences: findings leave the tool in the formats trackers accept, with no core dependency; a `/shared/` static route serves the shared module to the browser (with path-traversal protection). Details: [../../web/README.md](../../web/README.md).
+
+### W-D-22 — W5 groundwork: history and retest linking with comparison (Decided)
+
+Context: W5 needs run history, retest linking, and fixed/unresolved/new/regressed comparison (`web-product-prd.md` J4, WFR-22), which depends on a stable issue identity from the core (W-OD-11). Decision: prototype it against the fixture without accounts. History stays browser-local (the anonymous access model), enriched with a Retest action per recent analysis; server-side history waits for accounts. Retest is a new audit linked by `links.retest_of` to the analysis it verifies; the fixture serves a "fixed" variant for a retest so the delta is real. Comparison (`web/server/compare.mjs`) keys on an optional `fingerprint` the core supplies (W-OD-11), falling back to a provisional key over rule ids, component, and location and labelling the result "provisional"; it walks the retest chain so a finding fixed earlier and returning is "regressed", not "new". Exposed as `GET /api/audits/{id}/comparison`. Consequences: J4's linked retest works end to end against the fixture; a real core supplies real fingerprints and real deltas with no web change. Also fixed a data-dependent `bindFixture` bug (a real base64url id can contain a fixture token like `scr_2`; sequential string replacement corrupted it) by replacing all tokens in a single pass — this was the source of intermittent multi-screen test failures. Details: [../../web/README.md](../../web/README.md).
+
+### W-D-21 — Accessibility and design consolidation pass (Decided)
+
+Context: after W1–W3, the product UI needed to meet its own WCAG 2.2 AA target (WNFR-03, W1-AC-13) before adding more surface. Decision: audit and harden the existing UI rather than start W4. Work done: verified all color tokens meet AA contrast (every text/background pair ≥ 4.5:1); ran a dependency-free live DOM audit (`web/tools/a11y-audit.js`) on the home and analysis pages with zero critical issues; confirmed keyboard operation in the browser (ARIA tabs with arrow-key roving, modal drawer focus trap); and added an explicit drawer Escape-to-close handler plus guaranteed focus-return to the opener, because some embedded webviews swallow the native dialog Escape default. Also added a Windows `fs.rename` retry in the store to remove a load-dependent flakiness. Locked the properties in `web/test/accessibility.test.mjs` (W1-AC-13). Consequences: the three slices are consolidated and keyboard- and screen-reader-friendly; live URL audit (W4) remains deferred to the core stream's runtime phase. Follow-up (2026-09-03): the W5/W6 surfaces added after this pass — projects, side-by-side comparison, the comment thread, and the read-only share view — were re-audited live with zero critical issues and zero warnings, and their labelling and no-inline-style properties were locked into `accessibility.test.mjs`.
+
+### W-D-20 — W3 synthetic-persona configuration built (Decided)
+
+Context: W1/W2 always ran the default three personas; W3 (`web-product-prd.md` §12, roadmap W3) lets users choose personas, run a task, reproduce a run, and save persona sets. Decision: a persona picker on the home page driven entirely by the capability descriptor (`persona_presets`, `limits.max_personas`, `defaults`); an optional seed surfaced on the result for reproducibility; browser-local saved persona sets and last-selection persistence. The fixture core reconciles its output to the selected personas (`reconcilePersonas`): it keeps the personas it authored, marks the rest `not_simulated` with a reason (the honest path in §12.5), recomputes the agreement counts, and drops USER_SIGNAL findings left with no simulated persona behind them. Consequences: selection actually changes the result and stays honest about what a stub can simulate; a live persona engine (core Phase 6) simulates any selected persona and replaces the stub with no web change. The web layer still never invents or removes findings — reconciliation happens inside the fixture core (the adapter), which owns its own output. Details: [../../web/README.md](../../web/README.md).
+
+### W-D-19 — W2 multi-screen (flow) review built (Decided)
+
+Context: the W1 slice handled one screenshot; W2 (`web-product-prd.md` §6.1 M2, journey J5) adds an ordered set of screens with cross-screen findings. Decision: raise the capability limit to multiple screens, add the `SCREENSHOT_SET` input kind and `MULTI_SCREEN_REVIEW` mode, serve a `flow-review` fixture auto-selected when a request carries more than one screen, and add the flow UI: multi-file upload with reorder, a flow strip that switches the preview and its markers per step, and a whole-result Markdown export (WFR-15). The orchestrator sends `SCREENSHOT_SET` when more than one screen is attached; the fixture binding maps each fixture screen to the real uploaded screen by order. Consequences: J5 works end to end against the fixture core; markers filter to the selected screen by evidence reference. Reorder is implemented with accessible up/down controls rather than drag-and-drop (a deliberate simplification; drag is a later enhancement). Details: [../../web/README.md](../../web/README.md).
+
+### W-D-18 — Subprocess CLI transport, reference core CLI, and cross-transport conformance harness (Decided)
+
+Context: the real Audit Core is not runnable (the core stream is in Phase 1 research; no executable core or language decision exists, W-OD-04). The web stream needs the integration seam ready and the conformance test (W1-AC-15) in place so a real core drops in without server changes. Decision: implement the subprocess binding of W-OD-04 (`web/adapter/subprocess-adapter.mjs`) speaking the NDJSON protocol in [audit-core-contract.md](audit-core-contract.md) §3.3; ship a reference core CLI (`web/adapter/reference-core-cli.mjs`) that is the executable spec of that protocol, serving fixture data; and add the conformance harness (`web/test/conformance.test.mjs`) proving the in-process and subprocess transports produce identical envelopes and event streams. The server selects the binding via `WEB_CORE=fixture|subprocess` with no orchestrator change. Consequences: a real core, in any language, integrates by implementing `describe` and `run`; the harness becomes the cross-implementation check when `WEB_CORE_CMD` points at it. The in-process and HTTP bindings of W-OD-04 remain available options; the real core's language and packaging stay the core stream's call.
+
+### W-D-17 — W1 vertical slice built against a fixture core (Decided)
+
+Context: W1 needed to be demonstrable before the Audit Core is runnable. Decision: build the web application under `web/` (Node.js standard library, no dependencies, mirroring the core stream's ADR 0004 constraint) against the fixture adapter in `web/adapter/`, with the boundary enforced by test (`web/test/boundary.test.mjs`). Consequences: the slice runs, uploads, and renders the three finding types, personas, coverage, and evidence from `web/fixtures/`; a live core is bound later behind the same `describe`/`plan`/`run` adapter functions. Details and how to run: [../../web/README.md](../../web/README.md). Known deferrals recorded as W-OD-18 (re-encoding) and W-OD-10 (server-sent events).
+
+### W-D-16 — No edits to core-owned files; conflicts with repository conventions are handed off, not resolved unilaterally (Decided)
+
+Context: `CLAUDE.md` asks every architecture session to update `research/ledger.md`, write ADRs for layout changes, and keep the `docs/architecture.md` layout table current; the goal for this stream forbids editing files owned by the parallel session. Decision: this stream keeps its footprint inside `docs/web-product/` and hands cross-stream items to the core stream through [README.md](README.md). Consequences: the core stream took the items up in ADR 0006 (`CLAUDE.md` pointer, layout-table row, ledger note, GAP-025) and excluded this folder from `scripts/check-harness.mjs`, so this stream validates its own documents with `check-links.mjs` in this folder.
+
+---
+
+## 2. Provisional assumptions about the Audit Core
+
+Status as of 2026-09-02 after reading the published core documents. The core stream reviews the open items against its Phase 3 report and JSON output schema (GAP-025 in `research/gaps.md`).
+
+| Id | Assumption | Status | Used in |
+|---|---|---|---|
+| W-A-01 | The core exposes a capability descriptor (input kinds, analysis types, modes, persona presets and dimensions, synthetic tests, limits) | Open (requested) | contract §4.1; PRD §6.2, §12 |
+| W-A-02 | The core accepts an audit request with target, intent, options, seed, budget and returns an envelope with plan, summary, findings, rules index, persona runs, persona summary, coverage, limitations, versions | Open (envelope requested; GAP-019 will define the JSON output schema) | contract §4.2, §4.5 |
+| W-A-03 | The core can emit events progressively (plan, visual, personas, standards, runtime, report) | Open | architecture §5 |
+| W-A-04 | The core honors cancellation and a per-request budget | Open | architecture §5.5 |
+| W-A-05 | Findings use `docs/finding-schema.md` fields and enumerations | Confirmed (v0.1) | everywhere |
+| W-A-06 | Evidence items carry `method` and can carry a normalized region | Partly confirmed: `method` exists; region field requested (`value.region` convention meanwhile) | contract §4.6; W-D-08, W-D-15 |
+| W-A-07 | Persona signals follow `docs/finding-schema.md` §8; a run container with an outcome and `not_simulated` exists; aggregation is counts | Partly confirmed: signal shape and counts fixed; container and outcome are Phase 6 | PRD §12; contract §4.8, §4.9 |
+| W-A-08 | A minimal persona capability (default presets, eight tests) is available for W1 before Phase 6 hardening | Open; sequencing risk W-R-01 | PRD §7.2, §19 |
+| W-A-09 | Coverage lists every applicable rule's result and not-tested families with reasons | Confirmed in substance (`docs/finding-schema.md` §2, `docs/audit-methodology.md` §3); container shape provisional | contract §4.10 |
+| W-A-10 | A programmatic runtime exists or will exist so the core can be executed outside ChatGPT | Open (W-OD-04) | architecture §2.3 |
+| W-A-11 | The core provides a stable issue identity across runs by W5 | Open (W-OD-11) | domain model §4 |
+| W-A-12 | The core treats target content as untrusted data | Confirmed (`CLAUDE.md` Trust boundary; `docs/audit-methodology.md` §6; `docs/architecture.md` §5); shared fixture requested | security §3.4 |
+
+---
+
+## 3. Open decisions
+
+| Id | Question | Options | Recommendation | Decider | Gates | Related |
+|---|---|---|---|---|---|---|
+| W-OD-01 | Product name and branding | working name "UI/UX Auto Tester Web"; a product name | keep the working name until W1 ships | product owner | none | |
+| W-OD-02 | Web and API stack (language, framework) | align with the core's implementation language for in-process use; or a separate stack with a subprocess or HTTP binding | decide after the core stream fixes its implementation language (ADR 0004 chose Node.js for validators only); prefer whatever minimizes the adapter | web stream with core stream input | W1 coding | ADR 0004 |
+| W-OD-03 | Repository layout | additive `apps/`, `services/`, `packages/`, `fixtures/` in this repository; or a separate repository | same repository until the core is packaged ([architecture.md](architecture.md) §3); new directories are added to the `docs/architecture.md` §6 layout table by whoever creates them | both streams | W1 coding | ADR 0001 |
+| W-OD-04 | Core packaging and programmatic runtime ownership | runtime inside the core package (preferred for CLI and CI reuse); or a web-owned executor that loads the core's references | Partly settled: the web stream shipped the subprocess CLI binding and a reference CLI defining the wire protocol (W-D-18), so a real core plugs in by implementing `describe`/`run`. Still open: the core's own language, packaging, and whether it ships that CLI | core stream | real-core integration | |
+| W-OD-05 | Default persona set and count for Quick Review | 3 presets (recommended: First-time User, Skimmer, Low Digital Literacy); or all default presets | 3, for latency; users add more in W3 | core stream | W1 | GAP-011 |
+| W-OD-06 | Grouping thresholds for Blockers, Confusion, Improvements, Notes | pure-field rule in PRD §10.4; or a core-provided hint | keep the pure-field rule and validate on real output during W1 | web stream | W1 exit | |
+| W-OD-07 | Retention period and anonymous access limits | 24 h, 7 d, 30 d; delete-after-view option; per-IP limits | 7 days, delete-after-view as an option, conservative per-IP limits | product owner | W1 | |
+| W-OD-08 | Model provider, data-handling terms, and cost budget | a provider with no-training and short retention terms; a budget per audit | choose with the core stream; publish terms in `/about`; measure cost from the first fixture run | both streams | W1 | |
+| W-OD-09 | Display of inferred regions (`method: visual`) | always show with an "approximate" label; or hide below a confidence level | show all with the label; revisit after W1 usability feedback | web stream | W1 exit | GAP-017 |
+| W-OD-10 | Progress transport and PARTIAL representation | polling; server-sent events; WebSocket; `partial` flag versus a distinct state | polling plus optional SSE; `status` plus `partial` flag | web stream | W1 | |
+| W-OD-11 | Stable issue identity across runs | fingerprint defined by the core; or web-side heuristic matching | core-defined fingerprint; the web layer consumes an optional `finding.fingerprint` and falls back to a provisional key when absent (implemented W-D-22) | core stream | W5 (consumed now) | |
+| W-OD-12 | UI locales | English first; Korean first; both at launch | English UI copy in W1 with externalized strings; Korean UI in W2; analysis input in any language from W1 | product owner | W2 | |
+| W-OD-13 | Scores and category ratings | none until the core documents a scoring model | show none | core stream | W4 | GAP-009 |
+| W-OD-14 | One runtime or two for Skill versus web | ChatGPT executes the Skill; the web executes the same methodology through the core runtime | one methodology, two executors, conformance test W1-AC-15 | both streams | W1 | |
+| W-OD-15 | Credential model for authenticated sites | user-provided session export; scripted login; credential vault | user-provided session first; vault later if demand exists | product owner with security review | W4 | GAP-013 |
+| W-OD-16 | Governance: the web product is not a phase of root `prd.md` §18, and `CLAUDE.md` scope control forbids building services before their phase | add a web-product section to `prd.md` (user-only change); or an ADR acknowledging the web stream; or a separate repository | Resolved in substance on 2026-09-02: ADR 0006 acknowledges the web stream, its decision log, and its future application directories at source-of-truth level 5. Residual: root `prd.md` does not mention the web product; adding a section is the user's call | user (residual) | none | ADR 0006 |
+| W-OD-17 | Relationship between the web envelope and the core's JSON output schema | the core's schema (GAP-019, Phase 3) becomes the envelope; or the web keeps its own container around core findings | one schema owned by the core; [audit-core-contract.md](audit-core-contract.md) §4.5 offered as input | core stream | W2 | GAP-018, GAP-019, GAP-025 |
+| W-OD-18 | Upload re-encoding (`security-privacy.md` SEC-03) | keep the standard-library metadata-chunk stripping shipped in W1; or add an image codec dependency to fully re-encode pixels | metadata-chunk stripping for now; add re-encoding when an image dependency is justified by an ADR-equivalent for the web stream | web stream | W4 (before live URL captures) | none |
+
+---
+
+## 4. Risk register
+
+| Id | Risk | Impact | Mitigation |
+|---|---|---|---|
+| W-R-01 | The core is not runnable when W1 starts, or a minimal persona capability is not available before Phase 6 | W1 blocked or shipped without its differentiator | fixture adapter and schema validation on both sides; agree a minimal persona capability with the core stream at W1 kickoff (W-A-08); if unavailable, W1 ships Quick Review without personas and labels the gap |
+| W-R-02 | Latency and cost of vision plus three personas exceed targets | poor experience, high cost per audit | cap personas at 3 in Quick Review; progressive delivery; cache by image hash and options; measure on the fixture set (W1-AC-14) |
+| W-R-03 | Screenshot-derived findings are wrong (inferred regions, false violations) | loss of trust | `method` and confidence on every item; LOW-confidence violations phrased as suspected with PARTIAL checks (`docs/finding-schema.md` §6); limitations panel; known-good and known-bad fixtures shared with the core's Phase 7 evaluation |
+| W-R-04 | Prompt injection through screenshots or pages | wrong or harmful output | controls in [security-privacy.md](security-privacy.md) §3.4; fixture set in CI |
+| W-R-05 | Privacy of uploaded unreleased UI | user harm, reputational damage | retention, hard deletion, no content in logs, provider terms, private media URLs |
+| W-R-06 | Conflicting edits between parallel sessions | lost work | path isolation (W-D-01, W-D-16), no edits to core-owned files, ownership table in [README.md](README.md), boundary accepted by the core stream in ADR 0006 |
+| W-R-07 | Infrastructure over-engineering before value is proven | wasted effort | W1 single service with inline executor; queue and workers only when needed |
+| W-R-08 | Persona output mistaken for user research | wrong product decisions | labeling everywhere, disclaimer in exports, "validate with real users" copy |
+| W-R-09 | Skill and web executors drift apart | inconsistent results across products | shared references and methodology; conformance test W1-AC-15; versions in every envelope |
+| W-R-10 | Korean-language screenshots handled worse than English | core market underserved | Korean fixtures in acceptance tests from W1 |
+| W-R-11 | The web stream proceeds without repository-level acknowledgment (W-OD-16) | scope conflict with `prd.md` §19 and `CLAUDE.md` scope control | Closed 2026-09-02: ADR 0006 acknowledges the stream; the residual (root `prd.md` is silent about the web product) is escalated to the user in the W0 report; no web code is written in W0 |

@@ -1,0 +1,215 @@
+{
+  "_note": "Illustrative retest fixture (W5). Served when a single-screen request is a retest (links.retest_of set): it pretends the user fixed the contrast VIOLATION and added crowding, so a comparison against quick-review shows fixed/unresolved/new. Fingerprints match quick-review so the same issue lines up across runs. Not real audit output.",
+  "contract_version": "0.1-provisional",
+  "audit_id": "aud_fixture",
+  "run_id": "fixture-quick-review-fixed",
+  "analysis_type": "QUICK_REVIEW",
+  "modes": ["SCREENSHOT_REVIEW", "SYNTHETIC_USER_TEST", "STANDARDS_AUDIT"],
+  "target": { "kind": "SCREENSHOT", "screens": [{ "screen_id": "scr_1", "width": 1170, "height": 2532, "device": "mobile", "platform": "ios" }] },
+  "intent": { "question": null, "task": null },
+  "plan": {
+    "audit_id": "aud_fixture",
+    "resolved": { "platform": "ios", "device": "mobile", "input_kind": "SCREENSHOT", "jurisdictions": [] },
+    "modes": ["SCREENSHOT_REVIEW", "SYNTHETIC_USER_TEST", "STANDARDS_AUDIT"],
+    "stages": ["intake", "visual", "personas", "standards", "report"],
+    "rule_sets": [{ "id": "WCAG-2.2", "version": "2.2", "scope": "visually decidable rules only" }],
+    "applicable_rule_count": 14,
+    "not_tested": [
+      { "family": "semantics", "reason": "input cannot establish semantics" },
+      { "family": "keyboard_operability", "reason": "input cannot establish keyboard operability" }
+    ],
+    "evidence_classes": ["screenshot", "color_value", "bounding_box", "persona_vote"],
+    "estimate": { "seconds": 90 }
+  },
+  "summary": {
+    "perceived_purpose": "Sign-up screen for a personal budgeting app with a plan choice.",
+    "first_impression": "Price contrast is fixed, but the plan cards still read as decoration and the header is now crowded.",
+    "likely_next_action": "Tap 'Get started'.",
+    "answer_to_question": null,
+    "top_concerns": ["F-fixture-quick-review-fixed-003", "F-fixture-quick-review-fixed-002"],
+    "headline": "Contrast resolved; plan selection is still easy to miss and the header is crowded."
+  },
+  "findings": [
+    {
+      "issue_id": "F-fixture-quick-review-fixed-002",
+      "fingerprint": "qr:hierarchy:plan-cta",
+      "title": "Primary action competes with the plan cards for attention",
+      "finding_type": "UX_RISK",
+      "severity": "High",
+      "priority": "P1",
+      "confidence": "LOW",
+      "platform": "ios",
+      "device": "mobile",
+      "viewport": "n/a",
+      "location": "scr_1 (uploaded screenshot), hero and plan cards",
+      "component": "primary call to action",
+      "observed": "The 'Get started' button and three equally saturated plan cards still carry similar visual weight.",
+      "expected": "One dominant primary action, with the plan choice clearly subordinate or a required step.",
+      "impact": "First-time users hesitate between the cards and the button.",
+      "evidence": [
+        { "type": "screenshot", "ref": "scr_1", "value": { "region": { "x": 0.05, "y": 0.30, "w": 0.90, "h": 0.26 } }, "captured_at": "2026-09-02T00:00:12Z", "method": "visual", "artifact": "art_1", "note": "Salience estimate over the captured viewport" }
+      ],
+      "rules": [],
+      "heuristics": ["NNG-H08"],
+      "persona_signals": [],
+      "recommendation": "Lower the plan cards' saturation and add the caption 'Choose a plan'.",
+      "retest": { "steps": ["Re-run the primary_action test on the revised screen."], "expected_result": "Personas name 'Get started' as the first element they would tap.", "layer": "synthetic_user_regression" },
+      "limitations": "Salience inferred from a static screenshot."
+    },
+    {
+      "issue_id": "F-fixture-quick-review-fixed-003",
+      "fingerprint": "qr:signal:plan-selector",
+      "title": "Simulated personas did not recognize the plan selector as a choice",
+      "finding_type": "USER_SIGNAL",
+      "severity": "Medium",
+      "priority": "P2",
+      "confidence": "LOW",
+      "platform": "ios",
+      "device": "mobile",
+      "viewport": "n/a",
+      "location": "scr_1 (uploaded screenshot), plan cards",
+      "component": "plan selector",
+      "observed": "2 of 3 simulated personas still described the plan cards as informational.",
+      "expected": "Personas identify the plan cards as a required choice before continuing.",
+      "impact": "Users may proceed without choosing a plan.",
+      "evidence": [
+        { "type": "persona_vote", "ref": "prs_1", "value": { "expected_action": "Tap 'Get started'", "region": { "x": 0.10, "y": 0.86, "w": 0.80, "h": 0.07 } }, "captured_at": "2026-09-02T00:00:30Z", "method": "simulated", "note": "first_time_user, primary_action" }
+      ],
+      "rules": [],
+      "heuristics": [],
+      "persona_signals": [
+        { "persona_id": "first_time_user", "test": "primary_action", "observation": "The plan cards look like feature highlights.", "expected_action": "Tap 'Get started'", "predicted_outcome": "An account creation form", "confidence": "MEDIUM", "simulated": true },
+        { "persona_id": "low_digital_literacy", "test": "comprehension", "observation": "Unsure whether tapping a card does anything.", "expected_action": "Tap 'Get started'", "predicted_outcome": "Not sure", "confidence": "LOW", "simulated": true }
+      ],
+      "recommendation": "Make the plan cards read as a selectable group with a visible selected state.",
+      "retest": { "steps": ["Re-run the comprehension test on the revised screen."], "expected_result": "At least 2 of 3 simulated personas identify the plan cards as a choice.", "layer": "synthetic_user_regression" },
+      "limitations": "Simulated persona behavior from a static screenshot; not human participant research."
+    },
+    {
+      "issue_id": "F-fixture-quick-review-fixed-004",
+      "fingerprint": "qr:content:terms-notice",
+      "title": "Terms text under the button is unlikely to be read",
+      "finding_type": "UX_RISK",
+      "severity": "Low",
+      "priority": "P3",
+      "confidence": "LOW",
+      "platform": "ios",
+      "device": "mobile",
+      "viewport": "n/a",
+      "location": "scr_1 (uploaded screenshot), below the primary button",
+      "component": "terms notice",
+      "observed": "A two-line legal notice in small light text still sits directly under 'Get started'.",
+      "expected": "Legal consequences are visible before the action, or the notice is short and legible.",
+      "impact": "Users may accept terms without noticing; low user impact.",
+      "evidence": [
+        { "type": "screenshot", "ref": "scr_1", "value": { "region": { "x": 0.10, "y": 0.94, "w": 0.80, "h": 0.04 } }, "captured_at": "2026-09-02T00:00:13Z", "method": "visual", "artifact": "art_1", "note": "Text size estimated from pixels" }
+      ],
+      "rules": [],
+      "heuristics": ["BP-content-001"],
+      "persona_signals": [],
+      "recommendation": "Shorten the notice to one line at body size and link to the full terms.",
+      "retest": { "steps": ["Check the notice text size and position on the revised screen."], "expected_result": "Notice is one line at body text size.", "layer": "manual_a11y_qa" },
+      "limitations": "Text size estimated from a static screenshot."
+    },
+    {
+      "issue_id": "F-fixture-quick-review-fixed-005",
+      "fingerprint": "qr:spacing:header-crowding",
+      "title": "Header logo and title are crowded after the layout change",
+      "finding_type": "UX_RISK",
+      "severity": "Medium",
+      "priority": "P2",
+      "confidence": "LOW",
+      "platform": "ios",
+      "device": "mobile",
+      "viewport": "n/a",
+      "location": "scr_1 (uploaded screenshot), header",
+      "component": "header",
+      "observed": "The logo and the title now sit with little spacing between them at the top of the screen.",
+      "expected": "Clear separation between the logo and the screen title.",
+      "impact": "The header reads as one block; the title loses prominence.",
+      "evidence": [
+        { "type": "bounding_box", "ref": "scr_1", "value": { "region": { "x": 0.06, "y": 0.02, "w": 0.88, "h": 0.08 } }, "captured_at": "2026-09-02T00:00:14Z", "method": "visual", "artifact": "art_1", "note": "Spacing estimated from pixels" }
+      ],
+      "rules": [],
+      "heuristics": ["NNG-H08"],
+      "persona_signals": [],
+      "recommendation": "Restore vertical spacing between the logo and the title.",
+      "retest": { "steps": ["Check the spacing between the logo and title on the revised screen."], "expected_result": "There is clear separation between the logo and the title.", "layer": "visual_regression" },
+      "limitations": "Spacing estimated from a static screenshot."
+    }
+  ],
+  "rules_index": {
+    "NNG-H08": { "title": "Aesthetic and minimalist design", "authority": "NN/g", "rule_class": "HEURISTIC", "source_version": "unverified", "source_url": null, "conformance_level": null, "normative_strength": "INFORMATIVE" },
+    "BP-content-001": { "title": "Consequential text is visible before the action", "authority": "project best practice", "rule_class": "BEST_PRACTICE", "source_version": "unverified", "source_url": null, "conformance_level": null, "normative_strength": "SHOULD" }
+  },
+  "persona_runs": [
+    {
+      "persona_run_id": "prs_1",
+      "persona": { "persona_id": "first_time_user", "label": "First-time user", "dimensions": { "product_familiarity": "first_time", "experience": "experienced", "digital_literacy": "high", "reading_behavior": "skimming", "attention": "focused", "device_and_grip": "mobile_two_hand", "goal_orientation": "exploratory", "urgency": "low", "accessibility_needs": [] } },
+      "screen_id": "scr_1",
+      "signals": [
+        { "persona_id": "first_time_user", "test": "first_impression", "observation": "A sign-up screen; prices are readable now.", "expected_action": "Tap 'Get started'", "predicted_outcome": "An account creation form", "confidence": "MEDIUM", "simulated": true },
+        { "persona_id": "first_time_user", "test": "primary_action", "observation": "The plan cards still look like feature highlights.", "expected_action": "Tap 'Get started'", "predicted_outcome": "An account creation form", "confidence": "MEDIUM", "simulated": true, "evidence": [{ "type": "persona_vote", "ref": "scr_1", "value": { "region": { "x": 0.10, "y": 0.86, "w": 0.80, "h": 0.07 } }, "captured_at": "2026-09-02T00:00:30Z", "method": "simulated" }] },
+        { "persona_id": "first_time_user", "test": "abandonment", "observation": "Would continue.", "expected_action": "Continue", "predicted_outcome": "Reach the form", "confidence": "MEDIUM", "simulated": true }
+      ],
+      "outcome": { "decision": "CONTINUE", "confidence": "MEDIUM" },
+      "not_simulated": null,
+      "simulated": true
+    },
+    {
+      "persona_run_id": "prs_2",
+      "persona": { "persona_id": "skimmer", "label": "Skimmer", "dimensions": { "product_familiarity": "first_time", "experience": "experienced", "digital_literacy": "high", "reading_behavior": "skimming", "attention": "distracted", "device_and_grip": "mobile_one_hand", "goal_orientation": "efficiency", "urgency": "high", "accessibility_needs": [] } },
+      "screen_id": "scr_1",
+      "signals": [
+        { "persona_id": "skimmer", "test": "first_impression", "observation": "Some finance app.", "expected_action": "Tap 'Get started'", "predicted_outcome": "Next", "confidence": "LOW", "simulated": true },
+        { "persona_id": "skimmer", "test": "abandonment", "observation": "Would continue if quick.", "expected_action": "Continue", "predicted_outcome": "Loads", "confidence": "MEDIUM", "simulated": true }
+      ],
+      "outcome": { "decision": "CONTINUE", "confidence": "LOW" },
+      "not_simulated": null,
+      "simulated": true
+    },
+    {
+      "persona_run_id": "prs_3",
+      "persona": { "persona_id": "low_digital_literacy", "label": "Low digital literacy", "dimensions": { "product_familiarity": "first_time", "experience": "novice", "digital_literacy": "low", "reading_behavior": "deliberate", "attention": "focused", "device_and_grip": "mobile_two_hand", "goal_orientation": "exploratory", "urgency": "low", "accessibility_needs": [] } },
+      "screen_id": "scr_1",
+      "signals": [
+        { "persona_id": "low_digital_literacy", "test": "first_impression", "observation": "An app that wants me to sign up; I can read the price now.", "expected_action": "Read the cards", "predicted_outcome": "Understand the cost", "confidence": "MEDIUM", "simulated": true },
+        { "persona_id": "low_digital_literacy", "test": "comprehension", "observation": "Unsure whether tapping a card does anything.", "expected_action": "Tap 'Get started'", "predicted_outcome": "Not sure", "confidence": "LOW", "simulated": true },
+        { "persona_id": "low_digital_literacy", "test": "abandonment", "observation": "Might leave at the plan step.", "expected_action": "Leave", "predicted_outcome": "Nothing happens", "confidence": "MEDIUM", "simulated": true }
+      ],
+      "outcome": { "decision": "HESITATE", "confidence": "MEDIUM" },
+      "not_simulated": null,
+      "simulated": true
+    }
+  ],
+  "persona_summary": {
+    "personas_tested": 3,
+    "tests": [
+      { "test": "primary_action", "majority_answer": "Tap 'Get started'", "agree": 2, "dissent": [] },
+      { "test": "comprehension", "majority_answer": "Unsure whether the plan cards do anything", "agree": 2, "dissent": [] }
+    ],
+    "personas_confused": 2,
+    "task_failures": 0,
+    "derived_findings": ["F-fixture-quick-review-fixed-003"],
+    "disclaimer": "Results are simulated persona behavior, not human participant research."
+  },
+  "coverage": {
+    "applicable_rule_count": 14,
+    "rule_results": [
+      { "id": "WCAG-1.4.3", "result": "PASS", "method": "visual", "finding_ids": [], "note": "Price text contrast now meets the minimum in the captured state" },
+      { "id": "WCAG-2.5.8", "result": "PARTIAL", "method": "visual", "finding_ids": [], "note": "Target size estimated; scale unknown" },
+      { "id": "WCAG-1.3.1", "result": "NOT_TESTED", "reason": "input cannot establish semantics" }
+    ],
+    "not_tested_families": [
+      { "family": "semantics", "reason": "input cannot establish semantics" },
+      { "family": "keyboard_operability", "reason": "input cannot establish keyboard operability" }
+    ],
+    "rule_sets": [{ "id": "WCAG-2.2", "version": "2.2", "scope": "visually decidable rules only" }]
+  },
+  "limitations": [
+    { "scope": "audit", "text": "Static screenshot: semantics, keyboard operability, focus order, dynamic states, and performance were not tested." },
+    { "scope": "stage", "stage": "personas", "text": "Simulated personas reason over a salience-weighted snapshot and may skip secondary text by design. Results are simulated persona behavior, not human participant research." }
+  ],
+  "versions": { "contract": "0.1-provisional", "core": "fixture", "corpus": "none", "finding_schema": "0.1", "model": "none (fixture)" },
+  "timing": { "started": "2026-09-02T00:00:00Z", "finished": "2026-09-02T00:01:05Z", "stages": { "intake": 1.0, "visual": 20.0, "personas": 30.0, "standards": 14.0, "report": 1.0 } }
+}
