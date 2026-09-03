@@ -1,0 +1,234 @@
+{
+  "_note": "Illustrative multi-screen (flow) fixture for W2. Served when a request's target.kind is SCREENSHOT_SET. Three ordered screens of an email sign-up flow with cross-screen findings. Rule and heuristic ids are unverified; not real audit output. Findings follow docs/finding-schema.md; the containers are provisional. Screen convention: screen scr_<i> pairs with artifact art_<i>.",
+  "contract_version": "0.1-provisional",
+  "audit_id": "aud_fixture",
+  "run_id": "fixture-flow-review",
+  "analysis_type": "QUICK_REVIEW",
+  "modes": ["MULTI_SCREEN_REVIEW", "SCREENSHOT_REVIEW", "SYNTHETIC_USER_TEST", "STANDARDS_AUDIT"],
+  "target": {
+    "kind": "SCREENSHOT_SET",
+    "screens": [
+      { "screen_id": "scr_1", "width": 390, "height": 560, "device": "mobile", "platform": "ios" },
+      { "screen_id": "scr_2", "width": 390, "height": 560, "device": "mobile", "platform": "ios" },
+      { "screen_id": "scr_3", "width": 390, "height": 560, "device": "mobile", "platform": "ios" }
+    ]
+  },
+  "intent": { "question": null, "task": "Sign up with email" },
+  "flow": { "task": "Sign up with email", "steps": ["scr_1", "scr_2", "scr_3"], "labels": ["Enter email", "Verify code", "All set"] },
+  "plan": {
+    "audit_id": "aud_fixture",
+    "resolved": { "platform": "ios", "device": "mobile", "input_kind": "SCREENSHOT_SET", "jurisdictions": [] },
+    "modes": ["MULTI_SCREEN_REVIEW", "SCREENSHOT_REVIEW", "SYNTHETIC_USER_TEST", "STANDARDS_AUDIT"],
+    "stages": ["intake", "visual", "personas", "standards", "report"],
+    "rule_sets": [{ "id": "WCAG-2.2", "version": "2.2", "scope": "visually decidable rules only" }],
+    "applicable_rule_count": 14,
+    "not_tested": [
+      { "family": "semantics", "reason": "input cannot establish semantics" },
+      { "family": "keyboard_operability", "reason": "input cannot establish keyboard operability" },
+      { "family": "flow_completion", "reason": "an ordered screenshot sequence shows steps but cannot prove real navigation" }
+    ],
+    "evidence_classes": ["screenshot", "bounding_box", "persona_vote"],
+    "estimate": { "seconds": 110 }
+  },
+  "summary": {
+    "perceived_purpose": "A three-step email sign-up flow: enter email, verify a code, then a confirmation.",
+    "first_impression": "The steps are recognizable, but the primary button moves and step 2 gives no way back.",
+    "likely_next_action": "Type an email and tap Continue.",
+    "answer_to_question": null,
+    "top_concerns": ["F-fixture-flow-review-001", "F-fixture-flow-review-002"],
+    "headline": "Recognizable flow; the primary action shifts between steps and step 2 lacks a back path."
+  },
+  "findings": [
+    {
+      "issue_id": "F-fixture-flow-review-001",
+      "title": "Primary button placement changes between step 1 and step 2",
+      "finding_type": "UX_RISK",
+      "severity": "High",
+      "priority": "P1",
+      "confidence": "LOW",
+      "platform": "ios",
+      "device": "mobile",
+      "viewport": "n/a",
+      "location": "scr_1 and scr_2, primary button",
+      "component": "primary button",
+      "flow": "Sign up with email, step 1 to step 2",
+      "observed": "On step 1 the Continue button sits at the bottom of the screen; on step 2 the Verify button sits directly under the code field, halfway up.",
+      "expected": "The primary action holds a consistent position across steps so the thumb learns one target.",
+      "impact": "Returning to the flow, users reach for the previous position and mis-tap; consistency across steps is a core flow property.",
+      "evidence": [
+        { "type": "bounding_box", "ref": "scr_1", "value": { "region": { "x": 0.06, "y": 0.86, "w": 0.88, "h": 0.08 } }, "captured_at": "2026-09-02T00:00:12Z", "method": "visual", "artifact": "art_1", "note": "Continue button at the bottom on step 1" },
+        { "type": "bounding_box", "ref": "scr_2", "value": { "region": { "x": 0.06, "y": 0.5, "w": 0.88, "h": 0.08 } }, "captured_at": "2026-09-02T00:00:13Z", "method": "visual", "artifact": "art_2", "note": "Verify button mid-screen on step 2" }
+      ],
+      "rules": [],
+      "heuristics": ["NNG-H04"],
+      "persona_signals": [],
+      "recommendation": "Pin the primary action to the same position on every step of the flow.",
+      "retest": { "steps": ["Compare the primary button's vertical position on each step of the revised flow."], "expected_result": "The primary action is in the same position on every step.", "layer": "visual_regression" },
+      "limitations": "Positions estimated from static screenshots; real layout at other viewports is unknown."
+    },
+    {
+      "issue_id": "F-fixture-flow-review-002",
+      "title": "Simulated personas could not tell how to go back from step 2",
+      "finding_type": "USER_SIGNAL",
+      "severity": "Medium",
+      "priority": "P2",
+      "confidence": "LOW",
+      "platform": "ios",
+      "device": "mobile",
+      "viewport": "n/a",
+      "location": "scr_2, top of screen",
+      "component": "step 2 header",
+      "flow": "Sign up with email, step 2",
+      "observed": "3 of 3 simulated personas looked for a back control on step 2 and found none; 1 said they would close the app to fix a mistyped email.",
+      "expected": "Personas can identify how to return to the previous step to correct the email.",
+      "impact": "A mistyped email on step 1 becomes a dead end; users may abandon rather than restart.",
+      "evidence": [
+        { "type": "persona_vote", "ref": "scr_2", "value": { "expected_action": "Look for a back arrow", "region": { "x": 0.0, "y": 0.0, "w": 0.3, "h": 0.08 } }, "captured_at": "2026-09-02T00:00:31Z", "method": "simulated", "note": "first_time_user, comprehension" }
+      ],
+      "rules": [],
+      "heuristics": [],
+      "persona_signals": [
+        { "persona_id": "first_time_user", "test": "comprehension", "observation": "No back arrow on step 2; unclear how to fix the email.", "expected_action": "Look for a back arrow", "predicted_outcome": "Return to step 1", "confidence": "MEDIUM", "simulated": true },
+        { "persona_id": "low_digital_literacy", "test": "comprehension", "observation": "Would close the app and start over.", "expected_action": "Close the app", "predicted_outcome": "Lose progress", "confidence": "LOW", "simulated": true }
+      ],
+      "recommendation": "Add a visible back control to step 2 and let users edit the email without restarting.",
+      "retest": { "steps": ["Re-run the comprehension test on step 2 of the revised flow with the same presets."], "expected_result": "At least 2 of 3 simulated personas identify how to go back.", "layer": "synthetic_user_regression" },
+      "limitations": "Simulated persona behavior from static screenshots; not human participant research."
+    },
+    {
+      "issue_id": "F-fixture-flow-review-003",
+      "title": "No visible error state for an invalid email on step 1",
+      "finding_type": "UX_RISK",
+      "severity": "Medium",
+      "priority": "P2",
+      "confidence": "LOW",
+      "platform": "ios",
+      "device": "mobile",
+      "viewport": "n/a",
+      "location": "scr_1, email field",
+      "component": "email field",
+      "flow": "Sign up with email, step 1",
+      "observed": "The provided screens show no error or validation state for the email field; only the empty and filled states are present.",
+      "expected": "The flow shows how an invalid email is communicated before the user continues.",
+      "impact": "Missing error states are a common source of dead ends; users cannot tell why Continue does nothing.",
+      "evidence": [
+        { "type": "screenshot", "ref": "scr_1", "value": { "region": { "x": 0.06, "y": 0.38, "w": 0.88, "h": 0.1 } }, "captured_at": "2026-09-02T00:00:14Z", "method": "visual", "artifact": "art_1", "note": "Email field with no error affordance captured" }
+      ],
+      "rules": [],
+      "heuristics": ["BP-forms-002"],
+      "persona_signals": [],
+      "recommendation": "Provide an inline error state for the email field and include it in the flow's screen set.",
+      "retest": { "steps": ["Add an invalid email and capture the resulting state."], "expected_result": "An inline, specific error message appears near the field.", "layer": "manual_a11y_qa" },
+      "limitations": "Absence in the provided screens is not proof the state does not exist at runtime; it was not provided for review."
+    },
+    {
+      "issue_id": "F-fixture-flow-review-004",
+      "title": "Suspected small touch target on the code inputs (step 2)",
+      "finding_type": "VIOLATION",
+      "severity": "High",
+      "priority": "P1",
+      "confidence": "LOW",
+      "platform": "ios",
+      "device": "mobile",
+      "viewport": "n/a",
+      "location": "scr_2, verification code inputs",
+      "component": "code input box",
+      "flow": "Sign up with email, step 2",
+      "observed": "Each of the six code boxes samples at roughly 34 by 34 px in the screenshot's coordinate space.",
+      "expected": "Pointer targets are at least the platform minimum unless an exception applies.",
+      "impact": "Small adjacent targets are easy to mis-tap, especially one-handed; entering the code is the crux of step 2.",
+      "evidence": [
+        { "type": "bounding_box", "ref": "scr_2", "value": { "region": { "x": 0.08, "y": 0.32, "w": 0.84, "h": 0.09 }, "estimated_px": 34 }, "captured_at": "2026-09-02T00:00:15Z", "method": "visual", "artifact": "art_2", "note": "Target size estimated; rendered scale unknown" }
+      ],
+      "rules": [{ "id": "WCAG-2.5.8", "result": "PARTIAL" }],
+      "heuristics": [],
+      "persona_signals": [],
+      "recommendation": "Increase the code-box size and spacing to meet the platform minimum target size.",
+      "code_guidance": "Set each code input to at least the platform minimum (for example 44 px on iOS) with adequate spacing.",
+      "retest": { "steps": ["Measure the rendered size of the code inputs on a device."], "expected_result": "Each target meets the platform minimum size or an exception applies.", "layer": "accessibility_automation" },
+      "automation_candidate": { "assertion": "min(width,height) of .code-input >= 44", "tool_hint": "layout assertion in an e2e test" },
+      "limitations": "Size estimated from screenshot pixels; rendered scale unknown, so reported as PARTIAL."
+    }
+  ],
+  "rules_index": {
+    "WCAG-2.5.8": { "title": "Target size (minimum)", "authority": "W3C", "rule_class": "NORMATIVE", "source_version": "2.2", "source_url": "https://www.w3.org/TR/WCAG22/#target-size-minimum", "conformance_level": "AA", "normative_strength": "MUST" },
+    "NNG-H04": { "title": "Consistency and standards", "authority": "NN/g", "rule_class": "HEURISTIC", "source_version": "unverified", "source_url": null, "conformance_level": null, "normative_strength": "INFORMATIVE" },
+    "BP-forms-002": { "title": "Show and explain form error states", "authority": "project best practice", "rule_class": "BEST_PRACTICE", "source_version": "unverified", "source_url": null, "conformance_level": null, "normative_strength": "SHOULD" }
+  },
+  "persona_runs": [
+    {
+      "persona_run_id": "prs_1",
+      "persona": { "persona_id": "first_time_user", "label": "First-time user", "dimensions": { "product_familiarity": "first_time", "experience": "experienced", "digital_literacy": "high", "reading_behavior": "skimming", "attention": "focused", "device_and_grip": "mobile_two_hand", "goal_orientation": "exploratory", "urgency": "low", "accessibility_needs": [] } },
+      "screen_id": "scr_1",
+      "signals": [
+        { "persona_id": "first_time_user", "test": "first_impression", "observation": "An email sign-up; one field and a Continue button.", "expected_action": "Type an email and tap Continue", "predicted_outcome": "A verification step", "confidence": "MEDIUM", "simulated": true },
+        { "persona_id": "first_time_user", "test": "primary_action", "observation": "Continue at the bottom is obvious.", "expected_action": "Tap Continue", "predicted_outcome": "Next step", "confidence": "HIGH", "simulated": true, "evidence": [{ "type": "persona_vote", "ref": "scr_1", "value": { "region": { "x": 0.06, "y": 0.86, "w": 0.88, "h": 0.08 } }, "captured_at": "2026-09-02T00:00:30Z", "method": "simulated" }] },
+        { "persona_id": "first_time_user", "test": "comprehension", "observation": "On step 2, no back arrow; unsure how to fix a wrong email.", "expected_action": "Look for a back arrow", "predicted_outcome": "Return to step 1", "confidence": "MEDIUM", "simulated": true },
+        { "persona_id": "first_time_user", "test": "abandonment", "observation": "Would continue but worry about a typo.", "expected_action": "Continue", "predicted_outcome": "Reach verification", "confidence": "MEDIUM", "simulated": true }
+      ],
+      "outcome": { "decision": "CONTINUE", "confidence": "MEDIUM" },
+      "not_simulated": null,
+      "simulated": true
+    },
+    {
+      "persona_run_id": "prs_2",
+      "persona": { "persona_id": "skimmer", "label": "Skimmer", "dimensions": { "product_familiarity": "first_time", "experience": "experienced", "digital_literacy": "high", "reading_behavior": "skimming", "attention": "distracted", "device_and_grip": "mobile_one_hand", "goal_orientation": "efficiency", "urgency": "high", "accessibility_needs": [] } },
+      "screen_id": "scr_1",
+      "signals": [
+        { "persona_id": "skimmer", "test": "first_impression", "observation": "Sign-up. One field.", "expected_action": "Type email, Continue", "predicted_outcome": "Next", "confidence": "MEDIUM", "simulated": true },
+        { "persona_id": "skimmer", "test": "primary_action", "observation": "Continue at the bottom.", "expected_action": "Tap Continue", "predicted_outcome": "Next step", "confidence": "HIGH", "simulated": true },
+        { "persona_id": "skimmer", "test": "comprehension", "observation": "On step 2 the Verify button moved; almost tapped where Continue was.", "expected_action": "Hunt for the button", "predicted_outcome": "Mis-tap", "confidence": "MEDIUM", "simulated": true },
+        { "persona_id": "skimmer", "test": "abandonment", "observation": "Would continue if it is quick.", "expected_action": "Continue", "predicted_outcome": "Done fast", "confidence": "MEDIUM", "simulated": true }
+      ],
+      "outcome": { "decision": "HESITATE", "confidence": "MEDIUM" },
+      "not_simulated": null,
+      "simulated": true
+    },
+    {
+      "persona_run_id": "prs_3",
+      "persona": { "persona_id": "low_digital_literacy", "label": "Low digital literacy", "dimensions": { "product_familiarity": "first_time", "experience": "novice", "digital_literacy": "low", "reading_behavior": "deliberate", "attention": "focused", "device_and_grip": "mobile_two_hand", "goal_orientation": "exploratory", "urgency": "low", "accessibility_needs": [] } },
+      "screen_id": "scr_1",
+      "signals": [
+        { "persona_id": "low_digital_literacy", "test": "first_impression", "observation": "It wants my email.", "expected_action": "Type email", "predicted_outcome": "Not sure", "confidence": "MEDIUM", "simulated": true },
+        { "persona_id": "low_digital_literacy", "test": "comprehension", "observation": "On step 2, if the email is wrong I would close the app.", "expected_action": "Close the app", "predicted_outcome": "Lose progress", "confidence": "LOW", "simulated": true },
+        { "persona_id": "low_digital_literacy", "test": "abandonment", "observation": "Might leave at the code step.", "expected_action": "Leave", "predicted_outcome": "Nothing happens", "confidence": "MEDIUM", "simulated": true }
+      ],
+      "outcome": { "decision": "ABANDON", "confidence": "MEDIUM" },
+      "not_simulated": null,
+      "simulated": true
+    }
+  ],
+  "persona_summary": {
+    "personas_tested": 3,
+    "tests": [
+      { "test": "primary_action", "majority_answer": "Tap Continue at the bottom", "agree": 2, "dissent": [] },
+      { "test": "comprehension", "majority_answer": "No way back from step 2", "agree": 3, "dissent": [] },
+      { "test": "abandonment", "majority_answer": "HESITATE or ABANDON at the code step", "agree": 2, "dissent": [{ "persona_id": "first_time_user", "answer": "CONTINUE" }] }
+    ],
+    "personas_confused": 3,
+    "task_failures": 0,
+    "derived_findings": ["F-fixture-flow-review-002"],
+    "disclaimer": "Results are simulated persona behavior, not human participant research."
+  },
+  "coverage": {
+    "applicable_rule_count": 14,
+    "rule_results": [
+      { "id": "WCAG-2.5.8", "result": "PARTIAL", "method": "visual", "finding_ids": ["F-fixture-flow-review-004"], "note": "Target size estimated; scale unknown" },
+      { "id": "WCAG-1.4.3", "result": "PARTIAL", "method": "visual", "finding_ids": [], "note": "Some text verified across screens" },
+      { "id": "WCAG-3.3.1", "result": "NOT_TESTED", "reason": "no error state was provided in the screen set" },
+      { "id": "WCAG-2.1.1", "result": "NOT_TESTED", "reason": "input cannot establish keyboard operability" }
+    ],
+    "not_tested_families": [
+      { "family": "semantics", "reason": "input cannot establish semantics" },
+      { "family": "keyboard_operability", "reason": "input cannot establish keyboard operability" },
+      { "family": "flow_completion", "reason": "an ordered screenshot sequence shows steps but cannot prove real navigation" }
+    ],
+    "rule_sets": [{ "id": "WCAG-2.2", "version": "2.2", "scope": "visually decidable rules only" }]
+  },
+  "limitations": [
+    { "scope": "audit", "text": "Static screenshots of a flow: real navigation, transitions, error states, and back behavior were not exercised, only inferred from the ordered images." },
+    { "scope": "stage", "stage": "personas", "text": "Simulated personas reason over each screen in order and may skip secondary text by design. Results are simulated persona behavior, not human participant research." }
+  ],
+  "versions": { "contract": "0.1-provisional", "core": "fixture", "corpus": "none", "finding_schema": "0.1", "model": "none (fixture)" },
+  "timing": { "started": "2026-09-02T00:00:00Z", "finished": "2026-09-02T00:01:50Z", "stages": { "intake": 1.0, "visual": 30.0, "personas": 42.0, "standards": 20.0, "report": 2.0 } }
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI/UX Auto Tester</title>
+  <link rel="stylesheet" href="/ui/styles.css">
+</head>
+<body>
+  <a class="skip" href="#app">Skip to content</a>
+  <header class="site-head">
+    <a href="/" data-nav class="brand">UI/UX Auto Tester <span class="muted small">web · W1 preview</span></a>
+    <nav aria-label="Primary">
+      <a href="/" data-nav>New analysis</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+  <div id="notice" class="notice" role="alert" hidden></div>
+  <main id="app" tabindex="-1"></main>
+  <p id="live" class="visually-hidden" aria-live="polite"></p>
+  <dialog id="drawer" aria-labelledby="drawer-title"></dialog>
+  <footer class="site-foot" id="about">
+    <details>
+      <summary>About this tool</summary>
+      <p>Upload one screenshot and receive UI/UX feedback from three separate lenses: <strong>VIOLATION</strong> (an objective rule failure), <strong>UX_RISK</strong> (an expert usability concern), and <strong>USER_SIGNAL</strong> (simulated persona behavior). The three are never merged.</p>
+      <p><strong>Simulated personas are AI simulations, not real participants.</strong> Use them to spot likely confusion early and validate important decisions with real users.</p>
+      <p>From a screenshot alone the tool cannot verify semantics, keyboard operability, focus order, dynamic states, or performance; every result lists what was not tested. Findings from screenshots carry LOW confidence and suspected violations are reported as PARTIAL checks.</p>
+      <p>Privacy: uploads are private, reachable only by their unguessable link, stripped of metadata, deletable at any time, and removed automatically after the retention period shown on the analysis page. This preview build runs against a fixture core; results are illustrative until a live Audit Core is connected.</p>
+    </details>
+  </footer>
+  <script type="module" src="/ui/app.mjs"></script>
+</body>
+</html>
