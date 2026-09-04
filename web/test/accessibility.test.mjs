@@ -64,6 +64,9 @@ test("no rendered HTML uses inline style attributes (keeps the strict CSP intact
   }
   assert.ok(!/\sstyle="/.test(R.renderFindingDetail(result.findings[0], result)));
   assert.ok(!read("index.html").match(/\sstyle="/), "index.html has no inline styles");
+  // app.mjs builds HTML too; inline style="" attributes are blocked by the strict CSP (style-src 'self'),
+  // so markers/widths must come from classes or the CSSOM (element.style), never attribute strings.
+  assert.ok(!/\sstyle="/.test(read("app.mjs")), "app.mjs must not emit inline style attributes");
 });
 
 test("the W5/W6 surfaces (comparison, comments) are labelled and free of inline styles", () => {

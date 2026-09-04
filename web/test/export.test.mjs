@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { findingsToCsv, findingToGithubIssue, findingToJira, findingToMarkdown, resultToMarkdown, exportReport, exportFinding, CSV_COLUMNS, SIMULATION_DISCLAIMER } from "../shared/export.mjs";
+import { findingsToCsv, findingToGithubIssue, findingToJira, findingToMarkdown, resultToMarkdown, exportReport, exportFinding, CSV_COLUMNS, SIMULATION_DISCLAIMER, ILLUSTRATIVE_NOTICE } from "../shared/export.mjs";
 import { loadFixture } from "../adapter/fixture-adapter.mjs";
 import { addPresentation } from "../server/presentation.mjs";
 
@@ -13,6 +13,14 @@ const parseCsv = (text) => text.trimEnd().split("\r\n").map((line) => {
     if (q) { if (c === '"' && line[i + 1] === '"') { cur += '"'; i++; } else if (c === '"') q = false; else cur += c; }
     else if (c === '"') q = true; else if (c === ",") { cells.push(cur); cur = ""; } else cur += c; }
   cells.push(cur); return cells;
+});
+
+test("the Markdown report carries the illustrative notice for fixture results and drops it for a real core", () => {
+  const md = resultToMarkdown(result);
+  assert.ok(md.includes(`> ${ILLUSTRATIVE_NOTICE}`), "illustrative results are flagged as a blockquote near the top");
+  assert.ok(md.indexOf(ILLUSTRATIVE_NOTICE) < md.indexOf("**"), "the notice precedes the headline");
+  const real = resultToMarkdown({ ...result, versions: { ...result.versions, core: "1.0.0" } });
+  assert.ok(!real.includes(ILLUSTRATIVE_NOTICE), "a real core produces no illustrative notice");
 });
 
 test("CSV has a header, one row per finding, and the expected columns", () => {

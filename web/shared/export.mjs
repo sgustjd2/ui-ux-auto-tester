@@ -4,6 +4,11 @@
 // disclaimer so exported issues stay honest about what is a rule failure versus simulated behavior.
 
 export const SIMULATION_DISCLAIMER = "Results are simulated persona behavior, not human participant research.";
+// Honesty about the built-in example core: until a real Audit Core is bound, every result is placeholder data.
+// The fixture adapter and the reference CLI both stamp versions.core = "fixture"; a real core stamps its own
+// version, so this notice (banner in the UI, blockquote in exports) disappears automatically once one is connected.
+export const ILLUSTRATIVE_NOTICE = "Illustrative sample — produced by the built-in example core, not a real audit. Findings, personas, and rule results are placeholder data; connect a real Audit Core for genuine analysis.";
+export const isIllustrative = (result) => result?.versions?.core === "fixture";
 export const GROUP_ORDER = ["BLOCKER", "CONFUSION", "IMPROVEMENT", "NOTE"];
 export const GROUP_LABELS = { BLOCKER: "Blockers", CONFUSION: "Confusion", IMPROVEMENT: "Improvements", NOTE: "Notes" };
 export const METHOD_LABELS = { automated: "measured", visual: "inferred", manual: "inferred", simulated: "simulated" };
@@ -41,6 +46,7 @@ export function resultToMarkdown(result) {
   const s = result.summary ?? {};
   const counts = countsByGroup(result.findings);
   const out = ["# UI/UX analysis", ""];
+  if (isIllustrative(result)) out.push(`> ${ILLUSTRATIVE_NOTICE}`, "");
   if (result.flow?.task) out.push(`Flow: ${result.flow.task}`, "");
   out.push(`**${s.headline ?? ""}**`, "");
   if (s.answer_to_question) out.push(`Answer to the question: ${s.answer_to_question}`, "");

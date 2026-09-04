@@ -4,8 +4,8 @@
 
 // Text-format helpers live in the shared export module (used by the server and a future CLI too); re-export them
 // so existing consumers keep importing them from here.
-import { SIMULATION_DISCLAIMER, GROUP_ORDER, GROUP_LABELS, METHOD_LABELS, countsByGroup, findingToMarkdown, resultToMarkdown, findingToGithubIssue, findingToJira } from "../shared/export.mjs";
-export { SIMULATION_DISCLAIMER, GROUP_ORDER, GROUP_LABELS, METHOD_LABELS, countsByGroup, findingToMarkdown, resultToMarkdown, findingToGithubIssue, findingToJira };
+import { SIMULATION_DISCLAIMER, ILLUSTRATIVE_NOTICE, isIllustrative, GROUP_ORDER, GROUP_LABELS, METHOD_LABELS, countsByGroup, findingToMarkdown, resultToMarkdown, findingToGithubIssue, findingToJira } from "../shared/export.mjs";
+export { SIMULATION_DISCLAIMER, ILLUSTRATIVE_NOTICE, isIllustrative, GROUP_ORDER, GROUP_LABELS, METHOD_LABELS, countsByGroup, findingToMarkdown, resultToMarkdown, findingToGithubIssue, findingToJira };
 
 export const SIMULATED_LABEL = "Simulated persona";
 export const STAGE_LABELS = { intake: "Understanding the input", visual: "Understanding the screen", personas: "Simulating personas", standards: "Checking rules", runtime: "Running the page", report: "Preparing the report" };
@@ -28,8 +28,9 @@ export function renderSummary(result) {
   const s = result?.summary;
   const counts = countsByGroup(result?.findings);
   const v = result?.versions;
-  if (!s) return `<section class="card summary" aria-labelledby="summary-h"><h2 id="summary-h">Summary</h2><p class="muted">The summary appears when the first stage finishes.</p></section>`;
-  return `<section class="card summary" aria-labelledby="summary-h">
+  const banner = isIllustrative(result) ? `<div class="illustrative-banner" role="note">${esc(ILLUSTRATIVE_NOTICE)}</div>` : "";
+  if (!s) return `${banner}<section class="card summary" aria-labelledby="summary-h"><h2 id="summary-h">Summary</h2><p class="muted">The summary appears when the first stage finishes.</p></section>`;
+  return `${banner}<section class="card summary" aria-labelledby="summary-h">
   <h2 id="summary-h">Summary</h2>
   <p class="headline">${esc(s.headline)}</p>
   ${s.answer_to_question ? `<p class="answer"><strong>Answer to your question:</strong> ${esc(s.answer_to_question)}</p>` : ""}

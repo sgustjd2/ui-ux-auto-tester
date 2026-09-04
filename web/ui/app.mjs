@@ -460,7 +460,7 @@ async function loadShares(id) {
   try {
     const { shares } = await api("GET", `/api/audits/${id}/shares`);
     panel.innerHTML = `<p><strong>Share a read-only link</strong> <span class="muted small">Anyone with the link can view this report (not the input). Links expire and can be revoked.</span></p>
-      <div class="share-create"><label class="small">Expires in <input id="share-days" type="number" min="1" max="90" value="7" style="width:64px"> days</label> <button type="button" id="share-create">Create link</button></div>
+      <div class="share-create"><label class="small">Expires in <input id="share-days" type="number" min="1" max="90" value="7"> days</label> <button type="button" id="share-create">Create link</button></div>
       <ul class="share-list">${shares.filter((s) => !s.revoked && !s.expired).map((s) => `<li><input class="share-url" readonly value="${R.esc(location.origin)}/s/${R.esc(s.token)}"><button type="button" data-copy-share="${R.esc(s.token)}">Copy</button><button type="button" class="link" data-revoke="${R.esc(s.token)}">Revoke</button> <span class="muted small">expires ${R.esc(new Date(s.expires_at).toLocaleDateString())}</span></li>`).join("") || '<li class="muted">No active links.</li>'}</ul>`;
     document.getElementById("share-create").addEventListener("click", async () => {
       const days = Number(document.getElementById("share-days").value) || 7;

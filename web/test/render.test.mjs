@@ -17,6 +17,16 @@ test("every persona element is labeled as a simulated persona and carries the di
   assert.ok(!/\d+%/.test(html), "no percentages");
 });
 
+test("summary shows an illustrative-sample banner for fixture-core results and hides it for a real core", () => {
+  const withFixture = R.renderSummary(result); // quick-review fixture stamps versions.core = "fixture"
+  assert.match(withFixture, /class="illustrative-banner"/);
+  assert.ok(withFixture.includes(R.ILLUSTRATIVE_NOTICE), "the banner carries the shared notice text");
+  const real = R.renderSummary({ ...result, versions: { ...result.versions, core: "1.0.0" } });
+  assert.ok(!/illustrative-banner/.test(real), "no banner once a real Audit Core produced the result");
+  // also present on the running/empty summary state so it is not hidden until the report finishes
+  assert.match(R.renderSummary({ versions: { core: "fixture" } }), /illustrative-banner/);
+});
+
 test("persona panel shows the run info with seed and marks not-simulated personas (W3)", () => {
   const env = reconcilePersonas(JSON.parse(loadFixture("quick-review")), ["first_time_user", "power_user"]);
   const html = R.renderPersonas(env, { seed: 1234, persona_ids: ["first_time_user", "power_user"] });

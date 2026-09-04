@@ -1,6 +1,6 @@
 # Security and privacy requirements — web product
 
-Version: 0.1 · Status: Draft / Foundation (Phase W0) · Last updated: 2026-09-03
+Version: 0.1 · Status: Draft / Foundation (Phase W0) · Last updated: 2026-09-04
 
 Applies the root `prd.md` §17 (untrusted content, prompt injection) and §14 (non-destructive runtime testing) to the web product, and adds the requirements that come from hosting other people's screenshots and, later, browsing their sites. Requirements marked W1 are mandatory for the MVP (`web-product-prd.md` WNFR-04).
 
@@ -105,6 +105,8 @@ Everything that originates from the audited target (image pixels, OCR text, DOM,
 ---
 
 ## 4. Security acceptance tests (W1)
+
+**Verification status (2026-09-04): all eight acceptance tests below have automated coverage against the fixture-backed implementation, and an adversarial read of the W1-mandatory controls (SEC-01–19, SEC-26–33) found no gaps.** Mapping: (1) malicious uploads — SVG, GIF, PDF, and empty rejected by magic bytes, plus over-size, over-dimension, and the >40 M-pixel decompression-bomb cap, in `web/test/uploads.test.mjs`; (2) metadata stripping for PNG (tEXt/eXIf), JPEG (APP1 GPS EXIF), and WebP (EXIF chunk + VP8X flag), same file; (3) modified/decoy ids and deleted ids return 404 in `web/test/server.test.mjs`; (4) the injection fixture keeps output structure and records the injected text only as an observation in `web/test/orchestrator.test.mjs`; (5)/(6) hard delete and the expiry sweep both remove every artifact and 404 afterwards (`orchestrator`/`server` tests); (7) a full lifecycle run asserts the user's question never appears in any log line (`orchestrator`); (8) the static no-provider-SDK / no-prompt check in `web/test/boundary.test.mjs`. Additionally verified in `web/test/server.test.mjs` and by inspection: the strict CSP header, `X-Web-Client` CSRF gate with `HttpOnly; SameSite=Strict` cookies, per-IP 429 rate limiting, request-body size cap, and path-traversal defenses in both static serving (`resolve` + root-prefix check) and id-addressed file access (`SAFE_ID` forbids `.`/`/`/`\`). Deferral: SEC-03 pixel re-encoding is not done (W-OD-18); container-level metadata-chunk stripping is the shipped substitute and the bomb defense is the pre-decode pixel cap, so no attacker-controlled pixels are ever decoded to reject an upload.
 
 - Upload a renamed SVG, a PDF, a 50 MB PNG, a 20,000 px wide PNG, and a decompression-bomb PNG: all rejected with specific messages; nothing stored.
 - Upload a JPEG with GPS EXIF: stored copy has no metadata.
