@@ -1,6 +1,6 @@
 # Standards Coverage Matrix
 
-Status: Phase 1 complete (2026-09-02 to 2026-09-23; exit report `research/phase-1-exit-report.md`); normalization columns advance in Phase 2. Rows advance only through the protocol in `docs/standards-research-plan.md`; LEGAL-OTHER is DEFERRED by user decision. Vocabulary and the rules for advancing a row: `docs/standards-research-plan.md` §6 and §12. Source IDs refer to `research/sources.md`; a source counts toward coverage only when its row there is VERIFIED.
+Status: Phase 1 complete (2026-09-02 to 2026-09-23; exit report `research/phase-1-exit-report.md`); normalization columns advance in Phase 2 (in progress since 2026-09-23; records in `registry/`). Rows advance only through the protocol in `docs/standards-research-plan.md`; LEGAL-OTHER is DEFERRED by user decision. Vocabulary and the rules for advancing a row: `docs/standards-research-plan.md` §6 and §12. Source IDs refer to `research/sources.md`; a source counts toward coverage only when its row there is VERIFIED.
 
 Rules enforced by `scripts/check-harness.mjs`:
 
@@ -14,7 +14,7 @@ Rules enforced by `scripts/check-harness.mjs`:
 
 | domain_id | domain | source_ids | research_status | normalization_status | notes |
 |---|---|---|---|---|---|
-| A11Y-WCAG22 | WCAG 2.2 | SRC-W3C-WCAG22, SRC-W3C-WCAG22-UNDERSTANDING, SRC-W3C-ACT-FORMAT, SRC-W3C-ACT-RULES | COVERED | NOT_STARTED | Verified 2026-09-02; research reviewer accepted both notes with fixes, applied. The Understanding companion is informative and yields no candidate rules by design. 2026-09-23: ACT Rules Format 1.1 (REC 5 February 2026) and the WAI ACT rule list added as test-procedure companions (testability and fixtures, no new requirements). WCAG 3.0 is a Working Draft (10 September 2026) registered watch-only (SRC-W3C-WCAG3, no domain) |
+| A11Y-WCAG22 | WCAG 2.2 | SRC-W3C-WCAG22, SRC-W3C-WCAG22-UNDERSTANDING, SRC-W3C-ACT-FORMAT, SRC-W3C-ACT-RULES | COVERED | DONE | Verified 2026-09-02; research reviewer accepted both notes with fixes, applied. The Understanding companion is informative and yields no candidate rules by design. 2026-09-23: ACT Rules Format 1.1 (REC 5 February 2026) and the WAI ACT rule list added as test-procedure companions (testability and fixtures, no new requirements). WCAG 3.0 is a Working Draft (10 September 2026) registered watch-only (SRC-W3C-WCAG3, no domain) Normalization 2026-09-23: 86 WCAG 2.2 records in registry/wcag22.json (4.1.1 not registered); the companions yield no rules. |
 | A11Y-ARIA | WAI-ARIA | SRC-W3C-ARIA12, SRC-W3C-HTML-ARIA, SRC-W3C-ACCNAME | COVERED | NOT_STARTED | Verified 2026-09-02: WAI-ARIA 1.2 Recommendation (6 June 2023); 1.2 is the latest Recommendation, 1.3 is a published Working Draft. Candidate rules are author-conformance requirements plus the roles/attributes ontology. 2026-09-23: ARIA in HTML (REC, revision 11 August 2026) and Accname 1.1 (REC 2018; 1.2 WD 22 September 2026) added (GAP-031 resolved) |
 | A11Y-APG | ARIA Authoring Practices Guide | SRC-W3C-APG | COVERED | NOT_STARTED | Verified 2026-09-02: informative WAI guide, 30 patterns; yields BEST_PRACTICE component rules that defer to ARIA and WCAG |
 | A11Y-COGA | Cognitive accessibility guidance | SRC-W3C-COGA | COVERED | NOT_STARTED | Verified 2026-09-02: W3C Working Group Note (29 April 2021); 8 objectives yield BEST_PRACTICE cognitive-accessibility rule families |
@@ -78,22 +78,22 @@ Rules enforced by `scripts/check-harness.mjs`:
 
 | domain_id | domain | source_ids | research_status | normalization_status | notes |
 |---|---|---|---|---|---|
-| VIS-TYPOGRAPHY | Typography | SRC-GOOGLE-MATERIAL3, SRC-APPLE-HIG, SRC-W3C-WCAG22, SRC-KR-KRDS | COVERED | NOT_STARTED | Verified 2026-09-02: Material and HIG type systems plus WCAG text criteria. 2026-09-23: KRDS (Korean government design system, 2025.08 guideline) added for Korean public-sector services. |
+| VIS-TYPOGRAPHY | Typography | SRC-GOOGLE-MATERIAL3, SRC-APPLE-HIG, SRC-W3C-WCAG22, SRC-KR-KRDS | COVERED | PARTIAL | Verified 2026-09-02: Material and HIG type systems plus WCAG text criteria. 2026-09-23: KRDS (Korean government design system, 2025.08 guideline) added for Korean public-sector services. Normalization 2026-09-23: WCAG 2.2 part done; other sources pending. |
 | VIS-HIERARCHY | Visual hierarchy | SRC-NNG-ARTICLES | COVERED | NOT_STARTED | Verified 2026-09-02: NN/g visual-hierarchy research |
 | VIS-SPACING | Spacing | SRC-GOOGLE-MATERIAL3, SRC-APPLE-HIG | COVERED | NOT_STARTED | Verified 2026-09-02: Material and HIG spacing/layout |
 | VIS-ALIGNMENT | Alignment | SRC-GOOGLE-MATERIAL3 | COVERED | NOT_STARTED | Verified 2026-09-02: Material layout/grid |
 | VIS-GRID | Grid | SRC-GOOGLE-MATERIAL3 | COVERED | NOT_STARTED | Verified 2026-09-02: Material layout grid |
 | VIS-COLOR | Color | SRC-GOOGLE-MATERIAL3, SRC-APPLE-HIG, SRC-KR-KRDS | COVERED | NOT_STARTED | Verified 2026-09-02: Material and HIG color systems. 2026-09-23: KRDS (Korean government design system, 2025.08 guideline) added for Korean public-sector services. |
-| VIS-CONTRAST | Contrast | SRC-W3C-WCAG22 | COVERED | NOT_STARTED | Sole source verified 2026-09-02; candidate rules 1.4.1, 1.4.3, 1.4.6, 1.4.11, 2.4.13 |
+| VIS-CONTRAST | Contrast | SRC-W3C-WCAG22 | COVERED | DONE | Sole source verified 2026-09-02; candidate rules 1.4.1, 1.4.3, 1.4.6, 1.4.11, 2.4.13 Normalization 2026-09-23: its sole source is normalized (WCAG 1.4.1, 1.4.3, 1.4.6, 1.4.11, 2.4.13 among others). |
 | VIS-ICONS | Icons | SRC-GOOGLE-MATERIAL3, SRC-APPLE-HIG | COVERED | NOT_STARTED | Verified 2026-09-02: Material and HIG iconography |
-| VIS-IMAGERY | Imagery | SRC-GOOGLE-MATERIAL3, SRC-W3C-WCAG22 | COVERED | NOT_STARTED | Verified 2026-09-02: Material imagery guidance plus WCAG image criteria |
+| VIS-IMAGERY | Imagery | SRC-GOOGLE-MATERIAL3, SRC-W3C-WCAG22 | COVERED | PARTIAL | Verified 2026-09-02: Material imagery guidance plus WCAG image criteria Normalization 2026-09-23: WCAG 2.2 part done; other sources pending. |
 | VIS-DENSITY | Density | SRC-GOOGLE-MATERIAL3 | COVERED | NOT_STARTED | Verified 2026-09-02: Material density guidance |
-| VIS-RESPONSIVE | Responsive layout | SRC-MDN-RESPONSIVE, SRC-W3C-WCAG22 | COVERED | NOT_STARTED | Verified 2026-09-02: MDN responsive guide plus WCAG 1.4.10 Reflow |
+| VIS-RESPONSIVE | Responsive layout | SRC-MDN-RESPONSIVE, SRC-W3C-WCAG22 | COVERED | PARTIAL | Verified 2026-09-02: MDN responsive guide plus WCAG 1.4.10 Reflow Normalization 2026-09-23: WCAG 2.2 part done; other sources pending. |
 | VIS-ADAPTIVE | Adaptive layout | SRC-GOOGLE-MATERIAL3, SRC-APPLE-HIG, SRC-GOOGLE-ANDROID-QUALITY | COVERED | NOT_STARTED | Verified 2026-09-02: Material and HIG adaptive layout. 2026-09-23: Android adaptive app quality tiers added |
-| VIS-ZOOM | Zoom | SRC-W3C-WCAG22 | COVERED | NOT_STARTED | Sole source verified 2026-09-02; candidate rules 1.4.4, 1.4.8, 1.4.10 |
-| VIS-ORIENTATION | Orientation | SRC-W3C-WCAG22, SRC-APPLE-HIG, SRC-GOOGLE-ANDROID-QUALITY | COVERED | NOT_STARTED | Verified 2026-09-02: WCAG 1.3.4 plus HIG layout/orientation. 2026-09-23: Android quality items on orientation and configuration changes added |
+| VIS-ZOOM | Zoom | SRC-W3C-WCAG22 | COVERED | DONE | Sole source verified 2026-09-02; candidate rules 1.4.4, 1.4.8, 1.4.10 Normalization 2026-09-23: its sole source is normalized (WCAG 1.4.4, 1.4.8, 1.4.10). |
+| VIS-ORIENTATION | Orientation | SRC-W3C-WCAG22, SRC-APPLE-HIG, SRC-GOOGLE-ANDROID-QUALITY | COVERED | PARTIAL | Verified 2026-09-02: WCAG 1.3.4 plus HIG layout/orientation. 2026-09-23: Android quality items on orientation and configuration changes added Normalization 2026-09-23: WCAG 2.2 part done; other sources pending. |
 | VIS-SAFE-AREAS | Safe areas | SRC-APPLE-HIG, SRC-MDN-WEB | COVERED | NOT_STARTED | Verified 2026-09-02: HIG safe areas plus MDN env()/viewport-fit |
-| VIS-TEXT-SCALING | Text scaling | SRC-APPLE-A11Y, SRC-GOOGLE-ANDROID-A11Y, SRC-W3C-WCAG22 | COVERED | NOT_STARTED | Verified 2026-09-02: Dynamic Type, Android font scaling, WCAG 1.4.4/1.4.10 |
+| VIS-TEXT-SCALING | Text scaling | SRC-APPLE-A11Y, SRC-GOOGLE-ANDROID-A11Y, SRC-W3C-WCAG22 | COVERED | PARTIAL | Verified 2026-09-02: Dynamic Type, Android font scaling, WCAG 1.4.4/1.4.10 Normalization 2026-09-23: WCAG 2.2 part done; other sources pending. |
 
 ## Other UX domains
 

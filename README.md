@@ -4,10 +4,10 @@
 
 URL, 스크린샷, 디자인 파일, 소스 저장소, 사용자 플로우를 입력하면 인터페이스를 **표준 준수 감사**와 **전문가 휴리스틱 리뷰**, **가상 페르소나 시뮬레이션**, **플로우 테스트**의 네 관점에서 점검하고, 발견 사항마다 근거(evidence), 권위(authority), 신뢰도, 수정 방법, 재검증 절차를 함께 제시하는 것을 목표로 합니다.
 
-> **English summary.** UI/UX Auto Tester is a rule-grounded UI/UX auditing and synthetic user-testing Skill for websites, PWAs, mobile apps, screenshots, designs, source code, and user flows. It audits against a versioned, citation-backed standards corpus (WCAG, WAI-ARIA, EN 301 549, Section 508, ADA, EU and Korean law, Apple/Android/Material guidelines, Core Web Vitals), adds expert heuristic review and simulated personas, and reports three strictly separated finding types (VIOLATION, UX_RISK, USER_SIGNAL) with evidence, fixes, and retest guidance. Phase 1 (standards corpus research) completed on 2026-09-23; Phase 2 (rule normalization) is next. Governing documents are in English; start with [prd.md](prd.md) and [CLAUDE.md](CLAUDE.md).
+> **English summary.** UI/UX Auto Tester is a rule-grounded UI/UX auditing and synthetic user-testing Skill for websites, PWAs, mobile apps, screenshots, designs, source code, and user flows. It audits against a versioned, citation-backed standards corpus (WCAG, WAI-ARIA, EN 301 549, Section 508, ADA, EU and Korean law, Apple/Android/Material guidelines, Core Web Vitals), adds expert heuristic review and simulated personas, and reports three strictly separated finding types (VIOLATION, UX_RISK, USER_SIGNAL) with evidence, fixes, and retest guidance. Phase 1 (standards corpus research) completed on 2026-09-23; Phase 2 (rule normalization) is in progress, starting with WCAG 2.2 (86 JSON rule records in registry/). Governing documents are in English; start with [prd.md](prd.md) and [CLAUDE.md](CLAUDE.md).
 
 > [!NOTE]
-> **현재 단계:** 표준 코퍼스 리서치(Phase 1)가 2026-09-23에 완료되었고, 다음 단계는 규칙 정규화(Phase 2)입니다. 종료 보고서: [research/phase-1-exit-report.md](research/phase-1-exit-report.md). 최종 스킬, 브라우저 자동화, 페르소나 엔진은 아직 구현 전이며, `web/`의 웹 프로토타입은 **샘플(fixture) 결과**만 보여 줍니다. 현재 단계의 공식 기록은 [CLAUDE.md](CLAUDE.md)의 Status 블록, 일일 진행 상황은 [research/ledger.md](research/ledger.md)에 있습니다.
+> **현재 단계:** 표준 코퍼스 리서치(Phase 1)가 2026-09-23에 완료되었고, 규칙 정규화(Phase 2)가 진행 중입니다. 첫 결과로 WCAG 2.2 성공 기준 86개가 `registry/wcag22.json`에 정규화되었습니다. 종료 보고서: [research/phase-1-exit-report.md](research/phase-1-exit-report.md). 최종 스킬, 브라우저 자동화, 페르소나 엔진은 아직 구현 전이며, `web/`의 웹 프로토타입은 **샘플(fixture) 결과**만 보여 줍니다. 현재 단계의 공식 기록은 [CLAUDE.md](CLAUDE.md)의 Status 블록, 일일 진행 상황은 [research/ledger.md](research/ledger.md)에 있습니다.
 
 ---
 
@@ -255,7 +255,10 @@ ui-ux-auto-tester/
 │   ├── landscape.md            # 도구·생태계 동향 (비규범)
 │   └── notes/                  # 출처별 리서치 노트
 ├── scripts/
-│   └── check-harness.mjs       # 하네스 검증기 (의존성 없음)
+│   ├── check-harness.mjs       # 하네스 검증기 (의존성 없음)
+│   └── check-registry.mjs      # 규칙 레지스트리 검증기 (자체 테스트 포함)
+├── registry/
+│   └── wcag22.json             # 정규화된 규칙 레코드 (JSON, 출처별 파일)
 ├── web/                        # 웹 프로토타입 (웹 스트림 소유, fixture 코어)
 └── .claude/
     ├── agents/                 # standards-researcher, research-reviewer 서브에이전트
@@ -283,7 +286,7 @@ ui-ux-auto-tester/
 node scripts/check-harness.mjs
 ```
 
-성공하면 `check-harness: OK (… checks, … sources, … domains)`를 출력하고 종료 코드 0을 반환합니다. 실패하면 문제 목록과 함께 종료 코드 2를 반환합니다(Claude Code Stop 훅으로 차단 가능).
+`registry/`가 있으면 규칙 레지스트리 검증기(`scripts/check-registry.mjs`)와 그 자체 테스트도 함께 실행합니다. 레지스트리만 따로 검사하려면 `node scripts/check-registry.mjs`를 실행합니다. 성공하면 `check-harness: OK (… checks, … sources, … domains)`를 출력하고 종료 코드 0을 반환합니다. 실패하면 문제 목록과 함께 종료 코드 2를 반환합니다(Claude Code Stop 훅으로 차단 가능).
 
 ### 10.3 웹 프로토타입 실행
 
@@ -331,7 +334,7 @@ node --test "web/test/*.test.mjs"
 |---|---|---|
 | Phase 0 | 하네스와 PRD 기반 (운영 매뉴얼, 문서 골격, 원장, ADR, 검증기) | 완료 (2026-09-02) |
 | Phase 1 | 표준 코퍼스 리서치 (출처 목록, 버전 레지스트리, 커버리지, 갭) | 완료 (2026-09-23, [종료 보고서](research/phase-1-exit-report.md)) |
-| Phase 2 | 규칙 정규화 (규칙 레코드, 중복 제거·크로스워크, 플랫폼·법 적용성, 테스트 가능성) | **다음 단계** |
+| Phase 2 | 규칙 정규화 (규칙 레코드, 중복 제거·크로스워크, 플랫폼·법 적용성, 테스트 가능성) | **진행 중** (2026-09-23 시작, WCAG 2.2 완료) |
 | Phase 3 | 감사 방법론 (객관·수동 감사 절차, 증거·심각도 모델, 보고서·JSON 스키마) | 예정 |
 | Phase 4 | 스킬 구현 (`SKILL.md`, `agents/openai.yaml`, references, 검증기, 예시) | 예정 |
 | Phase 5 | 브라우저·런타임 QA 통합 (반응형, 키보드, 폼·플로우, 스크린샷 증거, 성능) | 예정 |

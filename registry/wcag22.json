@@ -1,0 +1,4318 @@
+[
+  {
+    "id": "WCAG-1.1.1",
+    "title": "Non-text Content",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#non-text-content",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "alt-text",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Non-text content presented to users has a text alternative that serves the same purpose.",
+    "rationale": "People who are blind or have low vision, and people using speech or braille output, only get the information or function of images, icons, and other non-text content through a text alternative.",
+    "applicability": "Images, icons, image buttons, charts, audio and video objects, CAPTCHAs, and any other content that is not text, when presented to users.",
+    "exceptions": [
+      "Controls and inputs need a name that describes their purpose (the naming itself is also covered by 4.1.2).",
+      "Time-based media, tests or exercises that would be invalid as text, and content meant to create a specific sensory experience need at least a text alternative that identifies them descriptively.",
+      "A CAPTCHA needs a text alternative that identifies and describes its purpose, plus alternative CAPTCHA forms using different sensory modes.",
+      "Content that is pure decoration, used only for visual formatting, or not presented to users is implemented so assistive technology can ignore it."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "accessibility_node",
+      "dom_locator",
+      "screenshot",
+      "reviewer_observation"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-4.1.2",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "23a2a8",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "59796f",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "7d6734",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "8fc3b6",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "qt1vmo",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "e88epe",
+        "status": "proposed"
+      }
+    ],
+    "notes": "Automated checks can detect missing alternatives; whether an alternative is equivalent needs human or visual judgment."
+  },
+  {
+    "id": "WCAG-1.2.1",
+    "title": "Audio-only and Video-only (Prerecorded)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#audio-only-and-video-only-prerecorded",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "audio",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Prerecorded audio-only content has a text alternative with equivalent information, and prerecorded video-only content has either a text alternative or an audio track with equivalent information.",
+    "rationale": "Deaf and hard-of-hearing users cannot get information from audio-only content, and blind users cannot get it from video-only content, without an alternative.",
+    "applicability": "Prerecorded audio-only and prerecorded video-only media.",
+    "exceptions": [
+      "The media is itself an alternative for text and is clearly labeled as such."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "dom_locator",
+      "reviewer_observation"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-1.2.8",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "c3232f",
+        "status": "proposed"
+      },
+      {
+        "type": "act",
+        "id": "e7aa44",
+        "status": "proposed"
+      }
+    ]
+  },
+  {
+    "id": "WCAG-1.2.2",
+    "title": "Captions (Prerecorded)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#captions-prerecorded",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "captions",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Prerecorded audio in synchronized media has captions.",
+    "rationale": "Deaf and hard-of-hearing users need captions to follow dialogue and meaningful sound in video.",
+    "applicability": "Prerecorded synchronized media (audio combined with video or another time-based format).",
+    "exceptions": [
+      "The media is itself an alternative for text and is clearly labeled as such."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "dom_locator",
+      "screenshot",
+      "reviewer_observation"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-1.2.4",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "eac66b",
+        "status": "proposed"
+      }
+    ]
+  },
+  {
+    "id": "WCAG-1.2.3",
+    "title": "Audio Description or Media Alternative (Prerecorded)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#audio-description-or-media-alternative-prerecorded",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "video",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Prerecorded video in synchronized media has either audio description or a text alternative for time-based media.",
+    "rationale": "Blind users miss visual information in video, such as actions and on-screen text, unless it is described.",
+    "applicability": "Prerecorded synchronized media with video content.",
+    "exceptions": [
+      "The media is itself an alternative for text and is clearly labeled as such."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "dom_locator",
+      "reviewer_observation"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-1.2.5",
+        "relation": "narrower"
+      },
+      {
+        "id": "WCAG-1.2.8",
+        "relation": "overlaps"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "c5a4ea",
+        "status": "proposed"
+      }
+    ]
+  },
+  {
+    "id": "WCAG-1.2.4",
+    "title": "Captions (Live)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#captions-live",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "captions",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Live audio in synchronized media has captions.",
+    "rationale": "Deaf and hard-of-hearing users need real-time captions to follow live events, webinars, and broadcasts.",
+    "applicability": "Live synchronized media.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "reviewer_observation"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-1.2.2",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": []
+  },
+  {
+    "id": "WCAG-1.2.5",
+    "title": "Audio Description (Prerecorded)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#audio-description-prerecorded",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "video",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Prerecorded video in synchronized media has audio description.",
+    "rationale": "Blind users need visual information narrated to understand video; at this level a text alternative alone is not enough.",
+    "applicability": "Prerecorded synchronized media with video content.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "dom_locator",
+      "reviewer_observation"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-1.2.3",
+        "relation": "broader"
+      },
+      {
+        "id": "WCAG-1.2.7",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "1ec09b",
+        "status": "proposed"
+      }
+    ]
+  },
+  {
+    "id": "WCAG-1.2.6",
+    "title": "Sign Language (Prerecorded)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#sign-language-prerecorded",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "video",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Prerecorded audio in synchronized media has sign language interpretation.",
+    "rationale": "Some Deaf users read sign language more fluently than written captions.",
+    "applicability": "Prerecorded synchronized media.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-1.2.2",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-1.2.7",
+    "title": "Extended Audio Description (Prerecorded)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#extended-audio-description-prerecorded",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "video",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Where pauses in the foreground audio are too short for audio description to convey the video, extended audio description is provided for prerecorded video.",
+    "rationale": "Blind users otherwise miss visual information that cannot fit into the natural pauses of the soundtrack.",
+    "applicability": "Prerecorded synchronized media whose natural pauses are insufficient for description.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-1.2.5",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-1.2.8",
+    "title": "Media Alternative (Prerecorded)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#media-alternative-prerecorded",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "transcripts",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "All prerecorded synchronized media and all prerecorded video-only media have a text alternative for time-based media.",
+    "rationale": "Deafblind users and users who prefer reading need a full text version of media content.",
+    "applicability": "Prerecorded synchronized media and prerecorded video-only media.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "dom_locator",
+      "reviewer_observation"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-1.2.3",
+        "relation": "overlaps"
+      },
+      {
+        "id": "WCAG-1.2.1",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "1a02b0",
+        "status": "proposed"
+      }
+    ],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-1.2.9",
+    "title": "Audio-only (Live)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#audio-only-live",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "transcripts",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Live audio-only content has a text alternative for time-based media that presents equivalent information.",
+    "rationale": "Deaf and hard-of-hearing users cannot follow live audio such as radio-style streams without a text alternative.",
+    "applicability": "Live audio-only content.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "reviewer_observation"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-1.3.1",
+    "title": "Info and Relationships",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#info-and-relationships",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "semantic-structure",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.",
+    "rationale": "Screen reader and other assistive technology users depend on programmatic headings, lists, tables, form labels, and groupings that sighted users infer from layout.",
+    "applicability": "Any content whose visual presentation conveys structure or relationships, such as headings, lists, tables, form groups, labels, and emphasis that carries meaning.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "accessibility_node",
+      "role_name_state",
+      "dom_locator",
+      "screenshot"
+    ],
+    "severity_hint": "High",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "a25f45",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "bc4a75",
+        "status": "proposed"
+      },
+      {
+        "type": "act",
+        "id": "d0f69e",
+        "status": "proposed"
+      },
+      {
+        "type": "act",
+        "id": "ff89c9",
+        "status": "proposed"
+      }
+    ]
+  },
+  {
+    "id": "WCAG-1.3.2",
+    "title": "Meaningful Sequence",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#meaningful-sequence",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "semantic-structure",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "When the order in which content is presented affects its meaning, a correct reading order can be programmatically determined.",
+    "rationale": "Screen reader users and people who change the presentation receive content in programmatic order; if that order differs from the meaningful order, content becomes confusing.",
+    "applicability": "Content where sequence carries meaning, such as instructions, multi-column layouts, and content repositioned with CSS.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "accessibility_node",
+      "dom_locator",
+      "screenshot"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-2.4.3",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": []
+  },
+  {
+    "id": "WCAG-1.3.3",
+    "title": "Sensory Characteristics",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#sensory-characteristics",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "semantic-structure",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Instructions for understanding and operating content do not rely only on sensory characteristics such as shape, color, size, visual location, orientation, or sound.",
+    "rationale": "Blind users, users with low vision, and users who cannot hear cannot follow instructions like \"press the round button on the right\" or \"when you hear the tone\".",
+    "applicability": "Instructions and prompts that refer to components.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "reviewer_observation"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-1.4.1",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "9bd38c",
+        "status": "proposed"
+      }
+    ],
+    "notes": "The criterion notes that color-only cues are handled under Guideline 1.4 (see 1.4.1)."
+  },
+  {
+    "id": "WCAG-1.3.4",
+    "title": "Orientation",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#orientation",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "orientation",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape.",
+    "rationale": "Users with devices mounted in a fixed orientation, for example on a wheelchair, need content to work in the orientation they have.",
+    "applicability": "Pages and views on devices that support both orientations.",
+    "exceptions": [
+      "A specific display orientation is essential (the Recommendation gives examples such as a bank check, a piano application, projector slides, or virtual reality content)."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "interaction_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "b33eff",
+        "status": "approved"
+      }
+    ],
+    "notes": "Subcategory orientation also appears in prd.md section 10.3; accessibility is used because this is a NORMATIVE accessibility criterion (docs/rule-schema.md section 4)."
+  },
+  {
+    "id": "WCAG-1.3.5",
+    "title": "Identify Input Purpose",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#identify-input-purpose",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "forms",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Form fields that ask for information about the user expose what they are for in a machine-readable way, when the field corresponds to one of the Recommendation's listed input purposes and the technology can express it.",
+    "rationale": "Browsers and assistive technologies can autofill, add familiar icons, or explain fields when their purpose is exposed, which helps users with cognitive, language, memory, or motor impairments.",
+    "applicability": "Form fields collecting information about the user whose purpose appears in WCAG section 7 (Input Purposes for User Interface Components), in technologies that support expressing it, such as the HTML autocomplete attribute.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "dom_locator",
+      "reviewer_observation"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-1.3.6",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "73f2c2",
+        "status": "approved"
+      }
+    ],
+    "notes": "The criterion has two conditions rather than exceptions: the field's purpose is in the listed input purposes, and the technology supports identifying it. Automated checks can validate autocomplete tokens but not whether a field collects user data or whether the token fits. Subcategory forms also appears in prd.md section 10.5; accessibility is used because this is a NORMATIVE accessibility criterion (docs/rule-schema.md section 4)."
+  },
+  {
+    "id": "WCAG-1.3.6",
+    "title": "Identify Purpose",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#identify-purpose",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "semantic-structure",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "In markup content, the purpose of user interface components, icons, and regions can be programmatically determined.",
+    "rationale": "Users with cognitive disabilities can have familiar symbols or simplified interfaces substituted when purposes are exposed programmatically.",
+    "applicability": "Content implemented with markup languages.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "dom_locator",
+      "accessibility_node"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-1.3.5",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-1.4.1",
+    "title": "Use of Color",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#use-of-color",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "contrast",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Color is not the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.",
+    "rationale": "Users with color vision deficiencies, users with low vision, and users of monochrome displays miss information carried by color alone.",
+    "applicability": "Any use of color to convey meaning, such as links in text, required-field markers, error states, charts, and status indicators.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "color_value",
+      "reviewer_observation"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-1.3.3",
+        "relation": "see_also"
+      },
+      {
+        "id": "WCAG-1.4.11",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "The criterion addresses color perception; programmatic access to color coding falls under Guideline 1.3. Subcategory contrast is the closest item in the prd.md section 10.1 list, which has no color item. Subcategory contrast also appears in prd.md section 10.2; accessibility is used because this is a NORMATIVE accessibility criterion (docs/rule-schema.md section 4)."
+  },
+  {
+    "id": "WCAG-1.4.2",
+    "title": "Audio Control",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#audio-control",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "audio",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "If audio on a page plays automatically for more than 3 seconds, a mechanism is available to pause or stop it, or to control its volume independently of the overall system volume.",
+    "rationale": "Screen reader users cannot hear their speech output over auto-playing audio, and some users are distracted or distressed by it.",
+    "applicability": "Audio that starts automatically and lasts more than 3 seconds.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace",
+      "reviewer_observation"
+    ],
+    "severity_hint": "High",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "80f0bf",
+        "status": "proposed"
+      }
+    ],
+    "notes": "Non-interference: the Recommendation requires all content on the page to meet this criterion, including content not relied upon for conformance (conformance requirement 5)."
+  },
+  {
+    "id": "WCAG-1.4.3",
+    "title": "Contrast (Minimum)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#contrast-minimum",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "contrast",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Text and images of text have a contrast ratio of at least 4.5:1 against their background, or at least 3:1 for large-scale text.",
+    "rationale": "Users with low vision, color vision deficiencies, or reduced contrast sensitivity, and anyone reading in glare, cannot read low-contrast text.",
+    "applicability": "Text and images of text in the visual presentation.",
+    "exceptions": [
+      "Large-scale text and images of large-scale text need only 3:1.",
+      "No requirement for text that is part of an inactive user interface component, pure decoration, not visible to anyone, or part of a picture that contains significant other visual content.",
+      "No requirement for text that is part of a logo or brand name."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "contrast_ratio",
+      "color_value",
+      "computed_style",
+      "screenshot"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-1.4.6",
+        "relation": "narrower"
+      },
+      {
+        "id": "WCAG-1.4.11",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "afw4f7",
+        "status": "approved"
+      }
+    ],
+    "notes": "The glossary defines large-scale text as at least 18 point, or 14 point bold, or an equivalent size for CJK fonts. Automated contrast checks cannot decide text over images or gradients or the exceptions, so automated testability is PARTIAL. Subcategory contrast also appears in prd.md section 10.2; accessibility is used because this is a NORMATIVE accessibility criterion (docs/rule-schema.md section 4)."
+  },
+  {
+    "id": "WCAG-1.4.4",
+    "title": "Resize Text",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#resize-text",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "text-resize",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Text can be resized up to 200 percent without assistive technology and without loss of content or functionality.",
+    "rationale": "Users with low vision enlarge text through browser zoom or text-size settings and lose access if content overlaps, clips, or breaks.",
+    "applicability": "Text in the content, resized with user agent features.",
+    "exceptions": [
+      "Captions and images of text are excluded."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "interaction_trace",
+      "computed_style"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-1.4.10",
+        "relation": "see_also"
+      },
+      {
+        "id": "WCAG-1.4.12",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "b4f0c3",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "59br37",
+        "status": "proposed"
+      }
+    ]
+  },
+  {
+    "id": "WCAG-1.4.5",
+    "title": "Images of Text",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#images-of-text",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "images",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Where the technology can achieve the visual presentation, text is used to convey information rather than images of text.",
+    "rationale": "Real text can be resized, recolored, respaced, and read by assistive technology; images of text cannot be adapted by users with low vision or reading disabilities.",
+    "applicability": "Content that presents text visually.",
+    "exceptions": [
+      "The image of text can be visually customized to the user's requirements.",
+      "A particular presentation of text is essential to the information conveyed (logotypes count as essential)."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "dom_locator"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-1.4.9",
+        "relation": "narrower"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "0va7u6",
+        "status": "approved"
+      }
+    ]
+  },
+  {
+    "id": "WCAG-1.4.6",
+    "title": "Contrast (Enhanced)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#contrast-enhanced",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "contrast",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Text and images of text have a contrast ratio of at least 7:1, or at least 4.5:1 for large-scale text.",
+    "rationale": "Users with more severe low vision or contrast sensitivity loss need higher contrast than the Level AA minimum.",
+    "applicability": "Text and images of text in the visual presentation.",
+    "exceptions": [
+      "Large-scale text and images of large-scale text need only 4.5:1.",
+      "No requirement for text in inactive components, pure decoration, invisible text, or text in pictures with significant other visual content.",
+      "No requirement for text that is part of a logo or brand name."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "contrast_ratio",
+      "color_value",
+      "computed_style"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-1.4.3",
+        "relation": "broader"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "09o5cg",
+        "status": "approved"
+      }
+    ],
+    "notes": "Subcategory contrast also appears in prd.md section 10.2; accessibility is used because this is a NORMATIVE accessibility criterion (docs/rule-schema.md section 4). Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-1.4.7",
+    "title": "Low or No Background Audio",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#low-or-no-background-audio",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "audio",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Prerecorded audio-only content that is mainly foreground speech has no background sounds, lets background sounds be turned off, or keeps them at least 20 decibels below the speech.",
+    "rationale": "Hard-of-hearing users struggle to separate speech from background noise and music.",
+    "applicability": "Prerecorded audio-only content with primarily foreground speech.",
+    "exceptions": [
+      "Audio CAPTCHAs, audio logos, and vocalization intended mainly as musical expression, such as singing or rapping, are outside the criterion.",
+      "Occasional background sounds lasting only one or two seconds are allowed under the 20 decibel option."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-1.4.8",
+    "title": "Visual Presentation",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#visual-presentation",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "text-resize",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "For blocks of text, a mechanism is available for users to choose foreground and background colors, keep line width to at most 80 characters (40 for CJK), avoid full justification, get line spacing of at least one and a half and paragraph spacing at least 1.5 times the line spacing, and resize text to 200 percent without horizontal scrolling on a full-screen window.",
+    "rationale": "Users with low vision and reading or cognitive disabilities read more easily when they can adjust these presentation aspects.",
+    "applicability": "Blocks of text.",
+    "exceptions": [
+      "Content need not use these values; a mechanism to change them must exist, and the user agent may provide it.",
+      "Writing systems that do not use a given presentation aspect can conform without it."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "computed_style",
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-1.4.12",
+        "relation": "overlaps"
+      },
+      {
+        "id": "WCAG-1.4.10",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-1.4.9",
+    "title": "Images of Text (No Exception)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#images-of-text-no-exception",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "images",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Images of text are used only for pure decoration or where a particular presentation of text is essential.",
+    "rationale": "Users who need to adapt text presentation cannot adapt images of text.",
+    "applicability": "Content that presents text visually.",
+    "exceptions": [
+      "Logotypes (text that is part of a logo or brand name) are considered essential."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "dom_locator"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-1.4.5",
+        "relation": "broader"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-1.4.10",
+    "title": "Reflow",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#reflow",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "reflow",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "At a viewport as narrow as 320 CSS pixels (for content that scrolls vertically) or as short as 256 CSS pixels (for content that scrolls horizontally), all information and functions remain available and users only need to scroll in one direction.",
+    "rationale": "Users with low vision who zoom to 400 percent, and users on small screens, lose content or must scroll back and forth on every line when layouts do not reflow.",
+    "applicability": "Pages and views at the stated viewport width or height (the Recommendation equates 320 CSS pixels with a 1280 pixel wide viewport at 400 percent zoom).",
+    "exceptions": [
+      "Parts of the content that need a two-dimensional layout for use or meaning; the Recommendation's examples are images needed for understanding (such as maps and diagrams), video, games, presentations, data tables (not individual cells), and interfaces that must keep toolbars in view while manipulating content."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "bounding_box",
+      "interaction_trace"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-1.4.4",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Subcategory reflow also appears in prd.md section 10.3; accessibility is used because this is a NORMATIVE accessibility criterion (docs/rule-schema.md section 4)."
+  },
+  {
+    "id": "WCAG-1.4.11",
+    "title": "Non-text Contrast",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#non-text-contrast",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "contrast",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Visual information needed to identify user interface components and their states, and the parts of graphics needed to understand content, have a contrast ratio of at least 3:1 against adjacent colors.",
+    "rationale": "Users with low vision need to see input borders, focus and state indicators, icons, and chart elements to operate controls and understand graphics.",
+    "applicability": "Visual boundaries, indicators, and state cues of user interface components, and graphical objects required to understand content.",
+    "exceptions": [
+      "Inactive components, and components whose appearance is determined by the user agent and not modified by the author.",
+      "Graphics where a particular presentation is essential to the information conveyed."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "contrast_ratio",
+      "color_value",
+      "screenshot"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-1.4.3",
+        "relation": "see_also"
+      },
+      {
+        "id": "WCAG-1.4.1",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Subcategory contrast also appears in prd.md section 10.2; accessibility is used because this is a NORMATIVE accessibility criterion (docs/rule-schema.md section 4)."
+  },
+  {
+    "id": "WCAG-1.4.12",
+    "title": "Text Spacing",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#text-spacing",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "text-resize",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Content keeps all its information and functions when a user overrides text spacing to line height 1.5, spacing after paragraphs 2, letter spacing 0.12, and word spacing 0.16 (each times the font size), without changing any other style.",
+    "rationale": "Users with low vision or dyslexia override text spacing to read, and content that clips or overlaps under those settings becomes unreadable.",
+    "applicability": "Content implemented in markup languages that support the listed text style properties.",
+    "exceptions": [
+      "Languages and scripts that do not use one or more of these properties can conform using only the properties that exist for that language and script."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "computed_style"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-1.4.8",
+        "relation": "overlaps"
+      },
+      {
+        "id": "WCAG-1.4.4",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "24afc2",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "78fd32",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "9e45ec",
+        "status": "approved"
+      }
+    ],
+    "notes": "Applies to content implemented in markup languages that support these text style properties. Content need not use these values; it must tolerate users applying them."
+  },
+  {
+    "id": "WCAG-1.4.13",
+    "title": "Content on Hover or Focus",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#content-on-hover-or-focus",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "accessible-custom-widgets",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "When pointer hover or keyboard focus makes additional content appear and disappear, the additional content can be dismissed without moving hover or focus, can be hovered over without disappearing, and stays visible until the trigger is removed, the user dismisses it, or its information is no longer valid.",
+    "rationale": "Users with low vision who magnify the screen, users with motor impairments, and keyboard users are blocked or disrupted by tooltips and popups that cover content, vanish when approached, or cannot be dismissed.",
+    "applicability": "Custom tooltips, submenus, and other non-modal popups shown on hover or focus.",
+    "exceptions": [
+      "Dismissible does not apply when the additional content communicates an input error or does not obscure or replace other content.",
+      "Hoverable applies only when pointer hover can trigger the content.",
+      "Additional content whose visual presentation is controlled by the user agent and not modified by the author, such as browser tooltips from the HTML title attribute."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace",
+      "focus_trace",
+      "screenshot"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "WCAG 2.2 errata dated 2025 and 2026 touch the wording of this criterion (research/gaps.md GAP-028); re-check the errata page before changing this record. The criterion does not cover components that merely become visible on focus, such as skip links."
+  },
+  {
+    "id": "WCAG-2.1.1",
+    "title": "Keyboard",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#keyboard",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "keyboard-operation",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Everything the content lets users do can be done from a keyboard, and no keystroke has to be pressed with particular timing.",
+    "rationale": "Blind users, many users with motor impairments, and users of switch devices, voice control, or other keyboard emulators cannot use functionality that needs a mouse.",
+    "applicability": "All functionality offered by the content.",
+    "exceptions": [
+      "The underlying function requires input that depends on the path of the user's movement and not just its endpoints (for example freehand drawing); the exception concerns the function, not the input technique."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "keyboard_trace",
+      "interaction_trace",
+      "dom_locator"
+    ],
+    "severity_hint": "Critical",
+    "related_rules": [
+      {
+        "id": "WCAG-2.1.3",
+        "relation": "narrower"
+      },
+      {
+        "id": "WCAG-2.1.2",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "0ssw9k",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "akn7bn",
+        "status": "approved"
+      }
+    ],
+    "notes": "Offering mouse or other input in addition to the keyboard is allowed and encouraged."
+  },
+  {
+    "id": "WCAG-2.1.2",
+    "title": "No Keyboard Trap",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#no-keyboard-trap",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "keyboard-operation",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "If keyboard focus can move to a component, focus can also move away from it using only the keyboard, and if leaving needs more than unmodified arrow or Tab keys or other standard exit methods, users are told how.",
+    "rationale": "A keyboard trap leaves keyboard and screen reader users stuck, unable to reach the rest of the page.",
+    "applicability": "Every component that can receive keyboard focus, including embedded content and plugins.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "keyboard_trace",
+      "focus_trace"
+    ],
+    "severity_hint": "Critical",
+    "related_rules": [
+      {
+        "id": "WCAG-2.1.1",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "80af7b",
+        "status": "proposed"
+      }
+    ],
+    "notes": "Non-interference: the Recommendation requires all content on the page to meet this criterion (conformance requirement 5)."
+  },
+  {
+    "id": "WCAG-2.1.3",
+    "title": "Keyboard (No Exception)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#keyboard-no-exception",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "keyboard-operation",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Everything the content lets users do can be done from a keyboard without timed keystrokes, including functions that would otherwise depend on the path of a pointer.",
+    "rationale": "Keyboard-only users are fully included only when no function depends on pointer paths.",
+    "applicability": "All functionality offered by the content.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "keyboard_trace",
+      "interaction_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-2.1.1",
+        "relation": "broader"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "0ssw9k",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "akn7bn",
+        "status": "approved"
+      }
+    ],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.1.4",
+    "title": "Character Key Shortcuts",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#character-key-shortcuts",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "keyboard-operation",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "If a keyboard shortcut uses only letter, punctuation, number, or symbol characters, users can turn it off, remap it to include a non-printable modifier key such as Ctrl or Alt, or it is active only while the relevant component has focus.",
+    "rationale": "Speech input users trigger single-character shortcuts accidentally when dictating, and keyboard users with tremors hit keys by mistake.",
+    "applicability": "Keyboard shortcuts implemented by the content that use only printable characters.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "keyboard_trace",
+      "interaction_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "ffbc54",
+        "status": "proposed"
+      }
+    ]
+  },
+  {
+    "id": "WCAG-2.2.1",
+    "title": "Timing Adjustable",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#timing-adjustable",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "cognitive-accessibility",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "For each time limit set by the content, users can turn it off or adjust it before meeting it (over a range of at least ten times the default), or are warned before it expires and can extend it at least ten times with a simple action and at least 20 seconds to respond.",
+    "rationale": "People who read, type, or move slowly, including users with cognitive, motor, or visual disabilities and screen reader users, fail tasks when time runs out.",
+    "applicability": "Time limits set by the content, such as session timeouts and timed forms.",
+    "exceptions": [
+      "Real-time exception: the limit is a required part of a real-time event such as an auction and no alternative is possible.",
+      "Essential exception: the limit is essential and extending it would invalidate the activity.",
+      "20 hour exception: the limit is longer than 20 hours."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace",
+      "reviewer_observation"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-2.2.3",
+        "relation": "narrower"
+      },
+      {
+        "id": "WCAG-3.2.1",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "bc659a",
+        "status": "approved"
+      }
+    ],
+    "notes": "Subcategory cognitive-accessibility chosen because the prd.md section 10.1 list has no timing item; the Recommendation asks that this criterion be read together with 3.2.1."
+  },
+  {
+    "id": "WCAG-2.2.2",
+    "title": "Pause, Stop, Hide",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#pause-stop-hide",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "motion",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Moving, blinking, or scrolling information that starts automatically, lasts more than five seconds, and appears alongside other content can be paused, stopped, or hidden; auto-updating information that starts automatically and appears alongside other content can be paused, stopped, hidden, or have its update frequency controlled.",
+    "rationale": "Motion and constant updates distract users with attention or cognitive disabilities and make content hard to read for users with low vision or screen readers.",
+    "applicability": "Carousels, tickers, animations, auto-refreshing feeds, and similar content presented in parallel with other content.",
+    "exceptions": [
+      "The movement, blinking, scrolling, or auto-updating is part of an activity where it is essential."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "interaction_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-2.3.3",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "efbfc7",
+        "status": "proposed"
+      }
+    ],
+    "notes": "Non-interference: the Recommendation requires all content on the page to meet this criterion (conformance requirement 5). Flashing is covered by Guideline 2.3. The notes add that streamed or periodically updated content need not preserve what arrived during a pause, and that an animation during a preload phase can count as essential when no interaction is possible and hiding progress would make the content look frozen."
+  },
+  {
+    "id": "WCAG-2.2.3",
+    "title": "No Timing",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#no-timing",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "cognitive-accessibility",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Timing is not an essential part of the event or activity presented by the content.",
+    "rationale": "Removing time pressure entirely helps users who need unlimited time to read, decide, or act.",
+    "applicability": "Events and activities presented by the content.",
+    "exceptions": [
+      "Non-interactive synchronized media and real-time events."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-2.2.1",
+        "relation": "broader"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.2.4",
+    "title": "Interruptions",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#interruptions",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "cognitive-accessibility",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Users can postpone or suppress interruptions.",
+    "rationale": "Interruptions such as alerts and updates break concentration for users with attention or cognitive disabilities and disrupt screen reader users.",
+    "applicability": "Interruptions initiated by the content or server.",
+    "exceptions": [
+      "Interruptions involving an emergency."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace",
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "bisz58",
+        "status": "approved"
+      }
+    ],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.2.5",
+    "title": "Re-authenticating",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#re-authenticating",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "authentication",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "When an authenticated session expires, users can continue the activity without losing data after authenticating again.",
+    "rationale": "Users who work slowly lose their input and must start over when a session times out.",
+    "applicability": "Activities performed during an authenticated session.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace",
+      "task_failure"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-2.2.6",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.2.6",
+    "title": "Timeouts",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#timeouts",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "cognitive-accessibility",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Users are warned how long they can be inactive before losing data, unless the data is kept for more than 20 hours without user action.",
+    "rationale": "Users with cognitive disabilities or who take breaks lose work when inactivity timeouts are silent.",
+    "applicability": "Processes where user inactivity can cause data loss.",
+    "exceptions": [
+      "Data is preserved for more than 20 hours when the user takes no action."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "reviewer_observation"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-2.2.5",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "The Recommendation notes that privacy rules may require consent before preserving user data; see the privacy and consent sources. Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.3.1",
+    "title": "Three Flashes or Below Threshold",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#three-flashes-or-below-threshold",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "flashing",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Pages contain nothing that flashes more than three times in any one-second period, or the flashing is below the general flash and red flash thresholds.",
+    "rationale": "Flashing content can trigger seizures in people with photosensitive epilepsy; the harm is physical and immediate.",
+    "applicability": "All visual content on the page, including video, animation, and advertisements.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "reviewer_observation"
+    ],
+    "severity_hint": "Critical",
+    "related_rules": [
+      {
+        "id": "WCAG-2.3.2",
+        "relation": "narrower"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Non-interference: the Recommendation requires all content on the page to meet this criterion (conformance requirement 5). The general flash and red flash thresholds are defined terms in the glossary."
+  },
+  {
+    "id": "WCAG-2.3.2",
+    "title": "Three Flashes",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#three-flashes",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "flashing",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Pages contain nothing that flashes more than three times in any one-second period, regardless of size or thresholds.",
+    "rationale": "Removes all flash-rate risk for people with photosensitive epilepsy.",
+    "applicability": "All visual content on the page.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "reviewer_observation"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-2.3.1",
+        "relation": "broader"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.3.3",
+    "title": "Animation from Interactions",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#animation-from-interactions",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "motion",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Motion animation triggered by interaction can be disabled.",
+    "rationale": "Parallax, zooming, and other motion triggered by scrolling or clicking can cause nausea, dizziness, and headaches for people with vestibular disorders.",
+    "applicability": "Motion animation that results from user interaction.",
+    "exceptions": [
+      "The animation is essential to the functionality or to the information conveyed."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace",
+      "computed_style"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-2.2.2",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Honoring the prefers-reduced-motion media feature is a common technique; the criterion itself is technology-neutral. A 2025-06-27 erratum amended the glossary definition of motion animation so that it no longer excludes blurring (research/gaps.md GAP-028). Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.4.1",
+    "title": "Bypass Blocks",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#bypass-blocks",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "landmarks",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "A mechanism is available to bypass blocks of content that are repeated on multiple pages.",
+    "rationale": "Keyboard and screen reader users otherwise have to move through the same navigation on every page before reaching the main content.",
+    "applicability": "Blocks of content repeated across pages, such as headers and navigation.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "dom_locator",
+      "accessibility_node",
+      "keyboard_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "cf77f2",
+        "status": "proposed"
+      }
+    ],
+    "notes": "Skip links, landmarks, and headings are common techniques."
+  },
+  {
+    "id": "WCAG-2.4.2",
+    "title": "Page Titled",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#page-titled",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "headings",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Pages have titles that describe their topic or purpose.",
+    "rationale": "Screen reader users hear the page title first and use it to identify pages and tabs; everyone uses titles to find windows and bookmarks.",
+    "applicability": "Every web page.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "dom_locator"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "2779a5",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "c4a8a4",
+        "status": "approved"
+      }
+    ],
+    "notes": "Automation can confirm a title exists; whether it is descriptive needs human judgment."
+  },
+  {
+    "id": "WCAG-2.4.3",
+    "title": "Focus Order",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#focus-order",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "focus-order",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "If a page can be navigated sequentially and the order affects meaning or operation, focusable components receive focus in an order that preserves meaning and operability.",
+    "rationale": "Keyboard and screen reader users become disoriented when focus jumps around in an illogical order.",
+    "applicability": "Pages navigable in sequence, especially dialogs, dynamically inserted content, and layouts rearranged with CSS or tabindex.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "focus_trace",
+      "keyboard_trace"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-1.3.2",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": []
+  },
+  {
+    "id": "WCAG-2.4.4",
+    "title": "Link Purpose (In Context)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#link-purpose-in-context",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "names-roles-values",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "The purpose of each link can be determined from its link text alone or from the link text together with its programmatically determined link context.",
+    "rationale": "Screen reader users often navigate by a list of links; vague links such as \"click here\" give them no purpose.",
+    "applicability": "All links.",
+    "exceptions": [
+      "The purpose of the link would be ambiguous to users in general."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "accessibility_node",
+      "dom_locator"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-2.4.9",
+        "relation": "narrower"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "c487ae",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "5effbb",
+        "status": "proposed"
+      },
+      {
+        "type": "act",
+        "id": "fd3a94",
+        "status": "proposed"
+      }
+    ]
+  },
+  {
+    "id": "WCAG-2.4.5",
+    "title": "Multiple Ways",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#multiple-ways",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "navigation_ia",
+    "subcategory": "global-navigation",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "More than one way is available to locate a page within a set of pages.",
+    "rationale": "People find content differently: some prefer search, others a site map or navigation, depending on their abilities.",
+    "applicability": "Pages within a set of pages.",
+    "exceptions": [
+      "The page is the result of, or a step in, a process."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "reviewer_observation"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Category navigation_ia and subcategory global-navigation chosen because multiple ways of finding pages (navigation, search, site map) are a navigation concern with no fitting item in the prd.md section 10.1 list."
+  },
+  {
+    "id": "WCAG-2.4.6",
+    "title": "Headings and Labels",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#headings-and-labels",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "headings",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Headings and labels describe their topic or purpose.",
+    "rationale": "Clear headings and labels let everyone, especially users with cognitive disabilities and screen reader users, find content and understand what to enter.",
+    "applicability": "Headings and labels that are present in the content.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "accessibility_node",
+      "screenshot"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-2.4.10",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "b49b2e",
+        "status": "proposed"
+      },
+      {
+        "type": "act",
+        "id": "cc0f0a",
+        "status": "proposed"
+      }
+    ],
+    "notes": "Project reading of the criterion wording: it requires headings and labels that exist to be descriptive, while 3.3.2 and 2.4.10 address whether they are present."
+  },
+  {
+    "id": "WCAG-2.4.7",
+    "title": "Focus Visible",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#focus-visible",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "focus-visibility",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Any keyboard-operable user interface has a mode of operation in which the keyboard focus indicator is visible.",
+    "rationale": "Sighted keyboard users cannot tell where they are on the page without a visible focus indicator.",
+    "applicability": "All keyboard-operable interface components.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "focus_trace",
+      "screenshot"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-2.4.11",
+        "relation": "see_also"
+      },
+      {
+        "id": "WCAG-2.4.13",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "oj04fd",
+        "status": "approved"
+      }
+    ]
+  },
+  {
+    "id": "WCAG-2.4.8",
+    "title": "Location",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#location",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "navigation_ia",
+    "subcategory": "current-location-indication",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Information about the user's location within a set of pages is available.",
+    "rationale": "Users with cognitive disabilities and screen reader users lose track of where they are in large sites without location cues such as breadcrumbs.",
+    "applicability": "Pages within a set of pages.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.4.9",
+    "title": "Link Purpose (Link Only)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#link-purpose-link-only",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "names-roles-values",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "A mechanism is available to identify the purpose of each link from its link text alone.",
+    "rationale": "Link text that stands on its own serves everyone who scans links out of context.",
+    "applicability": "All links.",
+    "exceptions": [
+      "The purpose of the link would be ambiguous to users in general."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "accessibility_node"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-2.4.4",
+        "relation": "broader"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "c487ae",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "aizyf1",
+        "status": "proposed"
+      },
+      {
+        "type": "act",
+        "id": "b20e66",
+        "status": "proposed"
+      }
+    ],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.4.10",
+    "title": "Section Headings",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#section-headings",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "headings",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Section headings are used to organize the content.",
+    "rationale": "Headings let users skim, understand structure, and jump between sections, which helps screen reader users and users with cognitive disabilities.",
+    "applicability": "Written content organized into sections.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "accessibility_node",
+      "screenshot"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-2.4.6",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Covers sections within writing, not user interface components (those fall under 4.1.2). Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.4.11",
+    "title": "Focus Not Obscured (Minimum)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "focus-visibility",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "A component that has keyboard focus is never completely covered by author-created content.",
+    "rationale": "Keyboard users lose their place when sticky headers, footers, cookie banners, or other overlays cover the focused element.",
+    "applicability": "All focusable components, checked at the initial positions of any user-movable content.",
+    "exceptions": [
+      "Content opened by the user may cover the focused component if the user can reveal it without moving keyboard focus."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "focus_trace",
+      "screenshot",
+      "bounding_box"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-2.4.12",
+        "relation": "narrower"
+      },
+      {
+        "id": "WCAG-2.4.7",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "New in WCAG 2.2."
+  },
+  {
+    "id": "WCAG-2.4.12",
+    "title": "Focus Not Obscured (Enhanced)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#focus-not-obscured-enhanced",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "focus-visibility",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "When a user interface component receives keyboard focus, no part of it is hidden by content created by the author.",
+    "rationale": "Partially covered focus still hides context for keyboard and magnification users.",
+    "applicability": "All focusable components.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "focus_trace",
+      "screenshot",
+      "bounding_box"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-2.4.11",
+        "relation": "broader"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "New in WCAG 2.2. Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.4.13",
+    "title": "Focus Appearance",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#focus-appearance",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "focus-visibility",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "A visible focus indicator includes an area at least as large as a 2 CSS pixel thick outline around the unfocused component, and those pixels change by a contrast ratio of at least 3:1 between the unfocused and focused states.",
+    "rationale": "Users with low vision need a focus indicator that is large and contrasting enough to notice.",
+    "applicability": "Visible keyboard focus indicators.",
+    "exceptions": [
+      "The focus indicator is determined by the user agent and cannot be adjusted by the author.",
+      "The focus indicator and its background color are not modified by the author."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "focus_trace",
+      "screenshot",
+      "contrast_ratio",
+      "bounding_box"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-2.4.7",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "New in WCAG 2.2. The perimeter follows the component's visual presentation, excluding outer shadows and glows; anti-aliased pixels may be ignored in contrast calculations. Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.5.1",
+    "title": "Pointer Gestures",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#pointer-gestures",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "gestures",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "All functionality that uses multipoint or path-based gestures can also be operated with a single pointer without a path-based gesture.",
+    "rationale": "Users with motor impairments, users of head pointers or eye tracking, and some screen reader users cannot perform pinches, multi-finger swipes, or traced paths.",
+    "applicability": "Functionality operated by gestures that the web content interprets.",
+    "exceptions": [
+      "A multipoint or path-based gesture is essential.",
+      "Gestures required to operate the user agent or assistive technology are outside the criterion."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace",
+      "reviewer_observation"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-2.5.7",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": []
+  },
+  {
+    "id": "WCAG-2.5.2",
+    "title": "Pointer Cancellation",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#pointer-cancellation",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "pointer-input",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "For functionality operated with a single pointer, the down-event does not execute any part of the function, or completion happens on the up-event with a way to abort or undo, or the up-event reverses the down-event.",
+    "rationale": "Users with motor impairments, tremors, or low vision touch or click things by mistake and need to be able to slide away or undo.",
+    "applicability": "Functionality that can be operated with a single pointer and that the web content interprets.",
+    "exceptions": [
+      "Completing the function on the down-event is essential (keyboard or keypad emulation counts as essential).",
+      "Actions required to operate the user agent or assistive technology are outside the criterion."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": []
+  },
+  {
+    "id": "WCAG-2.5.3",
+    "title": "Label in Name",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#label-in-name",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "names-roles-values",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "For user interface components with visible labels that include text or images of text, the accessible name contains the text shown visually.",
+    "rationale": "Speech input users say the visible label to activate a control; it fails if the accessible name differs. Screen reader users also hear a mismatch.",
+    "applicability": "Components labeled with visible text or images of text.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "PARTIAL"
+    },
+    "expected_evidence": [
+      "accessibility_node",
+      "screenshot"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-4.1.2",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "2ee8b8",
+        "status": "proposed"
+      }
+    ],
+    "notes": "The Recommendation calls starting the name with the label text a best practice."
+  },
+  {
+    "id": "WCAG-2.5.4",
+    "title": "Motion Actuation",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#motion-actuation",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "alternative-input",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Functionality operated by device motion or user motion can also be operated through user interface components, and responding to motion can be disabled to prevent accidental activation.",
+    "rationale": "Users with motor impairments or devices mounted in place cannot shake or tilt a device, and others trigger motion actions by accident.",
+    "applicability": "Functionality triggered by device or user motion, such as shake-to-undo or tilt controls.",
+    "exceptions": [
+      "The motion operates functionality through an accessibility supported interface.",
+      "The motion is essential and replacing it would invalidate the activity."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace",
+      "reviewer_observation"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "7677a9",
+        "status": "proposed"
+      },
+      {
+        "type": "act",
+        "id": "c249d5",
+        "status": "proposed"
+      }
+    ]
+  },
+  {
+    "id": "WCAG-2.5.5",
+    "title": "Target Size (Enhanced)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#target-size-enhanced",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "touch-target",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Pointer targets are at least 44 by 44 CSS pixels.",
+    "rationale": "Larger targets are easier to hit for users with motor impairments, users on touch screens, and users in unstable environments.",
+    "applicability": "Targets operated by pointer input.",
+    "exceptions": [
+      "An equivalent link or control on the same page is at least 44 by 44 CSS pixels.",
+      "The target is in a sentence or block of text.",
+      "The target size is determined by the user agent and not modified by the author.",
+      "A particular presentation of the target is essential to the information conveyed."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "bounding_box",
+      "screenshot"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-2.5.8",
+        "relation": "broader"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.5.6",
+    "title": "Concurrent Input Mechanisms",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#concurrent-input-mechanisms",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "alternative-input",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Content does not restrict the use of input modalities available on the platform.",
+    "rationale": "Users switch between keyboard, touch, pointer, and speech according to ability and context; blocking a modality excludes them.",
+    "applicability": "Web content running on platforms with several input modalities.",
+    "exceptions": [
+      "The restriction is essential, required for the security of the content, or required to respect user settings."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-2.5.7",
+    "title": "Dragging Movements",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#dragging-movements",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "drag-interactions",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "All functionality that uses a dragging movement can be achieved with a single pointer without dragging.",
+    "rationale": "Users with motor impairments, tremors, or who use head pointers or eye tracking cannot hold and drag accurately.",
+    "applicability": "Functionality operated by dragging that the web content interprets, such as sortable lists, sliders, and map panning.",
+    "exceptions": [
+      "Dragging is essential.",
+      "The functionality is determined by the user agent and not modified by the author.",
+      "Actions required to operate the user agent or assistive technology are outside the criterion."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace",
+      "reviewer_observation"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-2.5.1",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "New in WCAG 2.2."
+  },
+  {
+    "id": "WCAG-2.5.8",
+    "title": "Target Size (Minimum)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#target-size-minimum",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "touch-target",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Pointer targets are at least 24 by 24 CSS pixels.",
+    "rationale": "Small targets are hard to activate for users with limited dexterity and on touch screens, and cause mistaken activations of neighboring targets.",
+    "applicability": "Targets operated by pointer input.",
+    "exceptions": [
+      "Spacing: an undersized target passes if a 24 CSS pixel diameter circle centered on its bounding box does not intersect another target or another undersized target's circle.",
+      "Equivalent: the function is available through a different control on the same page that meets the criterion.",
+      "Inline: the target is in a sentence or its size is otherwise constrained by the line height of non-target text.",
+      "User agent control: the target size is determined by the user agent and not modified by the author.",
+      "Essential: a particular presentation of the target is essential or legally required."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "FULL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "bounding_box",
+      "screenshot",
+      "dom_locator"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-2.5.5",
+        "relation": "narrower"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "New in WCAG 2.2. Targets that select values by position, such as sliders and color pickers, count as one target."
+  },
+  {
+    "id": "WCAG-3.1.1",
+    "title": "Language of Page",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#language-of-page",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "semantic-structure",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "The default human language of each page can be programmatically determined.",
+    "rationale": "Screen readers and braille displays choose pronunciation and rules from the page language; captions and translation tools also depend on it.",
+    "applicability": "Every web page.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "PARTIAL"
+    },
+    "expected_evidence": [
+      "dom_locator"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-3.1.2",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "b5c3f8",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "bf051a",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "ucwvc8",
+        "status": "proposed"
+      }
+    ],
+    "notes": "Subcategory semantic-structure is the closest item in the prd.md section 10.1 list, which has no language item. Automation can confirm a language is declared; whether it is correct needs judgment."
+  },
+  {
+    "id": "WCAG-3.1.2",
+    "title": "Language of Parts",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#language-of-parts",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "semantic-structure",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "The human language of each passage or phrase can be programmatically determined.",
+    "rationale": "Assistive technology mispronounces passages in another language unless the change of language is marked.",
+    "applicability": "Passages and phrases in a language different from the page's default.",
+    "exceptions": [
+      "Proper names, technical terms, words of indeterminate language, and words or phrases that have become part of the vernacular of the surrounding text."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "dom_locator",
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-3.1.1",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "de46e4",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "off6ek",
+        "status": "proposed"
+      }
+    ],
+    "notes": "Subcategory semantic-structure is the closest item in the prd.md section 10.1 list, which has no language item."
+  },
+  {
+    "id": "WCAG-3.1.3",
+    "title": "Unusual Words",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#unusual-words",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "cognitive-accessibility",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "A mechanism is available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon.",
+    "rationale": "Users with cognitive, language, or learning disabilities and people reading in a second language misunderstand idioms and jargon.",
+    "applicability": "Words and phrases used in an unusual or restricted way.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-3.1.4",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-3.1.4",
+    "title": "Abbreviations",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#abbreviations",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "cognitive-accessibility",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "A mechanism is available for identifying the expanded form or meaning of abbreviations.",
+    "rationale": "Abbreviations confuse users with cognitive or reading disabilities and users unfamiliar with the domain.",
+    "applicability": "Abbreviations in the content.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-3.1.3",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-3.1.5",
+    "title": "Reading Level",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#reading-level",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "cognitive-accessibility",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "When text needs reading ability above lower secondary education level (after removing proper names and titles), supplemental content or a version that does not need that level is available.",
+    "rationale": "People with reading disabilities or cognitive disabilities, and people with lower literacy, need simpler text or visual support.",
+    "applicability": "Text content.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Automated readability formulas can indicate risk but do not decide conformance; readability scales differ by language. Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-3.1.6",
+    "title": "Pronunciation",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#pronunciation",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "cognitive-accessibility",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "A mechanism is available for identifying the specific pronunciation of words whose meaning in context is ambiguous without knowing the pronunciation.",
+    "rationale": "Users with reading disabilities and screen reader users can misread words whose meaning depends on pronunciation.",
+    "applicability": "Words whose meaning in context depends on pronunciation.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-3.2.1",
+    "title": "On Focus",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#on-focus",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "focus-management",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "When any user interface component receives focus, it does not start a change of context.",
+    "rationale": "Keyboard and screen reader users are disoriented when merely moving focus opens windows, submits forms, or moves focus elsewhere.",
+    "applicability": "All focusable components.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "focus_trace",
+      "interaction_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-3.2.5",
+        "relation": "narrower"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Change of context is a defined term in the glossary (major changes such as a new window, moved focus, or new page content that changes the meaning of the page)."
+  },
+  {
+    "id": "WCAG-3.2.2",
+    "title": "On Input",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#on-input",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "forms",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Changing the setting of a user interface component does not automatically cause a change of context unless users have been told about the behavior before using the component.",
+    "rationale": "Users with visual or cognitive disabilities do not expect a page change when they pick an option or type, and may not notice it happened.",
+    "applicability": "Form controls and other components whose settings users change, such as selects, radios, checkboxes, and text fields.",
+    "exceptions": [
+      "The user has been advised of the behavior before using the component."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-3.2.5",
+        "relation": "narrower"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Subcategory forms also appears in prd.md section 10.5; accessibility is used because this is a NORMATIVE accessibility criterion (docs/rule-schema.md section 4)."
+  },
+  {
+    "id": "WCAG-3.2.3",
+    "title": "Consistent Navigation",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#consistent-navigation",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "navigation_ia",
+    "subcategory": "predictable-navigation",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Navigation repeated on multiple pages in a set occurs in the same relative order each time, unless the user starts a change.",
+    "rationale": "Users with cognitive disabilities, low vision, or who use screen readers rely on predictable navigation placement.",
+    "applicability": "Navigational mechanisms repeated across a set of pages.",
+    "exceptions": [
+      "A change initiated by the user."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "dom_locator"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-3.2.6",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": []
+  },
+  {
+    "id": "WCAG-3.2.4",
+    "title": "Consistent Identification",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#consistent-identification",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "names-roles-values",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "Components with the same functionality within a set of pages are identified consistently.",
+    "rationale": "Screen reader users and users with cognitive disabilities recognize functions by consistent labels, names, and icons.",
+    "applicability": "Components that recur with the same function across a set of pages.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "accessibility_node",
+      "screenshot"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": []
+  },
+  {
+    "id": "WCAG-3.2.5",
+    "title": "Change on Request",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#change-on-request",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "cognitive-accessibility",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Changes of context happen only when the user requests them, or a mechanism is available to turn such changes off.",
+    "rationale": "Removing automatic context changes supports users who are easily disoriented, including screen reader users and users with cognitive disabilities.",
+    "applicability": "Any change of context in the content.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-3.2.1",
+        "relation": "broader"
+      },
+      {
+        "id": "WCAG-3.2.2",
+        "relation": "broader"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "bisz58",
+        "status": "approved"
+      }
+    ],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-3.2.6",
+    "title": "Consistent Help",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#consistent-help",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "content_cognition",
+    "subcategory": "help-and-documentation",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "If a page contains human contact details, a human contact mechanism, a self-help option, or a fully automated contact mechanism, and it is repeated across a set of pages, it appears in the same order relative to other page content, unless the user starts a change.",
+    "rationale": "Users with cognitive disabilities who need help find it faster when it is always in the same place.",
+    "applicability": "Help mechanisms repeated across a set of pages, provided directly or through a direct link.",
+    "exceptions": [
+      "A change initiated by the user, for example changing zoom or orientation, which may trigger a different page variation."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "dom_locator"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [
+      {
+        "id": "WCAG-3.2.3",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "New in WCAG 2.2. Because the criterion is worded as applying if a page contains help mechanisms, it does not require help to exist; it requires existing help to be consistently placed. Relative order means serialized page order within the same page variation, which automation can compare across pages."
+  },
+  {
+    "id": "WCAG-3.3.1",
+    "title": "Error Identification",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#error-identification",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "errors",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "If an input error is automatically detected, the item in error is identified and the error is described to the user in text.",
+    "rationale": "Users who cannot see color or position cues, including screen reader users and users with cognitive disabilities, need errors named and explained in text.",
+    "applicability": "Input errors that the content detects automatically.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "accessibility_node",
+      "interaction_trace"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-3.3.3",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "36b590",
+        "status": "proposed"
+      }
+    ]
+  },
+  {
+    "id": "WCAG-3.3.2",
+    "title": "Labels or Instructions",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#labels-or-instructions",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "labels",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Labels or instructions are provided when content requires user input.",
+    "rationale": "Everyone, and especially users with cognitive, language, or visual disabilities, needs to know what to enter and in what format.",
+    "applicability": "Content that requires user input, such as forms and interactive controls.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "accessibility_node"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-2.4.6",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Subcategory labels also appears in prd.md section 10.5; accessibility is used because this is a NORMATIVE accessibility criterion (docs/rule-schema.md section 4)."
+  },
+  {
+    "id": "WCAG-3.3.3",
+    "title": "Error Suggestion",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#error-suggestion",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "errors",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "If an input error is automatically detected and suggestions for correction are known, the suggestions are provided to the user.",
+    "rationale": "Users with cognitive and learning disabilities, and users who cannot see the problem, correct errors much more easily with concrete suggestions.",
+    "applicability": "Automatically detected input errors for which correction suggestions are known.",
+    "exceptions": [
+      "Providing the suggestion would jeopardize the security or purpose of the content (for example a test answer or a password)."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "PARTIAL",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "screenshot",
+      "interaction_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-3.3.1",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": []
+  },
+  {
+    "id": "WCAG-3.3.4",
+    "title": "Error Prevention (Legal, Financial, Data)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#error-prevention-legal-financial-data",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "forms",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "For pages that create legal commitments or financial transactions for the user, modify or delete user-controllable data in storage, or submit test responses, submissions are reversible, input is checked with a chance to correct errors, or users can review, confirm, and correct the information before finalizing.",
+    "rationale": "Mistakes in legal, financial, or data-changing submissions are costly and hard to undo, especially for users with cognitive, motor, or visual disabilities.",
+    "applicability": "Pages that cause legal commitments or financial transactions, modify or delete user-controllable stored data, or submit test responses.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace",
+      "task_failure"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-3.3.6",
+        "relation": "narrower"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Runtime testing of these flows can involve paid or irreversible actions; prd.md section 14 requires explicit user authorization, otherwise the check is NOT_TESTED. Subcategory forms also appears in prd.md section 10.5; accessibility is used because this is a NORMATIVE accessibility criterion (docs/rule-schema.md section 4)."
+  },
+  {
+    "id": "WCAG-3.3.5",
+    "title": "Help",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#help",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "cognitive-accessibility",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "Context-sensitive help is available.",
+    "rationale": "Users with cognitive disabilities and first-time users complete tasks more reliably with help at the point of need.",
+    "applicability": "Content that requires user input or complex interaction.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "reviewer_observation"
+    ],
+    "severity_hint": "Low",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-3.3.6",
+    "title": "Error Prevention (All)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#error-prevention-all",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "forms",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "For pages that require the user to submit information, submissions are reversible, input is checked with a chance to correct errors, or users can review, confirm, and correct the information before finalizing.",
+    "rationale": "Extends error prevention to every submission, not only legal, financial, and data-changing ones.",
+    "applicability": "Pages that require the user to submit information.",
+    "exceptions": [],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-3.3.4",
+        "relation": "broader"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Subcategory forms also appears in prd.md section 10.5; accessibility is used because this is a NORMATIVE accessibility criterion (docs/rule-schema.md section 4). Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-3.3.7",
+    "title": "Redundant Entry",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#redundant-entry",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "forms",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Information that the user already entered or was given, and must enter again in the same process, is either filled in automatically or available for the user to select.",
+    "rationale": "Re-entering information strains users with cognitive and memory impairments and users with motor impairments.",
+    "applicability": "Multi-step processes that ask for the same information more than once.",
+    "exceptions": [
+      "Re-entering the information is essential.",
+      "The information is required to ensure the security of the content.",
+      "Previously entered information is no longer valid."
+    ],
+    "testability": {
+      "automated": "NONE",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "New in WCAG 2.2. Subcategory forms also appears in prd.md section 10.5; accessibility is used because this is a NORMATIVE accessibility criterion (docs/rule-schema.md section 4)."
+  },
+  {
+    "id": "WCAG-3.3.8",
+    "title": "Accessible Authentication (Minimum)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#accessible-authentication-minimum",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "authentication",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "No step of an authentication process requires a cognitive function test, such as remembering a password or solving a puzzle, unless that step offers another method without such a test, a mechanism that helps complete it, a test of recognizing objects, or a test of identifying non-text content the user provided.",
+    "rationale": "Users with cognitive, memory, or learning disabilities are locked out by authentication that depends on recall, transcription, or puzzles.",
+    "applicability": "Every step of an authentication process.",
+    "exceptions": [
+      "Alternative: another authentication method that does not rely on a cognitive function test is available.",
+      "Mechanism: a mechanism assists the user in completing the test (the Recommendation names password manager support and copy and paste as examples).",
+      "Object recognition: the test is to recognize objects.",
+      "Personal content: the test is to identify non-text content the user provided to the site."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace",
+      "dom_locator"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-3.3.9",
+        "relation": "narrower"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "New in WCAG 2.2. The criterion's notes name password-manager support and copy and paste as examples of an assisting mechanism, so blocking paste or password-manager entry removes that mechanism."
+  },
+  {
+    "id": "WCAG-3.3.9",
+    "title": "Accessible Authentication (Enhanced)",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#accessible-authentication-enhanced",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "authentication",
+    "conformance_level": "AAA",
+    "normative_strength": "MUST",
+    "description": "No step of an authentication process requires a cognitive function test unless that step offers another method without such a test or a mechanism that helps complete it; object recognition and personal-content tests are not accepted.",
+    "rationale": "Removes recognition-based puzzles as well, which still exclude some users with cognitive or visual disabilities.",
+    "applicability": "Every step of an authentication process.",
+    "exceptions": [
+      "Alternative: another authentication method that does not rely on a cognitive function test is available.",
+      "Mechanism: a mechanism assists the user in completing the test."
+    ],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "interaction_trace",
+      "dom_locator"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-3.3.8",
+        "relation": "broader"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "New in WCAG 2.2. Level AAA: evaluate only when the audit targets Level AAA conformance."
+  },
+  {
+    "id": "WCAG-4.1.2",
+    "title": "Name, Role, Value",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#name-role-value",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "names-roles-values",
+    "conformance_level": "A",
+    "normative_strength": "MUST",
+    "description": "Every user interface component exposes its name and role to assistive technologies, lets them set any state, property, or value that users can change, and notifies them when these change.",
+    "rationale": "Screen reader, speech input, and other assistive technology users can only understand and operate controls that expose correct names, roles, states, and values.",
+    "applicability": "All user interface components, including form elements, links, and script-generated custom components.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "accessibility_node",
+      "role_name_state",
+      "dom_locator"
+    ],
+    "severity_hint": "High",
+    "related_rules": [
+      {
+        "id": "WCAG-1.1.1",
+        "relation": "see_also"
+      },
+      {
+        "id": "WCAG-2.5.3",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [
+      {
+        "type": "act",
+        "id": "2t702h",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "307n5z",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "59796f",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "6cfa84",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "97a4e1",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "c487ae",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "e086e5",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "m6b1q3",
+        "status": "approved"
+      },
+      {
+        "type": "act",
+        "id": "4b1c6c",
+        "status": "proposed"
+      },
+      {
+        "type": "act",
+        "id": "cae760",
+        "status": "proposed"
+      }
+    ],
+    "notes": "Aimed mainly at authors of custom or scripted components; standard HTML controls used as specified already meet it. ARIA in HTML and WAI-ARIA records crosswalk here."
+  },
+  {
+    "id": "WCAG-4.1.3",
+    "title": "Status Messages",
+    "authority": "W3C",
+    "source": "SRC-W3C-WCAG22",
+    "source_url": "https://www.w3.org/TR/WCAG22/#status-messages",
+    "source_version": "W3C Recommendation 12 December 2024",
+    "source_status": "CURRENT",
+    "last_verified": "2026-09-23",
+    "rule_class": "NORMATIVE",
+    "platforms": [
+      "web",
+      "pwa"
+    ],
+    "jurisdictions": [
+      "GLOBAL"
+    ],
+    "category": "accessibility",
+    "subcategory": "accessible-status-messages",
+    "conformance_level": "AA",
+    "normative_strength": "MUST",
+    "description": "In markup content, status messages can be programmatically determined through role or properties so assistive technologies can present them without moving focus to them.",
+    "rationale": "Screen reader users miss confirmations, errors, progress updates, and search result counts that appear without focus unless they are announced.",
+    "applicability": "Status messages in content implemented with markup languages.",
+    "exceptions": [],
+    "testability": {
+      "automated": "PARTIAL",
+      "visual": "NONE",
+      "manual": "FULL"
+    },
+    "expected_evidence": [
+      "accessibility_node",
+      "dom_locator",
+      "interaction_trace"
+    ],
+    "severity_hint": "Medium",
+    "related_rules": [
+      {
+        "id": "WCAG-4.1.2",
+        "relation": "see_also"
+      }
+    ],
+    "status": "ACTIVE",
+    "test_procedures": [],
+    "notes": "Status message is a defined term in the glossary (information about success, results, waiting state, progress, or errors that does not change context)."
+  }
+]

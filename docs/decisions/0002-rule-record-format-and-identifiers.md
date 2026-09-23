@@ -1,9 +1,9 @@
 # ADR 0002: Rule record format and identifiers
 
-- Status: ACCEPTED
+- Status: SUPERSEDED
 - Date: 2026-09-02
 - Phase: 0
-- Supersedes / Superseded by: none
+- Supersedes / Superseded by: superseded by [ADR 0008](0008-json-rule-records-and-test-procedures.md)
 
 ## Context
 

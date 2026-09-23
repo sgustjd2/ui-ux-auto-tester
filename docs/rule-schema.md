@@ -1,6 +1,6 @@
 # Rule Schema
 
-Status: v0.1, Phase 0 (2026-09-02). Defines the normalized rule model for the standards registry. Requirements: `prd.md` §3.2, §8, §10. Decision record: `docs/decisions/0002-rule-record-format-and-identifiers.md`. No rule registry exists yet; it is populated in Phase 2 from Phase 1 research.
+Status: v0.2, Phase 2 (2026-09-23; v0.1 was Phase 0, 2026-09-02). Defines the normalized rule model for the standards registry. Requirements: `prd.md` §3.2, §8, §10. Decision records: `docs/decisions/0008-json-rule-records-and-test-procedures.md` (JSON records, `test_procedures`), which supersedes `docs/decisions/0002-rule-record-format-and-identifiers.md`. The registry lives in `registry/` and is validated by `scripts/check-registry.mjs`.
 
 ## 1. Purpose
 
@@ -8,8 +8,8 @@ Every audit claim must resolve to a rule record that names its authority, source
 
 ## 2. Record format and location
 
-- Canonical format: YAML, one document per rule, grouped in one file per source family (for example `registry/wcag-2.2.yaml` holding a list of rule records). The registry directory is created in Phase 2 and must be added to the layout table in `docs/architecture.md` at that time.
-- Field names are `snake_case` exactly as listed below. Unknown fields are rejected by the future registry validator (Phase 2, GAP-002).
+- Canonical format: JSON. One file per source family under `registry/` (for example `registry/wcag22.json`), each file a JSON array of rule records. The directory is listed in the layout table in `docs/architecture.md` §6.
+- Field names are `snake_case` exactly as listed below. Unknown fields are rejected by `scripts/check-registry.mjs`.
 - Strings are written in this project's own words; verbatim text from sources is limited to short quoted thresholds or defined terms with attribution.
 
 ## 3. Rule identifier scheme
@@ -50,15 +50,18 @@ Every audit claim must resolve to a rule record that names its authority, source
 | `severity_hint` | enum | yes | Critical, High, Medium, Low, Informational: default severity of a FAIL before context adjustment |
 | `related_rules` | list | yes | May be empty. Items `{ id, relation }` with relation one of equivalent, narrower, broader, overlaps, see_also (§6) |
 | `status` | enum | yes | ACTIVE, RETIRED |
+| `test_procedures` | list | no | Linked test procedures, each `{ type, id, status }` with `type` `act`, `id` a six-character ACT rule ID from SRC-W3C-ACT-RULES, and `status` `approved` or `proposed`; linked only where the criterion is a conformance requirement of that ACT rule (`forConformance`), never for secondary mappings; deprecated ACT rules are not linked; engine rules wait for the Phase 5 tooling decision (ADR 0008) |
 | `notes` | string | no | Techniques, measurement details, licensing caveats, known ambiguities |
 
-Constraints enforced by the future validator:
+Constraints enforced by `scripts/check-registry.mjs`:
 
 - `source` must exist in `research/sources.md` with `research_status: VERIFIED`.
 - `rule_class` must be consistent with the source tier (`docs/standards-research-plan.md` §3): NORMATIVE and LEGAL require T1; PLATFORM, STANDARD, METRIC require T1 or T2; HEURISTIC requires T1–T3; BEST_PRACTICE requires T1–T3, or T4 only when `notes` records that no higher-tier source exists.
 - `conformance_level` is non-null only for sources that define levels.
 - `related_rules` targets must exist; `equivalent` must be symmetric.
 - A rule with `testability.automated: NONE` and `testability.visual: NONE` must have `testability.manual` other than NONE.
+- The ID prefix must be registered in §8 and map to the record's `source`; IDs are unique across the registry.
+- `platforms`, `jurisdictions`, `exceptions`, `expected_evidence`, and `related_rules` are lists; `expected_evidence` is non-empty and uses the evidence types in `docs/finding-schema.md` §7.
 
 ## 5. Testability
 
@@ -87,7 +90,7 @@ The Standards Auditor evaluates each applicable record once and uses `equivalent
 ## 7. Normalization methodology (Phase 2)
 
 1. Start from a VERIFIED source note's candidate rules (`docs/standards-research-plan.md` §8).
-2. One requirement per record. Split compound clauses; keep the source identifier on each.
+2. One requirement per record. For sources with public numbering, the numbered requirement (for example a WCAG success criterion) is the atomic record and keeps its conditions, options, and exceptions inside it; split only unnumbered compound clauses, keeping the source identifier on each (ADR 0008).
 3. Preserve public identifiers in the ID and the deep link in `source_url`.
 4. Paraphrase the requirement and each exception in this project's words. No verbatim criterion text.
 5. Assign `rule_class` from authority and force, not from topic: a WCAG success criterion is NORMATIVE; a law citing it is LEGAL with an `equivalent` link; a platform guideline is PLATFORM even when it repeats a WCAG threshold.
@@ -150,32 +153,35 @@ Example identifiers illustrate the format only; the identifiers themselves are u
 
 ## 9. Illustrative record (not a registry entry)
 
-The following shows the shape of a record. Its factual content has not been verified in this repository and must not be copied into the registry without following the research protocol.
+The following shows the shape of a record (JSON, schema v0.2). Real records live in `registry/`; this example is abridged and is not validated.
 
-```yaml
-- id: WCAG-2.5.8
-  title: Target size minimum
-  authority: W3C
-  source: SRC-W3C-WCAG22
-  source_url: https://www.w3.org/TR/WCAG22/#target-size-minimum
-  source_version: "2.2"
-  source_status: CURRENT
-  last_verified: null            # illustrative; a real record needs a date
-  rule_class: NORMATIVE
-  platforms: [web, pwa]
-  jurisdictions: [GLOBAL]
-  category: accessibility
-  subcategory: touch-target
-  conformance_level: AA
-  normative_strength: MUST
-  description: Pointer targets meet a minimum size unless an exception applies.
-  rationale: Small targets are hard to activate for people with limited fine motor control and on touch devices.
-  applicability: Any interactive target activated by pointer input.
-  exceptions: []                 # to be paraphrased from the source in Phase 2
-  testability: { automated: PARTIAL, visual: FULL, manual: FULL }
-  expected_evidence: [bounding_box, screenshot, dom_locator]
-  severity_hint: High
-  related_rules: []
-  status: ACTIVE
-  notes: Illustrative only.
+```json
+{
+  "id": "WCAG-2.5.8",
+  "title": "Target Size (Minimum)",
+  "authority": "W3C",
+  "source": "SRC-W3C-WCAG22",
+  "source_url": "https://www.w3.org/TR/WCAG22/#target-size-minimum",
+  "source_version": "W3C Recommendation 12 December 2024",
+  "source_status": "CURRENT",
+  "last_verified": "2026-09-23",
+  "rule_class": "NORMATIVE",
+  "platforms": ["web", "pwa"],
+  "jurisdictions": ["GLOBAL"],
+  "category": "accessibility",
+  "subcategory": "touch-target",
+  "conformance_level": "AA",
+  "normative_strength": "MUST",
+  "description": "...",
+  "rationale": "...",
+  "applicability": "...",
+  "exceptions": ["..."],
+  "testability": { "automated": "PARTIAL", "visual": "FULL", "manual": "FULL" },
+  "expected_evidence": ["bounding_box", "screenshot", "dom_locator"],
+  "severity_hint": "High",
+  "related_rules": [{ "id": "WCAG-2.5.5", "relation": "narrower" }],
+  "status": "ACTIVE",
+  "test_procedures": [],
+  "notes": "..."
+}
 ```

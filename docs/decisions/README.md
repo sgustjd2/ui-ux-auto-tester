@@ -31,9 +31,10 @@ Superseding an ADR: write the new ADR, set the old one's status to SUPERSEDED wi
 | ADR | Title | Status | Date |
 |---|---|---|---|
 | [0001](0001-source-of-truth-and-repository-layout.md) | Source of truth and repository layout | ACCEPTED | 2026-09-02 |
-| [0002](0002-rule-record-format-and-identifiers.md) | Rule record format and identifiers | ACCEPTED | 2026-09-02 |
+| [0002](0002-rule-record-format-and-identifiers.md) | Rule record format and identifiers | SUPERSEDED | 2026-09-02 |
 | [0003](0003-finding-types-and-independent-dimensions.md) | Finding types and independent dimensions | ACCEPTED | 2026-09-02 |
 | [0004](0004-validation-tooling.md) | Validation tooling | ACCEPTED | 2026-09-02 |
 | [0005](0005-subagent-strategy.md) | Subagent strategy | ACCEPTED | 2026-09-02 |
 | [0006](0006-parallel-web-product-stream-boundary.md) | Parallel web-product stream boundary | ACCEPTED | 2026-09-02 |
 | [0007](0007-ecosystem-landscape-and-industry-sources.md) | Ecosystem landscape and industry sources | ACCEPTED | 2026-09-23 |
+| [0008](0008-json-rule-records-and-test-procedures.md) | JSON rule records and linked test procedures | ACCEPTED | 2026-09-23 |

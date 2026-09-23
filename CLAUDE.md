@@ -8,8 +8,8 @@ Build a reusable UI/UX auditing and synthetic user-testing Skill that audits web
 
 ## Status
 
-- Current phase: Phase 1 (standards corpus research) complete as of 2026-09-23 (exit report: `research/phase-1-exit-report.md`). Phase 2 (rule normalization) is next and has not started. Phase 0 (harness) complete as of 2026-09-02.
-- Next goal: start Phase 2 following `docs/rule-schema.md` §7, taking the Phase 2 queue in `research/ledger.md` under "Next actions" (first: the record-format decision GAP-002 by ADR, and the user decisions GAP-001, GAP-026, GAP-029).
+- Current phase: Phase 2 (rule normalization) in progress since 2026-09-23. Phase 1 (standards corpus research) complete as of 2026-09-23 (exit report: `research/phase-1-exit-report.md`). Phase 0 (harness) complete as of 2026-09-02.
+- Next goal: continue Phase 2 following `docs/rule-schema.md` §7, taking the next item from the Phase 2 queue in `research/ledger.md` under "Next actions". Rules live in `registry/` and must pass `node scripts/check-registry.mjs` (run by the harness check).
 - Update this block only at phase transitions. Day-to-day state lives in `research/ledger.md`. Phase definitions and exit criteria are in `prd.md` §18.
 
 ## Startup read order (mandatory)

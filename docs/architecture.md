@@ -123,12 +123,14 @@ Policy is in `CLAUDE.md` (Trust boundary). Architecturally:
 | `.claude/agents/` | Subagent definitions | ADR 0005 |
 | `.claude/commands/` | Slash commands for recurring workflows | ADR 0005 |
 | `.claude/settings.json.example` | Opt-in permissions and hook template | ADR 0004 |
-| `scripts/check-harness.mjs` | Harness validator (no dependencies) | ADR 0004 |
+| `scripts/check-harness.mjs` | Harness validator (no dependencies); runs the registry validator when `registry/` exists | ADR 0004 |
+| `scripts/check-registry.mjs` | Rule registry validator with a built-in self-test (`--self-test`) | ADR 0008 |
+| `registry/` | Normalized rule records, one JSON file per source family (first: `registry/wcag22.json`) | `docs/rule-schema.md`, ADR 0008 |
 | `tests/` | Not created yet; added when there is code to test (ADR 0004) | ADR 0004 |
 | `web/` | Web product prototype (fixture-backed UI, server, adapters, tests); owned exclusively by the web-product stream, listed here as externally owned per ADR 0006 | `web/README.md` (web stream) |
 | `docs/web-product/` | Parallel web-product stream; owned exclusively by that stream, subordinate to `prd.md` and the core documents above. Core sessions read its `README.md` only when working on the web stream and never edit the folder | ADR 0006 |
 
-Directories not listed here (registry, Skill package, fixtures) are created by the phase that needs them and must be added to this table when created.
+Directories not listed here (Skill package, fixtures) are created by the phase that needs them and must be added to this table when created.
 
 ## 7. Phase map and where state lives
 

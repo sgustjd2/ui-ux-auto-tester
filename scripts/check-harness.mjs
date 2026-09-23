@@ -4,6 +4,7 @@
 // Exit 0 when every check passes, 2 on any failure (2 lets it block as a Claude Code Stop hook).
 // ponytail: tables are parsed by splitting on "|"; a "|" inside a cell shows up as a cell-count error.
 
+import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, posix, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -319,6 +320,15 @@ for (const [did, r] of domains) {
   } catch (e) {
     checks++;
     errors.push(`.claude/settings.json.example: invalid JSON (${e.message})`);
+  }
+}
+
+// ---------- 12. rule registry (ADR 0008): run the registry validator and its self-test when registry/ exists ----------
+if (exists("registry")) {
+  for (const args of [["--self-test"], []]) {
+    const run = spawnSync(process.execPath, [join(ROOT, "scripts/check-registry.mjs"), ...args], { encoding: "utf8" });
+    checks++;
+    if (run.status !== 0) errors.push(`scripts/check-registry.mjs ${args.join(" ")} failed:\n${(run.stderr || run.stdout).trim()}`);
   }
 }
 
