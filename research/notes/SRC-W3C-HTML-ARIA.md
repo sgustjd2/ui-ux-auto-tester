@@ -19,11 +19,14 @@
 ## Structure (paraphrased, from the table of contents)
 
 1. Author requirements for use of ARIA in HTML (the per-element table of implicit role, allowed roles, and allowed aria-* attributes).
-2. ARIA semantics that extend and diverge from HTML.
+2. ARIA semantics that extend and diverge from HTML (non-normative).
 3. Author guidance to avoid incorrect use of ARIA: do not override interactive elements with non-interactive roles, avoid redundant roles, be cautious of side effects, follow the rules of ARIA and of HTML.
 4. Document conformance requirements for ARIA attributes in HTML: attributes used to name elements, ARIA attributes in place of equivalent HTML attributes, deprecated ARIA roles/states/properties, and case requirements.
 5. Allowed descendants of ARIA roles.
 6. Conformance (including conformance-checking requirements).
+7. Privacy and security considerations.
+
+§4.4 (case requirements for role and aria-* attribute values) yields a further candidate check not listed below; Phase 2 adds it.
 
 Recent substantive changes listed in the status section (paraphrased): September 2025 clarification of the summary element; July 2025 additions for the label element, the new selectedcontent element and button allowances inside a customized select, and clarification that the html element is generic; December 2024 additions allowing the math role on img, the image role as preferred synonym of img, and aria-hidden with the hidden attribute. These track new HTML features (customizable select), so audits of current markup need this revision rather than older snapshots.
 

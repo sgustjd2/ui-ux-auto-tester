@@ -1,12 +1,12 @@
 # SRC-ETSI-EN301549 — EN 301 549 Accessibility requirements for ICT products and services
 
 - Authority: ETSI, CEN, and CENELEC (the three European Standardization Organizations), developed under European Commission mandate
-- Canonical URL: https://www.etsi.org/deliver/etsi_en/301500_301599/301549/ (version directory). Current published file: https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf
-- Version / date: EN 301 549 V3.2.1 (2021-03), the current published European Standard
+- Canonical URL: https://www.etsi.org/deliver/etsi_en/301500_301599/301549/ (version directory). V3.2.1 file: https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf
+- Version / date: EN 301 549 V3.2.1 (2021-03); superseded at ETSI by V4.1.1 on 2 September 2026 and still the OJ-cited harmonized standard under the WAD
 - Source status: SUPERSEDED at ETSI since 2 September 2026 (re-checked 2026-09-23): V4.1.1 is published (SRC-ETSI-EN301549-V4). V3.2.1 remains the harmonized standard cited under the Web Accessibility Directive (Decision (EU) 2021/1339) until V4.1.1 is cited in the Official Journal, so EU legal audits keep citing it until then
 - Superseded by / supersedes: superseded by SRC-ETSI-EN301549-V4 (V4.1.1, 2026-09). Supersedes V3.1.1 (2019) and earlier. Historical note from 2026-09-02: A successor, V4.1.0, is in ETSI approval (the directory shows 04.01.00_30 dated 2026-06 with file en_301549v040100va.pdf, the "va" suffix marking a draft under vote, not a published EN). V4.1.0 aligns EN 301 549 with the European Accessibility Act and newer WCAG; it is not yet the published or harmonized version. This resolves GAP-008.
 - License / access: freely downloadable at no cost from ETSI (unlike paid ISO standards), because it is a mandated European standard. Copyright ETSI/CEN/CENELEC; store metadata, structure, and paraphrases only, no large verbatim text.
-- Verified on: 2026-09-02 (ETSI version directory and the V3.2.1 and V4.1.0 subdirectory file listings read via the canonical ETSI host; version and published-vs-draft status confirmed from the file naming)
+- Verified on: 2026-09-23 re-check (ETSI directory lists 04.01.01_60, V4.1.1, dated 2 September 2026; AccessibleEU news of 7 September 2026 says V3.2.1 remains the legal reference until V4.1.1 is cited in the Official Journal); first verified 2026-09-02 (ETSI version directory and the V3.2.1 and V4.1.0 subdirectory file listings read via the canonical ETSI host; version and published-vs-draft status confirmed from the file naming)
 - Tier: T1
 - Domains served: LEGAL-EN-301-549
 
@@ -33,11 +33,11 @@ Two kinds:
 
 - WCAG 2.1 / 2.2 (SRC-W3C-WCAG22 and the WCAG 2.1 source to be registered, GAP-027): EN 301 549 V3.2.1 references WCAG 2.1; the WCAG rules are the equivalents of chapters 9–11.
 - Web Accessibility Directive (SRC-EU-WAD): makes conformance to EN 301 549 a presumption of conformity for public sector web and apps.
-- European Accessibility Act (SRC-EU-EAA): the forthcoming V4.x is being developed as the EAA harmonized standard.
+- European Accessibility Act (SRC-EU-EAA): the EAA-aligned successor V4.1.1 (SRC-ETSI-EN301549-V4) was published on 2 September 2026 with an EAA annex; not yet cited in the Official Journal (GAP-039).
 - Section 508 (SRC-USAB-SECTION508): the US analogue; both incorporate WCAG, enabling a US/EU crosswalk.
 
 ## Uncertainties and gaps
 
 - The individual non-WCAG clauses were not extracted in this session; Phase 2 extracts them from the V3.2.1 PDF (paraphrase only, licensed text).
-- Which WCAG version each chapter references (2.1 in V3.2.1; 2.2 expected in V4.x) must be pinned per clause at normalization; this ties to GAP-027 (register WCAG 2.1).
-- V4.1.0's publication and harmonization status should be re-checked before the corpus is packaged (it may become the harmonized EAA standard).
+- Which WCAG version each chapter references (2.1 in V3.2.1; 2.2 in V4.1.1) must be pinned per clause at normalization; this ties to GAP-027 (register WCAG 2.1).
+- Superseded by V4.1.1 (2 September 2026); re-check its Official Journal citation before EU legal rules are normalized (GAP-039).

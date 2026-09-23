@@ -3,7 +3,7 @@
 - Authority: ETSI, CEN, and CENELEC (produced by ETSI Technical Committee Human Factors), under European Commission standardisation request C(2022) 6456 final (M 587)
 - Canonical URL: https://www.etsi.org/deliver/etsi_en/301500_301599/301549/04.01.01_60/en_301549v040101p.pdf (version directory https://www.etsi.org/deliver/etsi_en/301500_301599/301549/)
 - Version / date: EN 301 549 V4.1.1 (2026-09), "Harmonised European Standard" as printed on the cover; the ETSI directory lists the 04.01.01_60 file dated 2 September 2026
-- Source status: CURRENT (latest published EN). Not yet cited in the Official Journal of the EU, so it does not yet confer a presumption of conformity; V3.2.1 remains the cited harmonized standard under the Web Accessibility Directive until then
+- Source status: CURRENT (latest published EN). Not yet cited in the Official Journal of the EU (AccessibleEU, the European Commission's accessibility resource centre, news of 7 September 2026, read 2026-09-23: V3.2.1 remains the reference until V4.1.1 is cited), so it does not yet confer a presumption of conformity; V3.2.1 remains the cited harmonized standard under the Web Accessibility Directive until then
 - Superseded by / supersedes: developed from and replaces V3.2.1 (2021-03) at ETSI (SRC-ETSI-EN301549, now marked SUPERSEDED in the registry with this legal caveat). The earlier V4.1.0 directories (04.01.00_20 and 04.01.00_30) were pre-publication drafts
 - License / access: free download from ETSI; copyright ETSI/CEN/CENELEC; paraphrase only, no verbatim requirement text
 - Verified on: 2026-09-23 (ETSI directory listing read; PDF downloaded; cover, foreword, significant-changes list, national dates, and table of contents read via pdftotext, pages 1 to 12)
@@ -25,7 +25,7 @@
 
 ## Candidate rules
 
-- Same modelling as V3.2.1 (see SRC-ETSI-EN301549 note): LEGAL records per clause with `equivalent` links to the WCAG records they incorporate. For clauses 9 to 11 the incorporated version is now WCAG 2.2 (SRC-W3C-WCAG22), which removes the WCAG 2.1 dependency for EU audits once V4.1.1 is cited.
+- Same modelling as V3.2.1 (see SRC-ETSI-EN301549 note): STANDARD records per clause (`docs/rule-schema.md` §7 reserves LEGAL for laws), linked by `equivalent` to the WCAG records they incorporate, with the EAA and WAD LEGAL records citing them. Phase 2 confirms this modelling (GAP-039). For clauses 9 to 11 the incorporated version is now WCAG 2.2 (SRC-W3C-WCAG22), which removes the WCAG 2.1 dependency for EU audits once V4.1.1 is cited.
 - Jurisdiction logic for Phase 2: until OJ citation, EU WAD audits cite V3.2.1 as the presumption-of-conformity standard and may report V4.1.1 as the state of the art; after citation, V4.1.1 becomes the default. The switch must be verified at the Official Journal, not assumed.
 
 ## Cross-references

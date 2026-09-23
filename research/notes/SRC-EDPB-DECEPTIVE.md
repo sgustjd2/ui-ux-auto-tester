@@ -101,13 +101,15 @@ Evidence note for the auditor: para 13 names screenshots of the user's path and 
 
 ## Cross-references
 
-- GDPR (SRC-EU-GDPR, CANDIDATE): binding anchor for every rule; articles cited are listed per type above. Normalization links each EDPB rule to the matching GDPR LEGAL rule.
-- DSA (SRC-EU-DSA, CANDIDATE): footnote 8 cites DSA Article 25(1) (prohibition of deceptive or manipulative online interface design) and 25(2) (exclusion for practices covered by the UCPD or the GDPR); footnote 10 cites DSA Recital 81. Confirm at the DSA canonical text.
-- FTC staff report (SRC-FTC-DARK-PATTERNS, CANDIDATE) and Korean e-commerce act (SRC-KR-ECOMMERCE-ACT, CANDIDATE): overlapping taxonomies; crosswalk at normalization.
-- EDPB Guidelines 05/2020 on consent: cited as Version 1.1 adopted 4 May 2020 (footnote 25). Discovery hint for SRC-EDPB-CONSENT only; not verified here.
+- GDPR (SRC-EU-GDPR, VERIFIED 2026-09-23): binding anchor for every rule; articles cited are listed per type above. Normalization links each EDPB rule to the matching GDPR LEGAL rule.
+- DSA (SRC-EU-DSA, VERIFIED 2026-09-23): footnote 8 cites DSA Article 25(1) (prohibition of deceptive or manipulative online interface design) and 25(2) (exclusion for practices covered by the UCPD or the GDPR); footnote 10 cites DSA Recital 81. Confirm at the DSA canonical text.
+- FTC staff report (SRC-FTC-DARK-PATTERNS, VERIFIED 2026-09-23) and Korean e-commerce act (SRC-KR-ECOMMERCE-ACT, VERIFIED 2026-09-23): overlapping taxonomies; crosswalk at normalization.
+- EDPB Guidelines 05/2020 on consent: cited as Version 1.1 adopted 4 May 2020 (footnote 25). SRC-EDPB-CONSENT has since been verified (2026-09-23).
 - Other documents cited, not registered: EDPB Guidelines 04/2019 on Article 25 (v2.0, 20 October 2020); Article 29 Working Party guidelines on transparency (endorsed by the EDPB); EDPB Cookie Banner Taskforce report of 17 January 2023; Directive 2005/29/EC (UCPD) and Commission Notice 2021/C 526/01; Directive 2002/58/EC (ePrivacy); CNIL IP Report No. 6 (2019); Norwegian Consumer Council "Deceived by design" (2018); Gray et al., CHI 2018; European Commission behavioural study on dark patterns (2022); OECD "Dark commercial patterns" (2022).
 - Related newer EDPB document seen in search results only: Guidelines 3/2025 on the interplay between the DSA and the GDPR (PDF under edpb.europa.eu/system/files/2025-09/). Not fetched; candidate source.
 - Project sources: WCAG 2.2 1.4.3 contrast (SRC-W3C-WCAG22) is a see_also for Hidden in plain sight (para 51 names low-contrast grey text); NN/g heuristics (SRC-NNG-HEURISTICS) consistency and user control overlap Fickle and Obstructing; W3C i18n (SRC-W3C-I18N) is a see_also for Language discontinuity.
+
+Strength note (added after review): where a candidate-rule paraphrase says must (for example 4.2.1, 4.3.2, 4.4.1, 4.4.3), it restates the EDPB reading of a GDPR obligation; the rule strength stays SHOULD because the source is T2 regulator guidance and the binding anchor is the GDPR rule (GAP-045).
 
 ## Uncertainties and gaps
 

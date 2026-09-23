@@ -31,12 +31,12 @@
 
 ## Cross-references
 
-- EN 301 549 (SRC-ETSI-EN301549): the expected harmonized standard giving presumption of conformity.
+- EN 301 549: V3.2.1 (SRC-ETSI-EN301549) and V4.1.1 (SRC-ETSI-EN301549-V4, published 2 September 2026 with Annex ZB for this Directive); presumption of conformity follows Official Journal citation (GAP-039).
 - Web Accessibility Directive (SRC-EU-WAD): the public-sector counterpart; the EAA covers private products and services.
 - WCAG (SRC-W3C-WCAG22): the web/app accessibility core reached through EN 301 549.
 
 ## Uncertainties and gaps
 
-- The EAA harmonized standard (EN 301 549 V4.x) was not yet published as harmonized at verification; the exact presumption-of-conformity mapping should be re-checked when the OJ reference is published (ties to the EN 301 549 V4.x status in GAP-008).
+- EN 301 549 V4.1.1 was published on 2 September 2026 but was not cited in the Official Journal at the 2026-09-23 check; re-check the citation and the presumption-of-conformity mapping before EU legal rules are normalized (GAP-039).
 - Member-state transposition details vary; the corpus records the directive, not each national law, unless the user enables specific jurisdictions (GAP-023).
 - Annex I requirements were not extracted this session; deferred to Phase 2.

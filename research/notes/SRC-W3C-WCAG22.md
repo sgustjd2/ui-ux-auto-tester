@@ -6,7 +6,7 @@
 - Source status: CURRENT (re-checked 2026-09-23: the WCAG 2 overview, updated 17 September 2026, still names 2.2 as the latest version; WCAG 2.2 is also published as ISO/IEC 40500:2025, identical to the October 2023 text, with the December 2024 text expected as ISO/IEC 40500:2026; errata page last modified 3 September 2026 with editorial entries dated 17 August 2026)
 - Superseded by / supersedes: supersedes the 5 October 2023 Recommendation of WCAG 2.2 (https://www.w3.org/TR/2023/REC-WCAG22-20231005/). Previous Recommendation in the WCAG 2 line: WCAG 2.1 (https://www.w3.org/TR/WCAG21/), which remains a separate, still-cited document (see Uncertainties).
 - License / access: open. W3C Document License 2023 (the header says "document use rules apply"): copying and distribution permitted with attribution (link, copyright notice, status); no derivative works except to facilitate implementation, and publishing derivatives as a technical specification is prohibited. Code components fall under the W3C Software License.
-- Verified on: 2026-09-02 (header, status section, history page, errata page, and every success criterion read at the canonical URL; text extracted deterministically from the downloaded HTML, not from a summary)
+- Verified on: 2026-09-23 re-check (TR header still the Recommendation of 12 December 2024; WCAG 2 overview updated 17 September 2026; errata page modified 3 September 2026); first verified 2026-09-02 (header, status section, history page, errata page, and every success criterion read at the canonical URL; text extracted deterministically from the downloaded HTML, not from a summary)
 - Tier: T1
 - Domains served: A11Y-WCAG22, VIS-TYPOGRAPHY, VIS-CONTRAST, VIS-IMAGERY, VIS-RESPONSIVE, VIS-ZOOM, VIS-ORIENTATION, VIS-TEXT-SCALING
 

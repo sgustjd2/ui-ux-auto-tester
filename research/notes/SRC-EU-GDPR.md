@@ -60,7 +60,7 @@
 
 ### Recitals relevant to UI (non-binding, interpretive; read in the OJ text 32016R0679)
 
-- Recital 32: consent by a clear affirmative act. Examples include ticking a box on a website and choosing technical settings. "Silence, pre-ticked boxes or inactivity" do not constitute consent. Consent covers all purposes when there are several. Electronic requests must be clear, concise, and not unnecessarily disruptive to use of the service.
+- Recital 32: consent by a clear affirmative act. Examples include ticking a box on a website and choosing technical settings. "Silence, pre-ticked boxes or inactivity" do not constitute consent. When processing has several purposes, consent should be given for each of them. Electronic requests must be clear, concise, and not unnecessarily disruptive to use of the service.
 - Recital 42: the controller should be able to demonstrate consent. Pre-formulated declarations should be intelligible, easily accessible, in clear and plain language, and without unfair terms. For consent to be informed, the data subject should know at least the controller's identity and the purposes. Consent is not freely given if there is no genuine or free choice or if the data subject cannot refuse or withdraw without detriment.
 - Recital 43: consent is presumed not freely given if it does not allow separate consent for different processing operations where appropriate, or if performance of a contract or service depends on consent that is not necessary for it.
 - Recital 58: transparency: information should be concise, easily accessible and easy to understand, in clear and plain language, plus visualisation where appropriate. It may be provided electronically, for example on a website. This is especially relevant where many actors and complex technology are involved, such as online advertising. Information addressed to a child should be in language the child can easily understand.
@@ -101,10 +101,10 @@ Format: proposed ID; source identifier; paraphrase; rule class; normative streng
 ## Cross-references
 
 - ePrivacy Directive 2002/58/EC (not registered): the instrument that actually governs cookie and terminal-storage consent banners. It relies on the GDPR consent standard; the linkage was not verified this session. Candidate source.
-- SRC-EDPB-CONSENT (candidate): EDPB interpretation of Arts. 4(11), 7, and 8 (granularity, withdrawal, cookie walls, scrolling). Needed before BP-consent-001 and GDPR-art-7-006 can be sharpened.
-- SRC-EDPB-DECEPTIVE (candidate): deceptive design patterns interpreted against Art. 5(1)(a), Art. 12, and Art. 25. GDPR-art-5-001 and GDPR-art-25-001 are its likely `broader` anchors.
-- SRC-EU-DSA (candidate): deceptive interface provisions for online platforms, which may overlap with consent UI.
-- SRC-KR-PIPA (candidate): Korean counterpart for OTH-PRIVACY-UX and OTH-CONSENT-UX.
+- SRC-EDPB-CONSENT (VERIFIED 2026-09-23): EDPB interpretation of Arts. 4(11), 7, and 8 (granularity, withdrawal, cookie walls, scrolling). Needed before BP-consent-001 and GDPR-art-7-006 can be sharpened.
+- SRC-EDPB-DECEPTIVE (VERIFIED 2026-09-23): deceptive design patterns interpreted against Art. 5(1)(a), Art. 12, and Art. 25. GDPR-art-5-001 and GDPR-art-25-001 are its likely `broader` anchors.
+- SRC-EU-DSA (VERIFIED 2026-09-23): deceptive interface provisions for online platforms, which may overlap with consent UI.
+- SRC-KR-PIPA (VERIFIED 2026-09-23): Korean counterpart for OTH-PRIVACY-UX and OTH-CONSENT-UX.
 - Digital Omnibus (procedure 2025/0360/COD, COM(2025) 837): pending amendment to this Regulation and to Directive 2002/58/EC. T4 discovery pages claim it would move device-storage consent rules into new GDPR articles. That claim is unverified and is not used here.
 - Accessibility sources (SRC-W3C-WCAG22, SRC-W3C-COGA): the "intelligible" and "clear and plain language" requirements overlap with cognitive-accessibility and readability rules (`overlaps`, not `equivalent`).
 
@@ -121,3 +121,4 @@ Format: proposed ID; source identifier; paraphrase; rule class; normative streng
 - Art. 12(8) icon delegated act: whether the Commission has adopted one is unknown.
 - CJEU case law interpreting consent was not read (for example the case known as Planet49, cited from general knowledge as C-673/17; identifier unverified). It is a candidate T1 interpretive source and is not used here.
 - No text addressed to the agent or requesting actions appeared in the fetched pages.
+- Review addendum (2026-09-23): EUR-Lex also lists COM(2025) 501 (the Omnibus IV simplification proposal, which amends Art. 30) as a related pending instrument, per the research reviewer; watch only, no UI impact expected (GAP-056). With SRC-EDPB-CONSENT and SRC-EDPB-DECEPTIVE now verified, BP-consent-001 (reject as easy as accept) can be re-anchored in Phase 2 to the EDPB guidance (the reviewer points to EDPB 03/2022 para 57, type 4.3.2); confirm when normalizing.

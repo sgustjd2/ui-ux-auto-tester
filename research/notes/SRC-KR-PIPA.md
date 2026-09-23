@@ -87,7 +87,7 @@ Proposed prefix: `KRPIPA`. It is not registered in `docs/rule-schema.md` §8; th
 - PIPC notice 개인정보 처리 방법에 관한 고시, PIPC Notice No. 2026-10, issued and effective 20 August 2026 (DRF admrul metadata only). This is the display-method notice named in Art. 22(2). Candidate source; not researched.
 - PIPC guidance: 개인정보 처리 통합 안내서, announced 12 September 2024, and 알기 쉬운 개인정보 처리 동의 안내서. These are UI-level T2 guidance candidates. I have not verified their editions, dates, or whether one supersedes the other.
 - 표준 개인정보 보호지침 (a PIPC administrative rule) appeared in search results. It is a candidate only.
-- SRC-EU-GDPR and SRC-EDPB-CONSENT: EU counterparts for the consent crosswalk (both CANDIDATE). The crosswalk should be `related`, not `equivalent`, until both are read.
+- SRC-EU-GDPR and SRC-EDPB-CONSENT: EU counterparts for the consent crosswalk (both VERIFIED 2026-09-23). The crosswalk should be `related`, not `equivalent`, until both are read.
 - SRC-KR-ECOMMERCE-ACT: a neighbouring Korean source for deceptive patterns (OTH-DARK-PATTERNS).
 
 ## Uncertainties and gaps

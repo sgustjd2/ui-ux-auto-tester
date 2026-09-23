@@ -16,7 +16,7 @@
 - Jurisdiction: EU/EEA. Footnote 1 says references to "Member States" are to be read as EEA Member States.
 - Who it addresses: controllers that rely on consent. It covers any channel (web, app, IoT interface, email, phone, paper) and is technology-neutral.
 - ePrivacy link (paras 6–7, fn 27): the EDPB states that the GDPR conditions for valid consent apply in situations within the scope of the ePrivacy Directive 2002/58/EC, which covers cookies and online tracking. This is what connects the guidance to cookie banners and cookie walls. The guidelines do not decide which cookies or trackers need consent; that is an ePrivacy question outside this document.
-- Force: the document does not state its own legal force. It is interpretive guidance. The binding obligations are in the GDPR (SRC-EU-GDPR, still CANDIDATE). Audit rules from this source are therefore not LEGAL on their own (tier policy, `docs/standards-research-plan.md` §3).
+- Force: the document does not state its own legal force. It is interpretive guidance. The binding obligations are in the GDPR (SRC-EU-GDPR, VERIFIED 2026-09-23). Audit rules from this source are therefore not LEGAL on their own (tier policy, `docs/standards-research-plan.md` §3).
 
 ## Structure
 
@@ -122,7 +122,7 @@ Not proposed as UI rules:
 
 ## Cross-references
 
-- SRC-EU-GDPR (T1, CANDIDATE): the binding anchor. The guidelines cite Arts. 4(11), 5(1)(b), 6(1)(a), 7(1)–(4), 8, 9(2), 13, 14, 17, 20, 21, 22(2)(c), 49(1)(a), 70(1)(e), 88, and 95, and Recitals 32, 33, 38, 40, 42, 43, 58, 159, and 171. GDPR text in this note is as quoted by the EDPB, not read at EUR-Lex. Every EDPBCONSENT rule should carry a `related_rules` link (proposed relation `narrower`) to the GDPR rule it interprets.
+- SRC-EU-GDPR (T1, VERIFIED 2026-09-23): the binding anchor. The guidelines cite Arts. 4(11), 5(1)(b), 6(1)(a), 7(1)–(4), 8, 9(2), 13, 14, 17, 20, 21, 22(2)(c), 49(1)(a), 70(1)(e), 88, and 95, and Recitals 32, 33, 38, 40, 42, 43, 58, 159, and 171. GDPR text in this note is as quoted by the EDPB, not read at EUR-Lex. Every EDPBCONSENT rule should carry a `related_rules` link (proposed relation `narrower`) to the GDPR rule it interprets.
 - SRC-EDPB-DECEPTIVE (T2): overlaps on pressure, deception, preselection, and obstruction (EDPBCONSENT-24, -79-1, -113).
 - ePrivacy Directive 2002/58/EC: not registered. The guidelines apply the GDPR consent conditions to ePrivacy consent for cookies and tracking (paras 6–7, fn 27). Candidate source for the lead.
 - WP29 documents cited as still relevant where consistent with the GDPR: Opinion 15/2011 on consent (WP187, expanded upon rather than replaced, para 4), Transparency Guidelines WP260 rev.01 (endorsed by the EDPB, para 69, fn 51), Working Document 02/2013 on cookie consent (WP208, fn 44), and Guidelines on automated decision-making and profiling (WP251, fn 36, 48).
@@ -138,7 +138,7 @@ Not proposed as UI rules:
 
 1. Canonical landing URL. Two EDPB landing pages resolve for the same document: the legacy `/our-work-tools/our-documents/guidelines/...` path and the current `/documents/guideline/...` path. Other legacy index paths (`/our-work-tools/our-documents/publication-type/guidelines_en`, `/our-work-tools/our-documents/topic/legal-basis_en`) returned HTTP 404 on 2026-09-23, which suggests a site restructure. The current path is recorded as canonical, and the PDF URL is identical on both pages. The legacy page may stop resolving; re-check at re-verification. (OPEN_QUESTION)
 2. Status inferred, not declared. EDPB landing pages carry no explicit status field. CURRENT rests on four observations: no supersession or revision notice on either landing page, the April 2026 EDPB summary pointing to these guidelines, no consent consultation open, and the version table ending at 1.1. (ASSUMPTION; re-verify per `docs/standards-research-plan.md` §5)
-3. Binding anchor unverified. All GDPR article and recital content cited here is as quoted or cited by the EDPB. SRC-EU-GDPR is CANDIDATE, so the `related_rules` links and any GDPR-level wording must be confirmed at EUR-Lex. (INCOMPLETE)
+3. Binding anchor unverified. All GDPR article and recital content cited here is as quoted or cited by the EDPB. SRC-EU-GDPR was CANDIDATE when this note was written and is now VERIFIED (2026-09-23), so the `related_rules` links and any GDPR-level wording must be confirmed at EUR-Lex. (INCOMPLETE)
 4. Rule class and strength policy for regulator guidance. The EDPB writes "must" when interpreting GDPR conditions, but the tier policy limits a T2 source to BEST_PRACTICE, not LEGAL. Two questions for the lead: should `normative_strength` follow the EDPB's own wording (MUST/SHOULD, as proposed here), or be capped, for example at SHOULD? And should a VIOLATION finding cite the GDPR LEGAL rule while treating the EDPB rule as the interpretive detail? The same pattern will recur for SRC-EDPB-DECEPTIVE and other regulator guidance, so an ADR may be warranted. (OPEN_QUESTION)
 5. Prefix collision. `docs/rule-schema.md` §8 maps `EDPB` to SRC-EDPB-DECEPTIVE, and a prefix maps to exactly one source. Proposed decision:
    - register `EDPBCONSENT` → SRC-EDPB-CONSENT (example `EDPBCONSENT-86`);

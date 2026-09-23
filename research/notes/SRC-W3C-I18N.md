@@ -2,7 +2,7 @@
 
 - Authority: W3C Internationalization (i18n) Activity
 - Canonical URL: https://www.w3.org/International/ (entry point); techniques index verified at https://www.w3.org/International/techniques/authoring-html
-- Version / date: living reference library. Techniques index "Authoring web pages": first published 13 February 2008, last updated 30 March 2026 (dates embedded in the page source). Sample article "Personal names around the world" (https://www.w3.org/International/questions/qa-personal-names): first published 17 August 2011, updated 24 January 2016
+- Version / date: living reference library. Techniques index "Authoring web pages": first published 13 February 2008, last updated 30 March 2026 (dates embedded in the page source). Sample article "Personal names around the world" (https://www.w3.org/International/questions/qa-personal-names): first published 17 August 2011, version dated 24 January 2016 (last substantive update 17 August 2011 per the source repository, as reported by the research reviewer)
 - Source status: CURRENT
 - Superseded by / supersedes: continuously updated; individual articles carry their own dates
 - License / access: W3C website content. The site footer is script-rendered and the license text was not captured; W3C site pages are generally under the W3C Software and Document License, but that is unconfirmed for these pages (recorded as an uncertainty). Paraphrase only

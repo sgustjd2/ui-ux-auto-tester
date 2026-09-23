@@ -14,7 +14,7 @@
 
 - The page states that ACT Rules describe ways to test conformance to WCAG, ARIA, and other accessibility practices, that approved rules are formally approved by the relevant Working Group, that proposed rules are agreed by the ACT Task Force but not yet approved, and that ACT Rules are informative (not required for determining conformance).
 - The list is organized by WCAG 2.2 success criterion (Levels A, AA, AAA) plus an ARIA section, and can be filtered by rule status (approved, proposed, deprecated) and by implementation type (manual, semi-automatic, automated, linter).
-- Snapshot count 2026-09-23: 94 rules, of which 37 approved, 50 proposed, and 7 deprecated (deprecated rules are also proposed). Counted from `wcag-mapping.json` in the W3C repository https://github.com/w3c/wcag-act-rules, which generates the list page; every entry records ACT Rules Format 1.1. A first count from the page markup found only 84 rules because the list is partly built dynamically, so the repository file is the reliable count. Recount before relying on the numbers.
+- Snapshot count 2026-09-23: 94 rules: 37 approved, 50 proposed (not deprecated), and 7 deprecated (which the file also flags as proposed). Counted from `wcag-mapping.json` in the W3C repository https://github.com/w3c/wcag-act-rules, which generates the list page; every entry records ACT Rules Format 1.1. A first count from the page markup found only 84 rules because the list is partly built dynamically, so the repository file is the reliable count. Recount before relying on the numbers.
 - Platforms: web. Jurisdiction: GLOBAL.
 
 ## Structure

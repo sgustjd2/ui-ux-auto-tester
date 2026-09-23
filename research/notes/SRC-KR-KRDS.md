@@ -65,7 +65,7 @@
     - The basic-pattern pages read have sections for types, usability guidelines, examples, accessibility guidelines, FAQ and 정보 변경 내역 (per-page change history). They carry no 필수/권장/우수 labels.
   - 서비스 패턴 (five service patterns, core tasks with user journeys and standard prototypes): 방문, 검색, 로그인, 신청 (form-filling tasks including civil-petition applications), and 정책 정보 확인.
     - Each pattern is split into journey steps. Login, for example, runs through 개요, finding the login function, checking and choosing a login method, entering login information, and login completion.
-    - Service-pattern items carry 필수/권장/우수 level badges. The service_03_04 page, for example, has 2 필수, 5 권장 and 2 우수 items, plus an accessibility-guidelines section, typology, a structure diagram and platform considerations.
+    - Service-pattern items carry 필수/권장/우수 level badges. The service_03_04 page, for example, has items at all three levels (the first count of 2 필수, 5 권장, 2 우수 differed from a reviewer re-count of 1 필수, 5 권장, 1 우수 plus one accessibility item; re-count on the rendered page in Phase 2, GAP-050), plus an accessibility-guidelines section, typology, a structure diagram and platform considerations.
   - KRDS 소개: KRDS 소개, UI/UX 가이드라인 소개, 디자인 원칙, 네이밍 원칙, 디지털 포용, 이용 안내, 저작권.
 - Guideline document structure, as the introduction page lists it: principles; styles (colour, typography, shape, layout, icons); components; basic patterns; service patterns. The 2025.08 PDF itself was not opened, because it sits inside a 26.2 MB zip.
 - Identifier scheme: the web pages read show no stable public numbering for items. Service-pattern items are identified by level badge and heading, and the service-pattern summary shows no pattern codes. Whether the PDF numbers its items is unknown.
@@ -97,13 +97,13 @@ Testability is given as automated / visual / manual. Platforms are web, pwa, ios
 Typography and colour (style pages):
 - KRDS-style-typography-001 (style_03 타이포그래피): body text is at least 16px. STANDARD, MUST (stated as required). Testability FULL / PARTIAL / NONE (computed font-size).
 - KRDS-style-typography-002 (style_03): line height is at least 150%. STANDARD, MUST. Testability FULL / PARTIAL / NONE. Overlaps WCAG 1.4.12, which is about user-overridable spacing, not a default minimum.
-- KRDS-style-typography-003 (style_03): use only two weights, Regular 400 and Bold 700. STANDARD, SHOULD. Testability FULL / PARTIAL / NONE.
+- KRDS-style-typography-003 (style_03): use only two weights, Regular 400 and Bold 700. STANDARD, MUST (source wording is the mandatory ~한다 form; corrected after review). Testability FULL / PARTIAL / NONE.
 - KRDS-style-typography-004 (style_01, style_03): 표준형 style uses Pretendard GOV for Korean and Latin text. STANDARD, MUST for 표준형 only. Testability PARTIAL / PARTIAL / NONE (computed font-family; font loading).
-- KRDS-style-typography-005 (style_03): text sizes follow the published type scale, with separate PC and mobile sizes for display, heading and body. The default body size is 17px on both. STANDARD, SHOULD. Testability PARTIAL / PARTIAL / NONE.
+- KRDS-style-typography-005 (style_03): text sizes follow the published type scale, with separate PC and mobile sizes for display, heading and body. The default body size is 17px on both. STANDARD, MUST (source wording is the mandatory ~한다 form; corrected after review). Testability PARTIAL / PARTIAL / NONE.
 - KRDS-style-color-001 (style_02 색상): do not convey information by colour alone; add an icon or text. STANDARD, MUST. Testability PARTIAL / PARTIAL / PARTIAL. Overlaps WCAG 1.4.1 and the matching KWCAG 2.2 checkpoint.
 - KRDS-style-color-002 (style_02): choose palette steps using the contrast "magic numbers". A step gap of 40 gives 3:1, 50 gives 4.5:1, 70 gives 7:1 and 90 gives 15:1. STANDARD, MUST. Testability PARTIAL / PARTIAL / NONE (token-level check; the rendered contrast check belongs to WCAG 1.4.3 and 1.4.11).
 - KRDS-style-color-003 (style_02): prefer colour values from the KRDS palette. STANDARD, SHOULD. Testability PARTIAL / NONE / NONE.
-- KRDS-style-color-004 (style_02): accent colour covers no more than about 5% of the screen. STANDARD, SHOULD. Testability NONE / PARTIAL / NONE.
+- KRDS-style-color-004 (style_02): accent colour covers no more than about 5% of the screen. STANDARD, MUST (source wording is the mandatory ~한다 form; corrected after review). Testability NONE / PARTIAL / NONE.
 - KRDS-style-color-005 (style_02): colour proportion follows a 60-30-10 split (background/neutral, secondary, primary functional colour). STANDARD, INFORMATIVE or SHOULD (strength unconfirmed). Testability NONE / PARTIAL / NONE.
 - KRDS-style-type-001 (style_01): applicability meta-rule. Institutions using the government emblem apply the full 표준형 style. Institutions with their own logo may use 확장형 but still follow the usage rules. STANDARD, MUST. Testability NONE / PARTIAL / PARTIAL. This decides which style rules apply to a target.
 

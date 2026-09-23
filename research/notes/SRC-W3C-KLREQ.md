@@ -18,7 +18,7 @@
 
 ## Structure
 
-Not extracted in detail this session beyond the header, abstract, and status. Phase 2 reads the sections on line breaking, spacing, and punctuation before minting rules.
+Table of contents (read from the downloaded HTML after review): contributors; introduction; 3 text direction; 4 glyph shaping and positioning; 5 typographic units; 6 punctuation and inline features; 7 line and paragraph layout; 8 page and book layout; appendices on Hangul code ranges in Unicode and Hangul typographic classes, references, revision log. Section-level requirements are not yet read (GAP-050); Phase 2 reads sections 6 and 7 before minting rules.
 
 ## Candidate rules
 

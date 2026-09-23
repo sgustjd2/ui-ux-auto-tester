@@ -18,7 +18,7 @@
   - Art. 32(1) item 3: KFTC corrective orders for any Art. 21-2(1) practice.
   - Art. 32(1) item 1: corrective orders that include Art. 13(6).
   - Art. 45(4) item 7: administrative fine (과태료) of up to 10 million won for Art. 21-2(1).
-  - Art. 45(3) item 5-2: fine of up to 20 million won for breaching Art. 13(6).
+  - Fine for breaching Art. 13(6): UNVERIFIED. The researcher read Art. 45(3) item 5-2 (up to 20 million won); a reviewer's summarized reads placed it at Art. 45(4) item 5-2 (up to 10 million won) or found no item. Read the raw XML before citing any amount (GAP-061).
   - The fine amounts are as read today and need a raw-text re-check (see Uncertainties).
 - Timing: Art. 13(6) applies to price increases or free-to-paid conversions that happen after 14 February 2025 (20302 addendum Art. 2).
 - No technical standard is incorporated by reference. Several details are delegated to other instruments that were not read:

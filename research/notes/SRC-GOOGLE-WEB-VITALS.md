@@ -34,6 +34,8 @@
 | CWV-assessment-001 | 75th percentile rule | A Core Web Vitals pass is reported only when all three metrics meet their targets at p75, per device class | METRIC | SHOULD | automated FULL with field data |
 | CWV-diagnostic-001 | TTFB, FCP, TBT | Supplemental metrics are reported as diagnostics for a failing core metric, never as a pass or fail on their own | METRIC | INFORMATIVE | automated FULL |
 
+Contribution to OTH-SLOW-NETWORK: the page does not discuss network conditions; it names TTFB (slow server response) and FCP as loading diagnostics, which together with LCP are the measurable signals when a run throttles the network. Slow-network behavior rules (feedback, offline fallbacks) anchor mainly on web.dev Learn PWA.
+
 Notes for Phase 2: lab measurements (a single page load in a test browser) cannot establish a p75 field value, so a lab-only run yields PARTIAL with the limitation stated (`docs/audit-methodology.md` §2 performance row). The "needs improvement" and "poor" bands live on the per-metric pages (web.dev/articles/lcp, /inp, /cls), which Phase 2 reads before minting rules.
 
 ## Cross-references

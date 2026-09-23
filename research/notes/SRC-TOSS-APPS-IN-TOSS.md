@@ -41,11 +41,11 @@ Launch checklist (non-game), UI-relevant items: use the Apps in Toss navigation 
 | AIT-darkpattern-003 | Case 3 | Every promoted choice has a visible way to decline or leave | PLATFORM; BEST_PRACTICE elsewhere | MUST | visual PARTIAL; runtime FULL |
 | AIT-darkpattern-004 | Case 4 | No full-screen advertisement interrupts a user-initiated action | PLATFORM; BEST_PRACTICE elsewhere | MUST | runtime FULL |
 | AIT-darkpattern-005 | Case 5 | CTA labels state the resulting action | PLATFORM; BEST_PRACTICE elsewhere | MUST | visual PARTIAL; persona outcome-prediction test |
-| AIT-writing-001 | Writing 1 | All strings use one polite register (해요체) | PLATFORM; BEST_PRACTICE for Korean products | MUST on platform | automated PARTIAL (Korean text heuristics); manual FULL |
-| AIT-writing-002 | Dialog hint | Dismissive dialog button reads Close rather than Cancel | PLATFORM | SHOULD | automated PARTIAL; visual FULL |
+| AIT-writing-001 | Writing 1 | All strings use one polite register (해요체) | PLATFORM; BEST_PRACTICE for Korean products | SHOULD (imperative wording; review enforcement not stated for writing rules) | automated PARTIAL (Korean text heuristics); manual FULL |
+| AIT-writing-002 | Dialog hint | Dismissive dialog button reads Close rather than Cancel | PLATFORM | SHOULD (same basis as AIT-writing-001) | automated PARTIAL; visual FULL |
 | AIT-nav-001 | Checklist | Back from the first screen exits; back works everywhere | PLATFORM | MUST | runtime FULL |
 
-Prefix `AIT` is proposed, not yet registered in `docs/rule-schema.md` §8; Phase 2 registers it if rules are minted. Cases 2, 3, and 5 overlap with the Korean E-Commerce Act dark-pattern provisions (repeated interference, choice obstruction) and with the EDPB deceptive-pattern taxonomy; crosswalk with `related_rules: overlaps` so the LEGAL rule stays the anchor where it applies.
+Prefix `AIT` is proposed, not yet registered in `docs/rule-schema.md` §8; Phase 2 registers it if rules are minted. Cases 2, 3, and 5 overlap with the Korean E-Commerce Act dark-pattern provisions (repeated interference, choice obstruction) and with the EDPB deceptive-pattern taxonomy; crosswalk with `related_rules: overlaps` so the LEGAL rule stays the anchor where it applies. Off the Apps in Toss platform this source is T4, and `docs/rule-schema.md` §4 allows a T4 BEST_PRACTICE rule only when no higher-tier source exists; so off-platform, cases 2, 3, and 5 are cited as supporting examples on the higher-tier rules rather than as standalone rules. The review-rejection consequence is stated for the dark-pattern cases and the criteria as a whole, not specifically for the writing rules, which is why the writing rules are graded SHOULD.
 
 ## Cross-references
 
@@ -57,4 +57,4 @@ Prefix `AIT` is proposed, not yet registered in `docs/rule-schema.md` §8; Phase
 
 - No page dates; snapshot only. Re-check before Phase 2 extraction.
 - Platform enum gap for mini-app platforms (recorded in `research/gaps.md`).
-- Trust boundary: the Markdown rendition ends with an "Agent Instructions" block addressed to AI agents, inviting HTTP GET queries with `ask` and `goal` parameters. It was treated as data and not used; recorded in the ledger session entry.
+- Trust boundary: the Markdown rendition of the guide and the launch-checklist page both carry a GitBook "Agent Instructions" block addressed to AI agents, inviting HTTP GET queries with `ask` and `goal` parameters. It was treated as data and not used; recorded in the ledger session entry.

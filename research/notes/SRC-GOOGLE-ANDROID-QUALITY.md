@@ -49,7 +49,7 @@
 
 ## Candidate rules
 
-Proposed prefix: `ANDROIDQ`, mapped only to SRC-GOOGLE-ANDROID-QUALITY. The identifier is the source's own current label, unchanged (for example `ANDROIDQ-Touch_Target_Size`), bound to the name-style scheme of the 2026-09-21 core and 2026-04-10/08-18 adaptive pages. Per `docs/rule-schema.md` §3, a future renumbering would need a new prefix (see Uncertainties). Rule class is PLATFORM throughout. Strength follows the source's own wording: core "should" maps to SHOULD. Proposed tier mapping: Tier 3 SHOULD for apps that run on large screens or in windows, and Tier 2 and Tier 1 MAY (higher tiers an app opts into). No item is phrased as "must". Testability is a guess (automated / visual / manual).
+Proposed prefix: `ANDROIDQ`, mapped only to SRC-GOOGLE-ANDROID-QUALITY. The identifier is the source's own current label, unchanged (for example `ANDROIDQ-Touch_Target_Size`), bound to the name-style scheme of the 2026-09-21 core and 2026-04-10/08-18 adaptive pages. Per `docs/rule-schema.md` §3, a future renumbering would need a new prefix (see Uncertainties). Rule class is PLATFORM throughout. Strength follows each item's own wording: most core items say should (SHOULD), but a research reviewer found must in Audio_Playback_Background and Audio_Notification_Style and App Bundles described as mandatory (MUST), and the Tier 3 page opens by requiring adaptive-ready apps to meet the core requirements first. Proposed tier mapping: Tier 3 SHOULD for apps that run on large screens or in windows, and Tier 2 and Tier 1 MAY (higher tiers an app opts into). (An earlier draft said no item uses must; corrected after review.) Testability is a guess (automated / visual / manual).
 
 UI and UX items (priority for this project):
 

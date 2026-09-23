@@ -38,14 +38,14 @@ Read from the rendered page:
 
 Read at https://developer.apple.com/design/whats-new/ (server-rendered; dated entries, paraphrased). Entries after the 2026-09-02 snapshot, plus the major 2025 redesign for context:
 
-- 9 June 2025 (WWDC25): new Liquid Glass design language across iOS/iPadOS 26 and macOS 26; rebuilt UI kits, Icon Composer, SF Symbols 7; follow-up Liquid Glass guidance updates on 28 July, 20 August, 9 and 12 September, and 4 and 16 December 2025.
+- 9 June 2025 (WWDC25): new Liquid Glass design language across iOS/iPadOS 26 and macOS 26; rebuilt UI kits, Icon Composer, SF Symbols 7; Liquid Glass follow-up guidance updates on 28 July, 9 September, and 16 December 2025 (the 20 August, 12 September, and 4 December 2025 entries were Figma kits, new-device layout specs, and an article, not Liquid Glass changes; corrected after review).
 - 24 March 2026: sheets (button placement) and scroll views (visionOS Look to Scroll) updated.
-- 8 June 2026 (WWDC26): iOS/iPadOS 27 and macOS 27 kits, Icon Composer 2 beta, SF Symbols 8 beta, Pass Designer; design principles reintroduced; Siri revised for Siri AI; new Snippets page; app schemas for App Shortcuts; menus, sidebars, and scroll edge effects updated.
+- 8 June 2026 (WWDC26): iOS/iPadOS 27 and macOS 27 kits, Icon Composer 2 beta, SF Symbols 8 beta, Pass Designer; design principles reintroduced; Siri revised for Siri AI; new Snippets page; app schemas for App Shortcuts; menus, sidebars, and scroll edge effects updated; app icons refined for Liquid Glass.
 - 23 June 2026: updated Figma kits for iOS/iPadOS 27 and macOS 27.
 - 9 September 2026: new page "Designing for iPhone Duo", the first folding iPhone (device poses, dynamic layouts across dual displays, toolbars and tab bars on the vertical axis); Layout, Branding, and SharePlay guidance updated.
 - 17 to 18 September 2026: new iOS/iPadOS 27 and macOS 27 Figma kits; In-App Purchase guidance rebranded and refined; bezels for iPhone Duo and iPhone 18 models.
 
-Audit impact: layout and adaptivity rules for iOS must now consider a foldable form factor with device poses (PLAT-FORM-FACTORS, VIS-ADAPTIVE), and visual-material guidance (Liquid Glass legibility over content) bears on contrast checks, where WCAG contrast remains the normative floor. Rules are extracted in Phase 2 from the pages themselves, not from this change log.
+Audit impact: layout and adaptivity rules for iOS must now consider a foldable form factor with device poses (PLAT-FORM-FACTORS, VIS-ADAPTIVE), and Phase 2 should confirm whether the visual-material guidance (Liquid Glass) says anything about legibility over content that bears on contrast checks; WCAG contrast remains the normative floor either way. The change log itself does not make that claim. Rules are extracted in Phase 2 from the pages themselves, not from this change log.
 
 ## Uncertainties and gaps
 
