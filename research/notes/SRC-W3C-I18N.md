@@ -47,4 +47,4 @@
 
 - License text not captured from the script-rendered footer; confirm before quoting any article.
 - Several articles are old (the names article was last updated in 2016). Phase 2 records each cited article's date and prefers recently reviewed pages.
-- Locale-sensitive date, number, and currency formatting (`prd.md` §10.12) is covered here only indirectly; Phase 2 may need Unicode CLDR or ECMAScript Intl as anchors (recorded in `research/gaps.md`).
+- Locale-sensitive date, number, and currency formatting (`prd.md` §10.12) is covered here only indirectly; since 2026-09-23 Unicode UTS #35 with CLDR (SRC-UNICODE-UTS35) is registered as that anchor (GAP-038 resolved; ECMAScript Intl stays a cross-reference) (recorded in `research/gaps.md`).

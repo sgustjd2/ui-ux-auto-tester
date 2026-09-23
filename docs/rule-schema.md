@@ -136,6 +136,14 @@ Every prefix maps to one source ID. `n/a` means the source is recorded per rule 
 | GDPR | SRC-EU-GDPR | GDPR-art-7-001 |
 | EDPB | SRC-EDPB-DECEPTIVE | EDPB-overloading-001 |
 | FTC | SRC-FTC-DARK-PATTERNS | FTC-confirmshaming-001 |
+| FITTS | SRC-FITTS-1954 | FITTS-target-acquisition-001 |
+| HICK | SRC-HICK-1952 | HICK-choice-load-001 |
+| MILLER | SRC-MILLER-1956 | MILLER-memory-load-001 |
+| MURDOCK | SRC-MURDOCK-1962 | MURDOCK-order-001 |
+| KIVETZ | SRC-KIVETZ-2006 | KIVETZ-progress-001 |
+| HUNT | SRC-HUNT-1995 | HUNT-isolation-001 |
+| WAGEMANS | SRC-WAGEMANS-2012 | WAGEMANS-grouping-001 |
+| CLDR | SRC-UNICODE-UTS35 | CLDR-date-format-001 |
 | BP | n/a | BP-forms-001 |
 
 Example identifiers illustrate the format only; the identifiers themselves are unverified until Phase 2. Interaction laws (Fitts, Hick, and others) receive a prefix only when their primary papers are registered as sources; a T4 index such as SRC-LAWSOFUX-INDEX never anchors a prefix.

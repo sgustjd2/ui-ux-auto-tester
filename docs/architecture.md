@@ -1,6 +1,6 @@
 # Architecture
 
-Status: Phase 0 baseline (2026-09-02). This document describes the intended system and the repository that supports building it. It is revised at each phase; material changes go through `docs/decisions/`. Authority order: `prd.md` > `CLAUDE.md` > this file.
+Status: Phase 0 baseline (2026-09-02); layout table updated at the Phase 1 exit (2026-09-23). This document describes the intended system and the repository that supports building it. It is revised at each phase; material changes go through `docs/decisions/`. Authority order: `prd.md` > `CLAUDE.md` > this file.
 
 ## 1. System overview
 
@@ -118,6 +118,7 @@ Policy is in `CLAUDE.md` (Trust boundary). Architecturally:
 | `research/ledger.md` | Status board, next actions, session log | research plan |
 | `research/gaps.md` | Gap tracker | research plan |
 | `research/notes/` | One note per source (created on first use) | research plan |
+| `research/phase-1-exit-report.md` | Phase 1 gate record: exit criteria, deliverables, counts at exit, items carried into Phase 2 | `prd.md` §18 |
 | `research/landscape.md` | Non-normative ecosystem and tooling landscape (tools, datasets, AI precedents, Baseline status); never a rule anchor | ADR 0007 |
 | `.claude/agents/` | Subagent definitions | ADR 0005 |
 | `.claude/commands/` | Slash commands for recurring workflows | ADR 0005 |

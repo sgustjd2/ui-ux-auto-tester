@@ -4,10 +4,10 @@
 
 URL, 스크린샷, 디자인 파일, 소스 저장소, 사용자 플로우를 입력하면 인터페이스를 **표준 준수 감사**와 **전문가 휴리스틱 리뷰**, **가상 페르소나 시뮬레이션**, **플로우 테스트**의 네 관점에서 점검하고, 발견 사항마다 근거(evidence), 권위(authority), 신뢰도, 수정 방법, 재검증 절차를 함께 제시하는 것을 목표로 합니다.
 
-> **English summary.** UI/UX Auto Tester is a rule-grounded UI/UX auditing and synthetic user-testing Skill for websites, PWAs, mobile apps, screenshots, designs, source code, and user flows. It audits against a versioned, citation-backed standards corpus (WCAG, WAI-ARIA, EN 301 549, Section 508, ADA, EU and Korean law, Apple/Android/Material guidelines, Core Web Vitals), adds expert heuristic review and simulated personas, and reports three strictly separated finding types (VIOLATION, UX_RISK, USER_SIGNAL) with evidence, fixes, and retest guidance. The project is in Phase 1 (standards corpus research). Governing documents are in English; start with [prd.md](prd.md) and [CLAUDE.md](CLAUDE.md).
+> **English summary.** UI/UX Auto Tester is a rule-grounded UI/UX auditing and synthetic user-testing Skill for websites, PWAs, mobile apps, screenshots, designs, source code, and user flows. It audits against a versioned, citation-backed standards corpus (WCAG, WAI-ARIA, EN 301 549, Section 508, ADA, EU and Korean law, Apple/Android/Material guidelines, Core Web Vitals), adds expert heuristic review and simulated personas, and reports three strictly separated finding types (VIOLATION, UX_RISK, USER_SIGNAL) with evidence, fixes, and retest guidance. Phase 1 (standards corpus research) completed on 2026-09-23; Phase 2 (rule normalization) is next. Governing documents are in English; start with [prd.md](prd.md) and [CLAUDE.md](CLAUDE.md).
 
 > [!NOTE]
-> **현재 단계:** 표준 코퍼스 리서치(Phase 1) 진행 중입니다. 최종 스킬, 브라우저 자동화, 페르소나 엔진은 아직 구현 전이며, `web/`의 웹 프로토타입은 **샘플(fixture) 결과**만 보여 줍니다. 현재 단계의 공식 기록은 [CLAUDE.md](CLAUDE.md)의 Status 블록, 일일 진행 상황은 [research/ledger.md](research/ledger.md)에 있습니다.
+> **현재 단계:** 표준 코퍼스 리서치(Phase 1)가 2026-09-23에 완료되었고, 다음 단계는 규칙 정규화(Phase 2)입니다. 종료 보고서: [research/phase-1-exit-report.md](research/phase-1-exit-report.md). 최종 스킬, 브라우저 자동화, 페르소나 엔진은 아직 구현 전이며, `web/`의 웹 프로토타입은 **샘플(fixture) 결과**만 보여 줍니다. 현재 단계의 공식 기록은 [CLAUDE.md](CLAUDE.md)의 Status 블록, 일일 진행 상황은 [research/ledger.md](research/ledger.md)에 있습니다.
 
 ---
 
@@ -171,9 +171,9 @@ flowchart TD
 | 한국 접근성 | KWCAG 2.2 (KS X OT0003:2022), 모바일 앱 접근성 지침 (KS X 3253:2016) |
 | 법·규제 | EN 301 549 V3.2.1 및 V4.1.1 (2026-09), Section 508, ADA Title II 규칙, EU 접근성법(EAA)·웹접근성지침(WAD), 장애인차별금지법, 디지털포용법 |
 | 플랫폼 | HTML Living Standard, MDN, Apple HIG·접근성, Android 접근성, Android 앱 품질 가이드라인(핵심·적응형), Material Design 3, Web App Manifest, web.dev PWA |
-| UX 휴리스틱·디자인 시스템 | Nielsen 10대 휴리스틱, NN/g 연구 아티클, GOV.UK Design System, KRDS(디지털 정부서비스 UI/UX 가이드라인 2025.08), Laws of UX(T4 색인) |
+| UX 휴리스틱·디자인 시스템 | Nielsen 10대 휴리스틱, NN/g 연구 아티클, GOV.UK Design System, KRDS(디지털 정부서비스 UI/UX 가이드라인 2025.08), 상호작용 법칙 원 논문(Fitts 1954, Hick 1952, Miller 1956), Laws of UX(T4 색인) |
 | 성능 | Core Web Vitals (LCP ≤ 2.5초, INP ≤ 200ms, CLS ≤ 0.1, 75번째 백분위) |
-| 국제화 | W3C i18n 기법·아티클, 한글 텍스트 레이아웃 요구사항(klreq) |
+| 국제화·현지화 | W3C i18n 기법·아티클, 한글 텍스트 레이아웃 요구사항(klreq), Unicode UTS #35(CLDR, 날짜·숫자·통화 형식), GOV.UK 주소·이름 패턴 |
 | 개인정보·동의 | GDPR, EDPB 동의 가이드라인 05/2020, 개인정보 보호법(법률 제21445호) |
 | 다크 패턴 | DSA 제25조, 전자상거래법 제21조의2, EDPB 기만적 디자인 패턴 가이드라인 03/2022, FTC "Bringing Dark Patterns to Light" |
 | 한국어 콘텐츠 | 국립국어원 「한눈에 알아보는 공공언어 바로 쓰기(개정판)」(T2), Toss 기술 블로그(T4), 앱인토스 UI/UX 가이드(플랫폼 한정 T2) |
@@ -330,8 +330,8 @@ node --test "web/test/*.test.mjs"
 | 단계 | 내용 | 상태 |
 |---|---|---|
 | Phase 0 | 하네스와 PRD 기반 (운영 매뉴얼, 문서 골격, 원장, ADR, 검증기) | 완료 (2026-09-02) |
-| Phase 1 | 표준 코퍼스 리서치 (출처 목록, 버전 레지스트리, 커버리지, 갭) | **진행 중** |
-| Phase 2 | 규칙 정규화 (규칙 레코드, 중복 제거·크로스워크, 플랫폼·법 적용성, 테스트 가능성) | 예정 |
+| Phase 1 | 표준 코퍼스 리서치 (출처 목록, 버전 레지스트리, 커버리지, 갭) | 완료 (2026-09-23, [종료 보고서](research/phase-1-exit-report.md)) |
+| Phase 2 | 규칙 정규화 (규칙 레코드, 중복 제거·크로스워크, 플랫폼·법 적용성, 테스트 가능성) | **다음 단계** |
 | Phase 3 | 감사 방법론 (객관·수동 감사 절차, 증거·심각도 모델, 보고서·JSON 스키마) | 예정 |
 | Phase 4 | 스킬 구현 (`SKILL.md`, `agents/openai.yaml`, references, 검증기, 예시) | 예정 |
 | Phase 5 | 브라우저·런타임 QA 통합 (반응형, 키보드, 폼·플로우, 스크린샷 증거, 성능) | 예정 |
