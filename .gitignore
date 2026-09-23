@@ -1,0 +1,21 @@
+# Claude Code local state (never shared)
+.claude/settings.local.json
+.claude/worktrees/
+
+# Dependencies (none expected until a validator needs one; see docs/decisions)
+node_modules/
+
+# Local environment and secrets
+.env
+.env.*
+*.pem
+*.key
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary artifacts (work in the session scratchpad, not here)
+tmp/
+*.log
