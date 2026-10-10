@@ -36,6 +36,8 @@ Higher wins. If a lower document or the code conflicts with a higher one, report
 
 Stream documents in `docs/web-product/` sit at level 5, defer to levels 1–4 by their own README, and are edited only by the web product stream (ADR 0006).
 
+Design direction: the B2B enterprise defaults in the global `~/.claude/CLAUDE.md` and the `/ui-*` commands do not apply here. Rules, findings, and severity stay grounded in the standards corpus and the audited target's own design system; the `web/` prototype follows the web stream's decisions (`docs/web-product/decisions.md`).
+
 ## Repository investigation
 
 - Inspect before modifying: read the file, and check `git status` and `git diff` before and after significant work.
